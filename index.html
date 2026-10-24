@@ -78,12 +78,14 @@
     <div class="sort-box">
       <label for="sortSelect">مرتب‌سازی:</label>
       <select id="sortSelect">
+        <option value="suggested" selected>پیشنهادی</option>
+        <option value="popular">محبوب‌ترین</option>
         <option value="cheap">ارزان‌ترین اول</option>
         <option value="expensive">گران‌ترین اول</option>
       </select>
     </div>
   </div>
-  <p class="section-note">قیمت‌ها: تک‌شاخه، بر اساس بررسی ۱۸ مهر ۱۴۰۵ — صرفاً برای نمایش در این نمونه.</p>
+  <p class="section-note">فقط ۱۰ مدل منتخب — انتخاب سریع و بدون سردرگمی. روی عکس هر محصول بزنید تا هر سه نما (تکی، چندتایی، در فضا) را ببینید؛ خرید با دکمه‌ی «خرید سریع» در دو قدم و بدون ثبت‌نام انجام می‌شود. قیمت‌ها: تک‌شاخه، بر اساس بررسی ۱۸ مهر ۱۴۰۵ — صرفاً برای نمایش در این نمونه.</p>
 
   <div class="product-grid" id="productGrid">
     <!-- cards injected by app.js -->
@@ -103,6 +105,52 @@
     <span>ساخته‌شده برای پیش‌نمایش طراحی؛ داده‌ها نمونه‌اند.</span>
   </div>
 </footer>
+
+<div class="overlay" id="galleryOverlay" hidden>
+  <div class="sheet gallery-sheet" role="dialog" aria-modal="true" aria-label="گالری محصول">
+    <button class="sheet-close" type="button" data-close aria-label="بستن">✕</button>
+    <img class="gal-main" id="galMain" alt="">
+    <div class="gal-thumbs" id="galThumbs"></div>
+    <h3 class="gal-name" id="galName"></h3>
+    <div class="gal-meta" id="galMeta"></div>
+    <div class="sheet-actions">
+      <button class="buy-btn big" type="button" id="galBuy">خرید سریع</button>
+      <a class="view-link" id="galLink" href="#" target="_blank" rel="noopener">مشاهده‌ی محصول در فروشگاه</a>
+    </div>
+  </div>
+</div>
+
+<div class="overlay" id="checkoutOverlay" hidden>
+  <div class="sheet checkout-sheet" role="dialog" aria-modal="true" aria-label="ثبت سفارش">
+    <button class="sheet-close" type="button" data-close aria-label="بستن">✕</button>
+    <h3 class="co-title">ثبت سفارش — فقط همین سه کادر، بدون ثبت‌نام</h3>
+    <div class="co-product">
+      <img id="coImg" alt="">
+      <div>
+        <div class="co-name" id="coName"></div>
+        <div class="co-price" id="coPrice"></div>
+      </div>
+    </div>
+    <form id="coForm" novalidate>
+      <label>نام و نام خانوادگی
+        <input id="fName" type="text" autocomplete="name" placeholder="مثلاً: سارا محمدی">
+      </label>
+      <label>شماره موبایل
+        <input id="fMobile" type="tel" inputmode="tel" autocomplete="tel" placeholder="۰۹۱۲ ··· ····">
+      </label>
+      <label>شهر
+        <input id="fCity" type="text" autocomplete="address-level2" placeholder="مثلاً: شیراز">
+      </label>
+      <button class="buy-btn big" type="submit">ثبت سفارش</button>
+      <p class="co-note">قیمت شفاف است و هزینه‌ی پنهانی ندارد؛ پرداخت و هماهنگی ارسال پس از ثبت سفارش انجام می‌شود. (این فروشگاه نمونه است و سفارش واقعی ثبت نمی‌شود.)</p>
+    </form>
+    <div class="co-success" id="coSuccess" hidden>
+      <div class="co-check">✓</div>
+      <p id="coSuccessText"></p>
+      <button class="buy-btn big" type="button" data-close>بستن</button>
+    </div>
+  </div>
+</div>
 
 <div class="toast" id="toast" role="status"></div>
 
