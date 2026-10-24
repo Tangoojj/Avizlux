@@ -3,156 +3,214 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>آویزلوکس — فروشگاه نمونه</title>
-<meta name="description" content="نسخه‌ی نمایشی فروشگاه آویز و لوستر؛ ساخته‌شده برای پیش‌نمایش طراحی.">
+<title>آویزلوکس — بازطراحی فروشگاه آویز و لوستر</title>
+<meta name="description" content="نسخه‌ی نمونه‌ی بازطراحی فروشگاه آویزلوکس؛ آویزهای کریستالی با خرید سریع و بدون ثبت‌نام.">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header class="site-header">
-  <div class="container header-inner">
-    <a class="brand" href="#">
-      <span class="brand-mark">✦</span> آویزلوکس
-      <span class="demo-badge">نسخه‌ی نمونه</span>
-    </a>
+  <div class="container header-in">
+    <a class="brand" href="#top">آویز<span>لوکس</span></a>
     <nav class="main-nav">
-      <a href="#products">محصول‌ها</a>
-      <a href="#features">چرا ما</a>
-      <a href="#about">درباره‌ی نمونه</a>
+      <a href="#spotlight">پیشنهاد ما</a>
+      <a href="#products">محصولات</a>
+      <a href="#deals">تخفیف‌ها</a>
+      <a href="#why">چرا آویزلوکس</a>
     </nav>
-    <button class="cart-btn" id="cartBtn" aria-label="سبد خرید">
-      🛒 <span class="cart-count" id="cartCount">۰</span>
-    </button>
+    <a class="header-cta" href="#products">خرید سریع</a>
   </div>
 </header>
 
-<section class="hero">
-  <div class="hero-glow"></div>
-  <div class="container hero-inner">
-    <div class="hero-text">
-      <h1>نور، امضای خانه‌ی شماست</h1>
-      <p>کالکشن آویزهای کریستالی اقتصادی؛ از مینیمال‌های زیر ۳ میلیون تا مدل‌های شاخص. این صفحه یک <strong>پیش‌نمایش طراحی</strong> است تا چیدمان فروشگاه را زنده ببینید.</p>
-      <div class="hero-actions">
-        <a class="btn btn-gold" href="#products">دیدن محصول‌ها</a>
-        <a class="btn btn-ghost" href="#about">این نمونه چیست؟</a>
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-in">
+      <div class="hero-copy">
+        <p class="eyebrow">فروشگاه آویز و لوستر آویزلوکس</p>
+        <h1>نور، امضای<br>خانه‌ی شماست</h1>
+        <p class="hero-sub">آویزهای کریستالی وارداتی با ترانس هوشمند و سه حالت نوری — بدون ثبت‌نام، با چند لمس مال شما می‌شود.</p>
+        <div class="hero-actions">
+          <button class="btn-gold btn-lg" id="heroBuy">خرید آویز کریستال اووال</button>
+          <a class="hero-link" href="#deals">دیدن تخفیف‌های امروز ←</a>
+        </div>
+        <p class="hero-price">کریستال اووال، کد ۴۰۴۶ — <b>۱۳٬۵۰۰٬۰۰۰ تومان</b> <span class="off-badge">٪۸ تخفیف</span></p>
       </div>
-      <div class="hero-stats">
-        <div><strong>۱۰</strong><span>مدل منتخب</span></div>
-        <div><strong>۲٫۸</strong><span>میلیون، شروع قیمت</span></div>
-        <div><strong>۲</strong><span>دسته: اقتصادی و شاخص</span></div>
+      <figure class="hero-photo">
+        <img id="heroImg" alt="آویز کریستال اووال نصب‌شده روی اپن آشپزخانه">
+        <figcaption>عکس واقعی همین مدل، نصب‌شده روی اپن آشپزخانه</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- TRUST CHIPS -->
+  <section class="trust">
+    <div class="container trust-in">
+      <div class="trust-item"><b>بهترین قیمت بازار</b><span>بدون واسطه</span></div>
+      <div class="trust-item"><b>ارسال سریع</b><span>به سراسر کشور</span></div>
+      <div class="trust-item"><b>ضمانت کیفیت</b><span>گارانتی اصالت و سلامت کالا</span></div>
+      <div class="trust-item"><b>پشتیبانی اختصاصی</b><span>پاسخ‌گوی شما هستیم</span></div>
+    </div>
+  </section>
+
+  <!-- SPOTLIGHT -->
+  <section class="spotlight" id="spotlight">
+    <div class="container spot-in">
+      <div class="spot-photo">
+        <img id="spotImg" alt="آویز مدل گوی کریستال حباب‌دار کد ۴۰۲۶">
+        <span class="spot-badge">پیشنهاد آویزلوکس</span>
+      </div>
+      <div class="spot-copy">
+        <p class="eyebrow">اگر فقط یکی را بخواهید…</p>
+        <h2>گوی کریستال حباب‌دار <span>کد ۴۰۲۶</span></h2>
+        <p class="spot-why">انتخاب پیش‌فرض ما برای بیشتر خانه‌ها: کریستال وارداتی با فلز آبکاری‌شده‌ی دارای ضمانت، قطر ۱۵ سانتی‌متر — نه آن‌قدر بزرگ که فضا را بگیرد، نه آن‌قدر کوچک که دیده نشود. روی اپن و میز ناهارخوری هر دو می‌نشیند.</p>
+        <ul class="spot-specs">
+          <li>سه حالت نوری: آفتابی، مهتابی، نچرال</li>
+          <li>ترانس هوشمند و ارتفاع قابل تنظیم</li>
+          <li>لامپ SMD درجه‌یک برند S.K</li>
+        </ul>
+        <div class="spot-meta"><span class="stars" id="spotStars"></span><span id="spotSold"></span></div>
+        <div class="spot-buy">
+          <div class="price-block"><b>۱۲٬۲۰۰٬۰۰۰</b> تومان</div>
+          <button class="btn-gold btn-lg" id="spotBuy">خرید سریع</button>
+          <button class="btn-ghost btn-lg" id="spotGallery">مشاهده‌ی عکس‌ها</button>
+        </div>
       </div>
     </div>
-    <div class="hero-art" aria-hidden="true">
-      <svg viewBox="0 0 300 340" class="pendant-svg">
-        <line x1="150" y1="0" x2="150" y2="70" stroke="#c9a24b" stroke-width="3"/>
-        <circle cx="150" cy="82" r="10" fill="#c9a24b"/>
-        <path d="M150 92 L196 150 L180 250 Q150 272 120 250 L104 150 Z" fill="url(#crystal)" stroke="#e8cf8f" stroke-width="1.5"/>
-        <path d="M150 92 L150 262 M104 150 L196 150 M120 250 L150 92 L180 250" stroke="#e8cf8f" stroke-width="0.8" opacity="0.6" fill="none"/>
-        <ellipse cx="150" cy="185" rx="26" ry="38" fill="#ffd97a" opacity="0.85"/>
-        <defs>
-          <linearGradient id="crystal" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stop-color="#3a3f4a"/>
-            <stop offset="0.5" stop-color="#23262e"/>
-            <stop offset="1" stop-color="#14161b"/>
-          </linearGradient>
-        </defs>
-      </svg>
-      <div class="halo"></div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section class="products" id="products">
+    <div class="container">
+      <div class="sec-head">
+        <h2>مجموعه‌ی آویزها</h2>
+        <p>همه‌ی مدل‌ها، یک‌جا و بدون شلوغی — با چیپ‌ها در یک لمس به چند گزینه برسید.</p>
+      </div>
+      <div class="chips" id="chips">
+        <button class="chip active" data-f="all">همه</button>
+        <button class="chip" data-f="u10">زیر ۱۰ میلیون</button>
+        <button class="chip" data-f="b1013">۱۰ تا ۱۳ میلیون</button>
+        <button class="chip" data-f="island">روی اپن</button>
+        <button class="chip" data-f="dining">میز ناهارخوری</button>
+        <button class="chip" data-f="salon">پذیرایی</button>
+      </div>
+      <div class="grid-tools">
+        <span id="gridCount"></span>
+        <label class="sort-wrap">مرتب‌سازی
+          <select id="sortSel">
+            <option value="rec">پیشنهادی</option>
+            <option value="pop">محبوب‌ترین</option>
+            <option value="cheap">ارزان‌ترین</option>
+            <option value="exp">گران‌ترین</option>
+          </select>
+        </label>
+      </div>
+      <div class="grid" id="grid"></div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="features" id="features">
-  <div class="container features-grid">
-    <div class="feature"><span>🚚</span><h3>ارسال به سراسر کشور</h3><p>بسته‌بندی ایمن برای کریستال و شیشه</p></div>
-    <div class="feature"><span>🛡️</span><h3>ضمانت اصالت کالا</h3><p>تضمین کیفیت ساخت و متریال</p></div>
-    <div class="feature"><span>💳</span><h3>پرداخت امن</h3><p>درگاه پرداخت رسمی بانکی</p></div>
-    <div class="feature"><span>💡</span><h3>مشاوره‌ی دکوراسیون</h3><p>انتخاب آویز متناسب با فضای شما</p></div>
-  </div>
-</section>
-
-<main class="container" id="products">
-  <div class="section-head">
-    <h2>کالکشن آویز اقتصادی</h2>
-    <div class="sort-box">
-      <label for="sortSelect">مرتب‌سازی:</label>
-      <select id="sortSelect">
-        <option value="suggested" selected>پیشنهادی</option>
-        <option value="popular">محبوب‌ترین</option>
-        <option value="cheap">ارزان‌ترین اول</option>
-        <option value="expensive">گران‌ترین اول</option>
-      </select>
+  <!-- DEALS -->
+  <section class="deals" id="deals">
+    <div class="container">
+      <div class="sec-head light">
+        <h2>تخفیفات شگفت‌انگیز</h2>
+        <p>فرصت محدود است؛ تا پایان امروز:</p>
+        <div class="countdown" id="countdown" dir="ltr">--:--:--</div>
+      </div>
+      <div class="grid deals-grid" id="dealsGrid"></div>
     </div>
-  </div>
-  <p class="section-note">فقط ۱۰ مدل منتخب — انتخاب سریع و بدون سردرگمی. روی عکس هر محصول بزنید تا هر سه نما (تکی، چندتایی، در فضا) را ببینید؛ خرید با دکمه‌ی «خرید سریع» در دو قدم و بدون ثبت‌نام انجام می‌شود. قیمت‌ها: تک‌شاخه، بر اساس بررسی ۱۸ مهر ۱۴۰۵ — صرفاً برای نمایش در این نمونه.</p>
+  </section>
 
-  <div class="product-grid" id="productGrid">
-    <!-- cards injected by app.js -->
-  </div>
+  <!-- WHY -->
+  <section class="why" id="why">
+    <div class="container">
+      <div class="sec-head">
+        <h2>چرا آویزلوکس؟</h2>
+        <p>«اعتماد مشتریان، بزرگ‌ترین سرمایه‌ی ماست.» — از صفحه‌ی درباره‌ی ما</p>
+      </div>
+      <div class="why-grid">
+        <div class="why-card"><b>گارانتی اصالت و سلامت فیزیکی کالا</b><p>هر آویز قبل از ارسال بررسی می‌شود و با ضمانت اصالت به دست‌تان می‌رسد.</p></div>
+        <div class="why-card"><b>ضمانت تعویض کالا</b><p>اگر کالا آسیب‌دیده رسید، تعویض آن با ما است؛ خیال‌تان راحت.</p></div>
+        <div class="why-card"><b>ارسال به سراسر کشور</b><p>سفارش‌ها توسط فروشنده با بسته‌بندی ایمن به همه‌ی شهرها ارسال می‌شود.</p></div>
+        <div class="why-card"><b>نورِ دلخواه در هر مدل</b><p>همه‌ی مدل‌ها ترانس هوشمند و سه حالت نوری آفتابی، مهتابی و نچرال دارند.</p></div>
+      </div>
+    </div>
+  </section>
+
 </main>
 
-<section class="about" id="about">
-  <div class="container">
-    <h2>درباره‌ی این نمونه</h2>
-    <p>این سایت یک نسخه‌ی نمایشی (دمو) است که برای پیش‌نمایش طراحی فروشگاه ساخته شده؛ محصول‌ها و قیمت‌ها از فهرست منتخب ۱۰ آویز اقتصادی (بررسی ۱۸ مهر ۱۴۰۵) آمده‌اند و دکمه‌ی «مشاهده» هر محصول به صفحه‌ی اصلی همان کالا می‌رود. خرید واقعی از این صفحه انجام نمی‌شود.</p>
-  </div>
-</section>
-
 <footer class="site-footer">
-  <div class="container footer-inner">
-    <span>✦ آویزلوکس — نسخه‌ی نمونه روی GitHub Pages</span>
-    <span>ساخته‌شده برای پیش‌نمایش طراحی؛ داده‌ها نمونه‌اند.</span>
+  <div class="container foot-in">
+    <div>
+      <p class="brand">آویز<span>لوکس</span></p>
+      <p>آویز لوکس؛ نقطه‌ی اوج زیبایی در دکوراسیون شما. کیفیت بالا، قیمت مناسب، ارسال سریع و پشتیبانی پاسخ‌گو.</p>
+    </div>
+    <div>
+      <b>دسترسی سریع</b>
+      <a href="#spotlight">پیشنهاد آویزلوکس</a>
+      <a href="#products">همه‌ی محصولات</a>
+      <a href="#deals">تخفیفات شگفت‌انگیز</a>
+    </div>
+    <div>
+      <b>فروشگاه اصلی</b>
+      <a href="https://avizelux.ir" target="_blank" rel="noopener">avizelux.ir</a>
+      <a href="https://avizelux.ir/call/" target="_blank" rel="noopener">تماس با ما</a>
+      <a href="https://avizelux.ir/about-us/" target="_blank" rel="noopener">درباره‌ی ما</a>
+    </div>
   </div>
+  <p class="foot-note">نسخه‌ی نمونه‌ی بازطراحی فروشگاه آویزلوکس — قیمت‌ها و عکس‌ها از فروشگاه اصلی گرفته شده‌اند؛ امتیاز و شمار فروش نمایشی است و سفارش‌ها در این نسخه آزمایشی ثبت می‌شوند.</p>
 </footer>
 
-<div class="overlay" id="galleryOverlay" hidden>
-  <div class="sheet gallery-sheet" role="dialog" aria-modal="true" aria-label="گالری محصول">
-    <button class="sheet-close" type="button" data-close aria-label="بستن">✕</button>
-    <img class="gal-main" id="galMain" alt="">
-    <div class="gal-thumbs" id="galThumbs"></div>
-    <h3 class="gal-name" id="galName"></h3>
-    <div class="gal-meta" id="galMeta"></div>
-    <div class="sheet-actions">
-      <button class="buy-btn big" type="button" id="galBuy">خرید سریع</button>
-      <a class="view-link" id="galLink" href="#" target="_blank" rel="noopener">مشاهده‌ی محصول در فروشگاه</a>
+<!-- GALLERY -->
+<div class="overlay" id="gallery" hidden>
+  <div class="sheet gallery-sheet" role="dialog" aria-modal="true">
+    <button class="sheet-close" id="gClose" aria-label="بستن">✕</button>
+    <div class="g-main"><img id="gImg" alt=""></div>
+    <div class="g-thumbs" id="gThumbs"></div>
+    <div class="g-info">
+      <h3 id="gName"></h3>
+      <div class="g-meta"><span class="stars" id="gStars"></span><span id="gSold"></span></div>
+      <div class="g-specs" id="gSpecs"></div>
+      <p class="g-note">عکس‌ها واقعی و متعلق به همین محصول در فروشگاه آویزلوکس‌اند.</p>
+    </div>
+    <div class="g-bar">
+      <div class="g-price" id="gPrice"></div>
+      <button class="btn-gold btn-lg" id="gBuy">خرید سریع</button>
     </div>
   </div>
 </div>
 
-<div class="overlay" id="checkoutOverlay" hidden>
-  <div class="sheet checkout-sheet" role="dialog" aria-modal="true" aria-label="ثبت سفارش">
-    <button class="sheet-close" type="button" data-close aria-label="بستن">✕</button>
-    <h3 class="co-title">ثبت سفارش — فقط همین سه کادر، بدون ثبت‌نام</h3>
-    <div class="co-product">
-      <img id="coImg" alt="">
-      <div>
-        <div class="co-name" id="coName"></div>
-        <div class="co-price" id="coPrice"></div>
+<!-- QUICK BUY -->
+<div class="overlay" id="buyOverlay" hidden>
+  <div class="sheet buy-sheet" role="dialog" aria-modal="true">
+    <button class="sheet-close" id="bClose" aria-label="بستن">✕</button>
+    <div id="buyForm">
+      <h3>خرید سریع — بدون ثبت‌نام</h3>
+      <div class="buy-product">
+        <img id="bImg" alt="">
+        <div><b id="bName"></b><span id="bPrice"></span></div>
       </div>
+      <label>نام و نام خانوادگی<input id="fName" type="text" autocomplete="name" placeholder="مثلاً سارا محمدی"></label>
+      <label>شماره موبایل<input id="fMobile" type="tel" inputmode="numeric" autocomplete="tel" placeholder="۰۹۱۲ ··· ····"></label>
+      <label>شهر<input id="fCity" type="text" autocomplete="address-level2" placeholder="مثلاً شیراز"></label>
+      <p class="buy-total">مبلغ قابل پرداخت: <b id="bTotal"></b> تومان <span>(هماهنگی ارسال با تماس فروشگاه)</span></p>
+      <p class="form-err" id="formErr" hidden></p>
+      <button class="btn-gold btn-lg btn-block" id="bSubmit">ثبت سفارش</button>
+      <p class="buy-hint">فقط همین سه مورد؛ نه رمز می‌خواهیم، نه حساب کاربری.</p>
     </div>
-    <form id="coForm" novalidate>
-      <label>نام و نام خانوادگی
-        <input id="fName" type="text" autocomplete="name" placeholder="مثلاً: سارا محمدی">
-      </label>
-      <label>شماره موبایل
-        <input id="fMobile" type="tel" inputmode="tel" autocomplete="tel" placeholder="۰۹۱۲ ··· ····">
-      </label>
-      <label>شهر
-        <input id="fCity" type="text" autocomplete="address-level2" placeholder="مثلاً: شیراز">
-      </label>
-      <button class="buy-btn big" type="submit">ثبت سفارش</button>
-      <p class="co-note">قیمت شفاف است و هزینه‌ی پنهانی ندارد؛ پرداخت و هماهنگی ارسال پس از ثبت سفارش انجام می‌شود. (این فروشگاه نمونه است و سفارش واقعی ثبت نمی‌شود.)</p>
-    </form>
-    <div class="co-success" id="coSuccess" hidden>
-      <div class="co-check">✓</div>
-      <p id="coSuccessText"></p>
-      <button class="buy-btn big" type="button" data-close>بستن</button>
+    <div id="buySuccess" hidden>
+      <div class="ok-ring">✓</div>
+      <h3>سفارش شما ثبت شد</h3>
+      <p id="okText"></p>
+      <p class="ok-code">کد سفارش: <b id="okCode"></b></p>
+      <button class="btn-gold btn-lg btn-block" id="okClose">بستن</button>
     </div>
   </div>
 </div>
 
-<div class="toast" id="toast" role="status"></div>
+<div class="toast" id="toast" hidden></div>
 
 <script src="images.js"></script>
 <script src="app.js"></script>
