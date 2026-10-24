@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>آویزلوکس — فروشگاه نمونه</title>
+<meta name="description" content="نسخه‌ی نمایشی فروشگاه آویز و لوستر؛ ساخته‌شده برای پیش‌نمایش طراحی.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="#">
+      <span class="brand-mark">✦</span> آویزلوکس
+      <span class="demo-badge">نسخه‌ی نمونه</span>
+    </a>
+    <nav class="main-nav">
+      <a href="#products">محصول‌ها</a>
+      <a href="#features">چرا ما</a>
+      <a href="#about">درباره‌ی نمونه</a>
+    </nav>
+    <button class="cart-btn" id="cartBtn" aria-label="سبد خرید">
+      🛒 <span class="cart-count" id="cartCount">۰</span>
+    </button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="container hero-inner">
+    <div class="hero-text">
+      <h1>نور، امضای خانه‌ی شماست</h1>
+      <p>کالکشن آویزهای کریستالی اقتصادی؛ از مینیمال‌های زیر ۳ میلیون تا مدل‌های شاخص. این صفحه یک <strong>پیش‌نمایش طراحی</strong> است تا چیدمان فروشگاه را زنده ببینید.</p>
+      <div class="hero-actions">
+        <a class="btn btn-gold" href="#products">دیدن محصول‌ها</a>
+        <a class="btn btn-ghost" href="#about">این نمونه چیست؟</a>
+      </div>
+      <div class="hero-stats">
+        <div><strong>۱۰</strong><span>مدل منتخب</span></div>
+        <div><strong>۲٫۸</strong><span>میلیون، شروع قیمت</span></div>
+        <div><strong>۲</strong><span>دسته: اقتصادی و شاخص</span></div>
+      </div>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <svg viewBox="0 0 300 340" class="pendant-svg">
+        <line x1="150" y1="0" x2="150" y2="70" stroke="#c9a24b" stroke-width="3"/>
+        <circle cx="150" cy="82" r="10" fill="#c9a24b"/>
+        <path d="M150 92 L196 150 L180 250 Q150 272 120 250 L104 150 Z" fill="url(#crystal)" stroke="#e8cf8f" stroke-width="1.5"/>
+        <path d="M150 92 L150 262 M104 150 L196 150 M120 250 L150 92 L180 250" stroke="#e8cf8f" stroke-width="0.8" opacity="0.6" fill="none"/>
+        <ellipse cx="150" cy="185" rx="26" ry="38" fill="#ffd97a" opacity="0.85"/>
+        <defs>
+          <linearGradient id="crystal" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#3a3f4a"/>
+            <stop offset="0.5" stop-color="#23262e"/>
+            <stop offset="1" stop-color="#14161b"/>
+          </linearGradient>
+        </defs>
+      </svg>
+      <div class="halo"></div>
+    </div>
+  </div>
+</section>
+
+<section class="features" id="features">
+  <div class="container features-grid">
+    <div class="feature"><span>🚚</span><h3>ارسال به سراسر کشور</h3><p>بسته‌بندی ایمن برای کریستال و شیشه</p></div>
+    <div class="feature"><span>🛡️</span><h3>ضمانت اصالت کالا</h3><p>تضمین کیفیت ساخت و متریال</p></div>
+    <div class="feature"><span>💳</span><h3>پرداخت امن</h3><p>درگاه پرداخت رسمی بانکی</p></div>
+    <div class="feature"><span>💡</span><h3>مشاوره‌ی دکوراسیون</h3><p>انتخاب آویز متناسب با فضای شما</p></div>
+  </div>
+</section>
+
+<main class="container" id="products">
+  <div class="section-head">
+    <h2>کالکشن آویز اقتصادی</h2>
+    <div class="sort-box">
+      <label for="sortSelect">مرتب‌سازی:</label>
+      <select id="sortSelect">
+        <option value="cheap">ارزان‌ترین اول</option>
+        <option value="expensive">گران‌ترین اول</option>
+      </select>
+    </div>
+  </div>
+  <p class="section-note">قیمت‌ها: تک‌شاخه، بر اساس بررسی ۱۸ مهر ۱۴۰۵ — صرفاً برای نمایش در این نمونه.</p>
+
+  <div class="product-grid" id="productGrid">
+    <!-- cards injected by app.js -->
+  </div>
+</main>
+
+<section class="about" id="about">
+  <div class="container">
+    <h2>درباره‌ی این نمونه</h2>
+    <p>این سایت یک نسخه‌ی نمایشی (دمو) است که برای پیش‌نمایش طراحی فروشگاه ساخته شده؛ محصول‌ها و قیمت‌ها از فهرست منتخب ۱۰ آویز اقتصادی (بررسی ۱۸ مهر ۱۴۰۵) آمده‌اند و دکمه‌ی «مشاهده» هر محصول به صفحه‌ی اصلی همان کالا می‌رود. خرید واقعی از این صفحه انجام نمی‌شود.</p>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <span>✦ آویزلوکس — نسخه‌ی نمونه روی GitHub Pages</span>
+    <span>ساخته‌شده برای پیش‌نمایش طراحی؛ داده‌ها نمونه‌اند.</span>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script src="images.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
