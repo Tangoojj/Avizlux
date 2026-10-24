@@ -173,6 +173,7 @@ $("spotImg").src = IMAGES["4026"][0][0];
 $("spotStars").textContent = stars(4.9);
 $("spotSold").textContent = "۴٫۹ · +۲۳۱ فروش";
 $("heroBuy").addEventListener("click", () => openBuy("4046"));
+$("heroGallery").addEventListener("click", () => openGallery("4046"));
 $("spotBuy").addEventListener("click", () => openBuy("4026"));
 $("spotGallery").addEventListener("click", () => openGallery("4026"));
 
