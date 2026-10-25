@@ -6,45 +6,50 @@
 <title>آویزلوکس — بازطراحی فروشگاه آویز و لوستر</title>
 <meta name="description" content="نسخه‌ی نمونه‌ی بازطراحی فروشگاه آویزلوکس؛ آویزهای کریستالی با خرید سریع و بدون ثبت‌نام.">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- NAVBAR — اسکلت نوبار قالب Shop Homepage / Grayscale -->
+<!-- خط نور — جزئیات امضادار (پیشنهاد جهت هنری Gemini): رشته‌ی طلاییِ آویز در لبه‌ی صفحه که با اسکرول پایین می‌آید -->
+<div class="light-line" aria-hidden="true"><div class="light-fill" id="lightFill"></div></div>
+
+<!-- INTRO — هیروی تمام‌صفحه‌ی قالب Massively؛ عکس واقعی ۴۰۴۶ روی پس‌زمینه با روکش کاغذی -->
+<section class="intro" id="top">
+  <img class="intro-bg" id="heroImg" alt="آویز کریستال اووال نصب‌شده روی اپن آشپزخانه">
+  <div class="intro-veil"></div>
+  <div class="intro-in">
+    <p class="eyebrow">فروشگاه آویز و لوستر آویزلوکس</p>
+    <h1>رقصِ نور،<br>در آرامشِ حباب‌ها</h1>
+    <p class="intro-sub">آویزهای کریستالی وارداتی با ترانس هوشمند و سه حالت نوری؛<br>خرید سریع و بدون ثبت‌نام، فقط با چند لمس.</p>
+    <div class="hero-actions">
+      <button class="btn-gold btn-lg" id="heroBuy">خرید آویز کریستال اووال</button>
+      <button class="btn-line btn-lg" id="heroGallery">مشاهده‌ی عکس‌های این مدل</button>
+    </div>
+    <p class="hero-price">کریستال اووال، کد ۴۰۴۶ — <b>۱۳٬۵۰۰٬۰۰۰ تومان</b> <span class="off-badge">٪۸ تخفیف</span></p>
+    <p class="intro-cap">عکس پس‌زمینه، عکس واقعی همین مدل نصب‌شده روی اپن آشپزخانه است.</p>
+    <a class="intro-arrow" href="#spotlight" aria-label="رفتن به پیشنهاد آویزلوکس">↓</a>
+  </div>
+</section>
+
+<!-- NAV — نوار ناوبری قالب Massively (چسبان، برای خرید سریع) -->
 <nav class="navbar" id="mainNav">
   <div class="container nav-in">
-    <a class="navbar-brand brand" href="#top">آویز<span>لوکس</span></a>
+    <a class="brand" href="#top">آویز<span>لوکس</span></a>
     <button class="navbar-toggler" id="navToggle" type="button" aria-label="باز کردن منو" aria-expanded="false" aria-controls="navMenu">☰</button>
     <div class="navbar-collapse" id="navMenu">
       <ul class="navbar-nav">
         <li class="nav-item"><a class="nav-link" href="#spotlight">پیشنهاد ما</a></li>
         <li class="nav-item"><a class="nav-link" href="#products">محصولات</a></li>
-        <li class="nav-item"><a class="nav-link" href="#deals">تخفیف‌ها</a></li>
         <li class="nav-item"><a class="nav-link" href="#why">چرا آویزلوکس</a></li>
+        <li class="nav-item"><a class="nav-link" href="#deals">تخفیف‌ها</a></li>
       </ul>
       <a class="btn-gold nav-cta" href="#products">خرید سریع</a>
     </div>
   </div>
 </nav>
 
-<main id="top">
-
-  <!-- MASTHEAD — مست‌هد تمام‌عرض Grayscale؛ عکس واقعی ۴۰۴۶ پس‌زمینه است -->
-  <header class="masthead">
-    <img class="masthead-img" id="heroImg" alt="آویز کریستال اووال نصب‌شده روی اپن آشپزخانه">
-    <div class="masthead-shade"></div>
-    <div class="container masthead-in">
-      <p class="eyebrow">فروشگاه آویز و لوستر آویزلوکس</p>
-      <h1>نور، امضای<br>خانه‌ی شماست</h1>
-      <p class="masthead-sub">آویزهای کریستالی وارداتی با ترانس هوشمند و سه حالت نوری؛ بدون ثبت‌نام و فقط با چند لمس.</p>
-      <div class="hero-actions">
-        <button class="btn-gold btn-lg" id="heroBuy">خرید آویز کریستال اووال</button>
-        <button class="btn-ghost btn-lg" id="heroGallery">مشاهده‌ی عکس‌های این مدل</button>
-      </div>
-      <p class="hero-price">کریستال اووال، کد ۴۰۴۶ — <b>۱۳٬۵۰۰٬۰۰۰ تومان</b> <span class="off-badge">٪۸ تخفیف</span></p>
-      <p class="masthead-cap">عکس پس‌زمینه، عکس واقعی همین مدل نصب‌شده روی اپن آشپزخانه است.</p>
-    </div>
-  </header>
+<main>
 
   <!-- TRUST STRIP -->
   <section class="trust">
@@ -56,42 +61,41 @@
     </div>
   </section>
 
-  <!-- SPOTLIGHT — ردیف محصول Shop Item: عکس | جزئیات (کد، تیتر، قیمت، توضیح، عمل) -->
-  <section class="section spotlight" id="spotlight">
+  <!-- FEATURED — مقاله‌ی برجسته‌ی قالب Massively: محصول پیش‌فرض ۴۰۲۶ -->
+  <section class="section featured" id="spotlight">
+    <span class="light-node" aria-hidden="true"></span>
     <div class="container">
-      <div class="product-row">
-        <div class="col-img">
-          <figure class="spot-photo">
-            <img id="spotImg" alt="آویز مدل گوی کریستال حباب‌دار کد ۴۰۲۶">
-            <span class="spot-badge">پیشنهاد آویزلوکس</span>
-          </figure>
-        </div>
-        <div class="col-info">
-          <hr class="rule">
-          <div class="sku">کد ۴۰۲۶ · اگر فقط یکی را بخواهید…</div>
-          <h2 class="product-title">گوی کریستال <span>حباب‌دار</span></h2>
-          <div class="fs-price"><span class="now">۱۲٬۲۰۰٬۰۰۰</span> <span class="unit">تومان</span></div>
-          <p class="lead">انتخاب پیش‌فرض ما برای بیشتر خانه‌ها: کریستال وارداتی با فلز آبکاری‌شده‌ی دارای ضمانت، قطر ۱۵ سانتی‌متر — نه آن‌قدر بزرگ که فضا را بگیرد، نه آن‌قدر کوچک که دیده نشود. روی اپن و میز ناهارخوری هر دو می‌نشیند.</p>
-          <ul class="spot-specs">
-            <li>سه حالت نوری: آفتابی، مهتابی، نچرال</li>
-            <li>ترانس هوشمند و ارتفاع قابل تنظیم</li>
-            <li>لامپ SMD درجه‌یک برند S.K</li>
-          </ul>
-          <div class="spot-meta"><span class="stars" id="spotStars"></span><span id="spotSold"></span></div>
-          <div class="product-actions">
-            <button class="btn-gold btn-lg" id="spotBuy">خرید سریع</button>
-            <button class="btn-ghost btn-lg" id="spotGallery">مشاهده‌ی عکس‌ها</button>
-          </div>
-        </div>
-      </div>
+      <article class="post-featured">
+        <header class="major">
+          <span class="date">پیشنهاد آویزلوکس · <span class="mono">No. 4026</span></span>
+          <h2>گوی کریستال حباب‌دار</h2>
+          <p class="lead">اگر فقط یکی را بخواهید، همین است: کریستال وارداتی با فلز آبکاری‌شده‌ی دارای ضمانت، قطر ۱۵ سانتی‌متر — نه آن‌قدر بزرگ که فضا را بگیرد، نه آن‌قدر کوچک که دیده نشود. روی اپن و میز ناهارخوری هر دو می‌نشیند.</p>
+        </header>
+        <figure class="image-main">
+          <img id="spotImg" alt="آویز مدل گوی کریستال حباب‌دار کد ۴۰۲۶">
+          <span class="spot-badge">پیشنهاد آویزلوکس</span>
+        </figure>
+        <ul class="spot-specs">
+          <li>سه حالت نوری: آفتابی، مهتابی، نچرال</li>
+          <li>ترانس هوشمند و ارتفاع قابل تنظیم</li>
+          <li>لامپ SMD درجه‌یک برند S.K</li>
+        </ul>
+        <div class="spot-meta"><span class="stars" id="spotStars"></span><span id="spotSold"></span></div>
+        <div class="fs-price"><span class="now">۱۲٬۲۰۰٬۰۰۰</span> <span class="unit">تومان</span></div>
+        <ul class="actions">
+          <li><button class="btn-gold btn-lg" id="spotBuy">خرید سریع</button></li>
+          <li><button class="btn-line btn-lg" id="spotGallery">مشاهده‌ی عکس‌ها</button></li>
+        </ul>
+      </article>
     </div>
   </section>
 
-  <!-- PRODUCTS — گرید کارت‌های Shop Homepage -->
+  <!-- PRODUCTS — گرید مقاله‌ای قالب Massively -->
   <section class="section" id="products">
     <div class="container">
       <div class="sec-head">
-        <h2>مجموعه‌ی آویزها</h2>
+        <span class="date">مجموعه‌ی کامل</span>
+        <h2>همه‌ی آویزها</h2>
         <p>همه‌ی مدل‌ها، یک‌جا و بدون شلوغی — با چیپ‌ها در یک لمس به چند گزینه برسید.</p>
       </div>
       <div class="chips" id="chips">
@@ -117,31 +121,33 @@
     </div>
   </section>
 
-  <!-- DEALS -->
-  <section class="section deals" id="deals">
-    <div class="container">
-      <div class="sec-head light">
-        <h2>تخفیفات شگفت‌انگیز</h2>
-        <p>فرصت محدود است؛ تا پایان امروز:</p>
-        <div class="countdown" id="countdown" dir="ltr">--:--:--</div>
-      </div>
-      <div class="row-grid deals-grid" id="dealsGrid"></div>
-    </div>
-  </section>
-
-  <!-- WHY — کارت‌های وسط‌چین Grayscale با جداکننده‌ی طلایی -->
-  <section class="section" id="why">
+  <!-- WHY — ستون‌های متنی آرام با جداکننده‌ی نازک -->
+  <section class="section why" id="why">
     <div class="container">
       <div class="sec-head">
+        <span class="date">اعتماد</span>
         <h2>چرا آویزلوکس؟</h2>
         <p>«اعتماد مشتریان، بزرگ‌ترین سرمایه‌ی ماست.» — از صفحه‌ی درباره‌ی ما</p>
       </div>
       <div class="why-grid">
-        <div class="why-card"><b>گارانتی اصالت و سلامت فیزیکی کالا</b><hr class="divider"><p>هر آویز قبل از ارسال بررسی می‌شود و با ضمانت اصالت به دست‌تان می‌رسد.</p></div>
-        <div class="why-card"><b>ضمانت تعویض کالا</b><hr class="divider"><p>اگر کالا آسیب‌دیده رسید، تعویض آن با ما است؛ خیال‌تان راحت.</p></div>
-        <div class="why-card"><b>ارسال به سراسر کشور</b><hr class="divider"><p>سفارش‌ها توسط فروشنده با بسته‌بندی ایمن به همه‌ی شهرها ارسال می‌شود.</p></div>
-        <div class="why-card"><b>نورِ دلخواه در هر مدل</b><hr class="divider"><p>همه‌ی مدل‌ها ترانس هوشمند و سه حالت نوری آفتابی، مهتابی و نچرال دارند.</p></div>
+        <div class="why-card"><b>گارانتی اصالت و سلامت فیزیکی کالا</b><p>هر آویز قبل از ارسال بررسی می‌شود و با ضمانت اصالت به دست‌تان می‌رسد.</p></div>
+        <div class="why-card"><b>ضمانت تعویض کالا</b><p>اگر کالا آسیب‌دیده رسید، تعویض آن با ما است؛ خیال‌تان راحت.</p></div>
+        <div class="why-card"><b>ارسال به سراسر کشور</b><p>سفارش‌ها توسط فروشنده با بسته‌بندی ایمن به همه‌ی شهرها ارسال می‌شود.</p></div>
+        <div class="why-card"><b>نورِ دلخواه در هر مدل</b><p>همه‌ی مدل‌ها ترانس هوشمند و سه حالت نوری آفتابی، مهتابی و نچرال دارند.</p></div>
       </div>
+    </div>
+  </section>
+
+  <!-- DEALS — نوار تیره‌ی پایانی (به پیشنهاد Gemini: آخرین ضربه‌ی خرید، درست قبل از فوتر) -->
+  <section class="section deals" id="deals">
+    <div class="container">
+      <div class="sec-head light">
+        <span class="date gold">فرصت محدود</span>
+        <h2>تخفیفات شگفت‌انگیز</h2>
+        <p>تا پایان امروز:</p>
+        <div class="countdown mono" id="countdown" dir="ltr">--:--:--</div>
+      </div>
+      <div class="row-grid deals-grid" id="dealsGrid"></div>
     </div>
   </section>
 
@@ -167,9 +173,10 @@
     </div>
   </div>
   <p class="foot-note">نسخه‌ی نمونه‌ی بازطراحی فروشگاه آویزلوکس — قیمت‌ها و عکس‌ها از فروشگاه اصلی گرفته شده‌اند؛ امتیاز و شمار فروش نمایشی است و سفارش‌ها در این نسخه آزمایشی ثبت می‌شوند.</p>
+  <p class="foot-credit">بر پایه‌ی قالب <a href="https://html5up.net/massively" target="_blank" rel="noopener">Massively</a> از HTML5 UP — ویرایش و فارسی‌سازی برای آویزلوکس.</p>
 </footer>
 
-<!-- GALLERY — چیدمان صفحه‌ی محصول Shop Item: تصویر و بندانگشتی‌ها | جزئیات -->
+<!-- GALLERY — نمای محصول: تصویر و بندانگشتی‌ها + جزئیات -->
 <div class="overlay" id="gallery" hidden>
   <div class="sheet gallery-sheet" role="dialog" aria-modal="true">
     <button class="sheet-close" id="gClose" aria-label="بستن">✕</button>
@@ -220,5 +227,21 @@
 
 <script src="images.js"></script>
 <script src="app.js"></script>
+<script>
+/* خط نور: پر شدن رشته‌ی طلایی با اسکرول (جزئیات امضادار نسخه‌ی ۶) */
+(function(){
+  var fill = document.getElementById('lightFill');
+  if (!fill) return;
+  function upd(){
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    var p = max > 0 ? (h.scrollTop / max) : 0;
+    fill.style.height = (p * 100).toFixed(2) + '%';
+  }
+  addEventListener('scroll', upd, { passive: true });
+  addEventListener('resize', upd);
+  upd();
+})();
+</script>
 </body>
 </html>
