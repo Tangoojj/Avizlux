@@ -10,42 +10,43 @@
 </head>
 <body>
 
-<header class="site-header">
-  <div class="container header-in">
-    <a class="brand" href="#top">آویز<span>لوکس</span></a>
-    <nav class="main-nav">
-      <a href="#spotlight">پیشنهاد ما</a>
-      <a href="#products">محصولات</a>
-      <a href="#deals">تخفیف‌ها</a>
-      <a href="#why">چرا آویزلوکس</a>
-    </nav>
-    <a class="header-cta" href="#products">خرید سریع</a>
+<!-- NAVBAR — اسکلت نوبار قالب Shop Homepage / Grayscale -->
+<nav class="navbar" id="mainNav">
+  <div class="container nav-in">
+    <a class="navbar-brand brand" href="#top">آویز<span>لوکس</span></a>
+    <button class="navbar-toggler" id="navToggle" type="button" aria-label="باز کردن منو" aria-expanded="false" aria-controls="navMenu">☰</button>
+    <div class="navbar-collapse" id="navMenu">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="#spotlight">پیشنهاد ما</a></li>
+        <li class="nav-item"><a class="nav-link" href="#products">محصولات</a></li>
+        <li class="nav-item"><a class="nav-link" href="#deals">تخفیف‌ها</a></li>
+        <li class="nav-item"><a class="nav-link" href="#why">چرا آویزلوکس</a></li>
+      </ul>
+      <a class="btn-gold nav-cta" href="#products">خرید سریع</a>
+    </div>
   </div>
-</header>
+</nav>
 
 <main id="top">
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="container hero-in">
-      <div class="hero-copy">
-        <p class="eyebrow">فروشگاه آویز و لوستر آویزلوکس</p>
-        <h1>نور، امضای<br>خانه‌ی شماست</h1>
-        <p class="hero-sub">آویزهای کریستالی وارداتی با ترانس هوشمند و سه حالت نوری؛ بدون ثبت‌نام و فقط با چند لمس.</p>
-        <div class="hero-actions">
-          <button class="btn-gold btn-lg" id="heroBuy">خرید آویز کریستال اووال</button>
-          <button class="btn-ghost btn-lg" id="heroGallery">مشاهده‌ی عکس‌های این مدل</button>
-        </div>
-        <p class="hero-price">کریستال اووال، کد ۴۰۴۶ — <b>۱۳٬۵۰۰٬۰۰۰ تومان</b> <span class="off-badge">٪۸ تخفیف</span></p>
+  <!-- MASTHEAD — مست‌هد تمام‌عرض Grayscale؛ عکس واقعی ۴۰۴۶ پس‌زمینه است -->
+  <header class="masthead">
+    <img class="masthead-img" id="heroImg" alt="آویز کریستال اووال نصب‌شده روی اپن آشپزخانه">
+    <div class="masthead-shade"></div>
+    <div class="container masthead-in">
+      <p class="eyebrow">فروشگاه آویز و لوستر آویزلوکس</p>
+      <h1>نور، امضای<br>خانه‌ی شماست</h1>
+      <p class="masthead-sub">آویزهای کریستالی وارداتی با ترانس هوشمند و سه حالت نوری؛ بدون ثبت‌نام و فقط با چند لمس.</p>
+      <div class="hero-actions">
+        <button class="btn-gold btn-lg" id="heroBuy">خرید آویز کریستال اووال</button>
+        <button class="btn-ghost btn-lg" id="heroGallery">مشاهده‌ی عکس‌های این مدل</button>
       </div>
-      <figure class="hero-photo">
-        <img id="heroImg" alt="آویز کریستال اووال نصب‌شده روی اپن آشپزخانه">
-        <figcaption>عکس واقعی همین مدل، نصب‌شده روی اپن آشپزخانه</figcaption>
-      </figure>
+      <p class="hero-price">کریستال اووال، کد ۴۰۴۶ — <b>۱۳٬۵۰۰٬۰۰۰ تومان</b> <span class="off-badge">٪۸ تخفیف</span></p>
+      <p class="masthead-cap">عکس پس‌زمینه، عکس واقعی همین مدل نصب‌شده روی اپن آشپزخانه است.</p>
     </div>
-  </section>
+  </header>
 
-  <!-- TRUST CHIPS -->
+  <!-- TRUST STRIP -->
   <section class="trust">
     <div class="container trust-in">
       <div class="trust-item"><b>بهترین قیمت بازار</b><span>بدون واسطه</span></div>
@@ -55,34 +56,39 @@
     </div>
   </section>
 
-  <!-- SPOTLIGHT -->
-  <section class="spotlight" id="spotlight">
-    <div class="container spot-in">
-      <div class="spot-photo">
-        <img id="spotImg" alt="آویز مدل گوی کریستال حباب‌دار کد ۴۰۲۶">
-        <span class="spot-badge">پیشنهاد آویزلوکس</span>
-      </div>
-      <div class="spot-copy">
-        <p class="eyebrow">اگر فقط یکی را بخواهید…</p>
-        <h2>گوی کریستال حباب‌دار <span>کد ۴۰۲۶</span></h2>
-        <p class="spot-why">انتخاب پیش‌فرض ما برای بیشتر خانه‌ها: کریستال وارداتی با فلز آبکاری‌شده‌ی دارای ضمانت، قطر ۱۵ سانتی‌متر — نه آن‌قدر بزرگ که فضا را بگیرد، نه آن‌قدر کوچک که دیده نشود. روی اپن و میز ناهارخوری هر دو می‌نشیند.</p>
-        <ul class="spot-specs">
-          <li>سه حالت نوری: آفتابی، مهتابی، نچرال</li>
-          <li>ترانس هوشمند و ارتفاع قابل تنظیم</li>
-          <li>لامپ SMD درجه‌یک برند S.K</li>
-        </ul>
-        <div class="spot-meta"><span class="stars" id="spotStars"></span><span id="spotSold"></span></div>
-        <div class="spot-buy">
-          <div class="price-block"><b>۱۲٬۲۰۰٬۰۰۰</b> تومان</div>
-          <button class="btn-gold btn-lg" id="spotBuy">خرید سریع</button>
-          <button class="btn-ghost btn-lg" id="spotGallery">مشاهده‌ی عکس‌ها</button>
+  <!-- SPOTLIGHT — ردیف محصول Shop Item: عکس | جزئیات (کد، تیتر، قیمت، توضیح، عمل) -->
+  <section class="section spotlight" id="spotlight">
+    <div class="container">
+      <div class="product-row">
+        <div class="col-img">
+          <figure class="spot-photo">
+            <img id="spotImg" alt="آویز مدل گوی کریستال حباب‌دار کد ۴۰۲۶">
+            <span class="spot-badge">پیشنهاد آویزلوکس</span>
+          </figure>
+        </div>
+        <div class="col-info">
+          <hr class="rule">
+          <div class="sku">کد ۴۰۲۶ · اگر فقط یکی را بخواهید…</div>
+          <h2 class="product-title">گوی کریستال <span>حباب‌دار</span></h2>
+          <div class="fs-price"><span class="now">۱۲٬۲۰۰٬۰۰۰</span> <span class="unit">تومان</span></div>
+          <p class="lead">انتخاب پیش‌فرض ما برای بیشتر خانه‌ها: کریستال وارداتی با فلز آبکاری‌شده‌ی دارای ضمانت، قطر ۱۵ سانتی‌متر — نه آن‌قدر بزرگ که فضا را بگیرد، نه آن‌قدر کوچک که دیده نشود. روی اپن و میز ناهارخوری هر دو می‌نشیند.</p>
+          <ul class="spot-specs">
+            <li>سه حالت نوری: آفتابی، مهتابی، نچرال</li>
+            <li>ترانس هوشمند و ارتفاع قابل تنظیم</li>
+            <li>لامپ SMD درجه‌یک برند S.K</li>
+          </ul>
+          <div class="spot-meta"><span class="stars" id="spotStars"></span><span id="spotSold"></span></div>
+          <div class="product-actions">
+            <button class="btn-gold btn-lg" id="spotBuy">خرید سریع</button>
+            <button class="btn-ghost btn-lg" id="spotGallery">مشاهده‌ی عکس‌ها</button>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PRODUCTS -->
-  <section class="products" id="products">
+  <!-- PRODUCTS — گرید کارت‌های Shop Homepage -->
+  <section class="section" id="products">
     <div class="container">
       <div class="sec-head">
         <h2>مجموعه‌ی آویزها</h2>
@@ -107,34 +113,34 @@
           </select>
         </label>
       </div>
-      <div class="grid" id="grid"></div>
+      <div class="row-grid" id="grid"></div>
     </div>
   </section>
 
   <!-- DEALS -->
-  <section class="deals" id="deals">
+  <section class="section deals" id="deals">
     <div class="container">
       <div class="sec-head light">
         <h2>تخفیفات شگفت‌انگیز</h2>
         <p>فرصت محدود است؛ تا پایان امروز:</p>
         <div class="countdown" id="countdown" dir="ltr">--:--:--</div>
       </div>
-      <div class="grid deals-grid" id="dealsGrid"></div>
+      <div class="row-grid deals-grid" id="dealsGrid"></div>
     </div>
   </section>
 
-  <!-- WHY -->
-  <section class="why" id="why">
+  <!-- WHY — کارت‌های وسط‌چین Grayscale با جداکننده‌ی طلایی -->
+  <section class="section" id="why">
     <div class="container">
       <div class="sec-head">
         <h2>چرا آویزلوکس؟</h2>
         <p>«اعتماد مشتریان، بزرگ‌ترین سرمایه‌ی ماست.» — از صفحه‌ی درباره‌ی ما</p>
       </div>
       <div class="why-grid">
-        <div class="why-card"><b>گارانتی اصالت و سلامت فیزیکی کالا</b><p>هر آویز قبل از ارسال بررسی می‌شود و با ضمانت اصالت به دست‌تان می‌رسد.</p></div>
-        <div class="why-card"><b>ضمانت تعویض کالا</b><p>اگر کالا آسیب‌دیده رسید، تعویض آن با ما است؛ خیال‌تان راحت.</p></div>
-        <div class="why-card"><b>ارسال به سراسر کشور</b><p>سفارش‌ها توسط فروشنده با بسته‌بندی ایمن به همه‌ی شهرها ارسال می‌شود.</p></div>
-        <div class="why-card"><b>نورِ دلخواه در هر مدل</b><p>همه‌ی مدل‌ها ترانس هوشمند و سه حالت نوری آفتابی، مهتابی و نچرال دارند.</p></div>
+        <div class="why-card"><b>گارانتی اصالت و سلامت فیزیکی کالا</b><hr class="divider"><p>هر آویز قبل از ارسال بررسی می‌شود و با ضمانت اصالت به دست‌تان می‌رسد.</p></div>
+        <div class="why-card"><b>ضمانت تعویض کالا</b><hr class="divider"><p>اگر کالا آسیب‌دیده رسید، تعویض آن با ما است؛ خیال‌تان راحت.</p></div>
+        <div class="why-card"><b>ارسال به سراسر کشور</b><hr class="divider"><p>سفارش‌ها توسط فروشنده با بسته‌بندی ایمن به همه‌ی شهرها ارسال می‌شود.</p></div>
+        <div class="why-card"><b>نورِ دلخواه در هر مدل</b><hr class="divider"><p>همه‌ی مدل‌ها ترانس هوشمند و سه حالت نوری آفتابی، مهتابی و نچرال دارند.</p></div>
       </div>
     </div>
   </section>
@@ -163,7 +169,7 @@
   <p class="foot-note">نسخه‌ی نمونه‌ی بازطراحی فروشگاه آویزلوکس — قیمت‌ها و عکس‌ها از فروشگاه اصلی گرفته شده‌اند؛ امتیاز و شمار فروش نمایشی است و سفارش‌ها در این نسخه آزمایشی ثبت می‌شوند.</p>
 </footer>
 
-<!-- GALLERY -->
+<!-- GALLERY — چیدمان صفحه‌ی محصول Shop Item: تصویر و بندانگشتی‌ها | جزئیات -->
 <div class="overlay" id="gallery" hidden>
   <div class="sheet gallery-sheet" role="dialog" aria-modal="true">
     <button class="sheet-close" id="gClose" aria-label="بستن">✕</button>

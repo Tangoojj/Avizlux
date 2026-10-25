@@ -1,4 +1,5 @@
-// Avizlux redesign concept — real products, prices and photos harvested from avizelux.ir (24 Oct 2026).
+// Avizlux redesign concept v5 (template-based: StartBootstrap Shop Homepage / Shop Item / Grayscale skeletons)
+// — real products, prices and photos harvested from avizelux.ir (24 Oct 2026).
 // rating/sold are DEMO social-proof data for this sample (the real store shows no reviews yet).
 // IMAGES[code] = [[dataURI, label], ...] — all photos are the store's own real product photos;
 // detail views are close-up crops of those same real photos. No generated imagery anywhere.
@@ -44,19 +45,19 @@ function badges(p){
 }
 function cardHTML(p){
   return `<article class="card${p.rec ? " rec" : ""}">
-    <div class="card-photo" data-gallery="${p.code}">
-      <img src="${IMAGES[p.code][0][0]}" alt="${p.name} کد ${faNum(p.code)}" loading="lazy">
+    <div class="card-img-wrap" data-gallery="${p.code}">
+      <img class="card-img-top" src="${IMAGES[p.code][0][0]}" alt="${p.name} کد ${faNum(p.code)}" loading="lazy">
       ${badges(p)}
     </div>
     <div class="card-body">
-      <h3 class="card-name">${p.name}</h3>
+      <h5 class="card-title">${p.name}</h5>
       <p class="card-spec">کد ${faNum(p.code)} · ${p.dims}</p>
-      <div class="card-meta"><span class="stars">${stars(p.rating)}</span><span>${faRating(p.rating)} · +${faNum(p.sold)} فروش</span></div>
+      <div class="card-stars"><span class="stars">${stars(p.rating)}</span><span>${faRating(p.rating)} · +${faNum(p.sold)} فروش</span></div>
       <div class="card-price">${p.old ? `<span class="old">${faPrice(p.old)}</span>` : ""}<span class="now">${faPrice(p.price)}</span> <span class="unit">تومان</span></div>
-      <div class="card-actions">
-        <button class="btn-buy" data-buy="${p.code}">خرید سریع</button>
-        <button class="btn-view" data-gallery="${p.code}">مشاهده‌ی عکس‌ها</button>
-      </div>
+    </div>
+    <div class="card-footer">
+      <button class="btn-buy" data-buy="${p.code}">خرید سریع</button>
+      <button class="btn-view" data-gallery="${p.code}">مشاهده‌ی عکس‌ها</button>
     </div>
   </article>`;
 }
@@ -188,3 +189,13 @@ tick(); setInterval(tick, 1000);
 
 renderGrid();
 renderDeals();
+
+/* ---------- منوی جمع‌شونده‌ی نوبار (موبایل/تبلت) ---------- */
+const navToggle = $("navToggle"), navMenu = $("navMenu");
+navToggle.addEventListener("click", () => {
+  const open = navMenu.classList.toggle("open");
+  navToggle.setAttribute("aria-expanded", String(open));
+});
+navMenu.addEventListener("click", e => {
+  if (e.target.closest("a")) { navMenu.classList.remove("open"); navToggle.setAttribute("aria-expanded", "false"); }
+});

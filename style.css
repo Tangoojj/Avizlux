@@ -1,8 +1,11 @@
 /* ============================================================
-   Avizlux — نمونه‌ی بازطراحی v3
-   جهت هنری: زغالِ گرمِ بافت‌دار + هاله‌ی نور طلایی (ستاره‌ی نمایش)
-   + قاب عاجیِ گالری برای عکس‌های واقعی + سلسله‌مراتب پلکانی.
-   اصول: یک عمل اصلی در هر بخش؛ متن سه‌تیرگی؛ ریتم فاصله‌ی ۸px؛
+   Avizlux — نمونه‌ی بازطراحی v5 (قالب‌محور)
+   اسکلت: StartBootstrap «Shop Homepage» (گرید کارت‌ها و نوبار)
+   + «Shop Item» (ردیف محصول اسپات‌لایت و نمای محصول)
+   + «Grayscale» (مست‌هد تمام‌عرض و کارت‌های جداکننده‌دار) — هر سه MIT.
+   پوست: زغالِ گرم + هاله‌ی نور طلایی + قاب عاجیِ عکس‌های واقعی
+   + سلسله‌مراتب پلکانیِ تیرگی متن + ریتم فاصله‌ی ۸px (از v3).
+   اصول ثابت: یک عمل اصلی در هر بخش؛ مسیر خرید دومرحله‌ای؛
    انیمیشن فقط روی transform/opacity.
    ============================================================ */
 :root{
@@ -42,7 +45,7 @@ body::before{
   content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.05;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
 }
-main,header,footer{position:relative;z-index:1}
+main,nav,footer{position:relative;z-index:1}
 img{display:block;max-width:100%}
 button{font-family:inherit;cursor:pointer}
 a{color:inherit}
@@ -70,47 +73,51 @@ a{color:inherit}
 .btn-lg{font-size:1.06rem;padding:14px 28px;min-height:54px}
 .btn-block{width:100%}
 
-/* ---------- هدر چسبانِ شیشه‌ای ---------- */
-.site-header{
+/* ---------- نوبار قالب: برند | لینک‌ها | دکمه‌ی عمل (چسبانِ شیشه‌ای) ---------- */
+.navbar{
   position:sticky;top:0;z-index:40;
-  background:rgba(23,16,8,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  background:rgba(23,16,8,.85);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
   border-bottom:1px solid var(--line);
 }
-.header-in{display:flex;align-items:center;gap:24px;padding-block:12px}
+.nav-in{display:flex;align-items:center;gap:24px;padding-block:10px;position:relative}
 .brand{font-size:1.45rem;font-weight:900;text-decoration:none;letter-spacing:-.01em}
 .brand span{color:var(--gold)}
-.main-nav{display:flex;gap:26px;margin-inline-start:auto}
-.main-nav a{color:var(--ink-70);text-decoration:none;font-size:.95rem;font-weight:600;transition:color .15s}
-.main-nav a:hover{color:var(--ink)}
-.header-cta{
-  background:var(--gold);color:var(--gold-ink);text-decoration:none;font-weight:800;
-  padding:9px 20px;border-radius:12px;min-height:44px;display:inline-flex;align-items:center;
-  transition:transform .18s var(--ease)}
-.header-cta:hover{transform:translateY(-1px)}
-.header-cta:active{transform:scale(.98)}
+.navbar-toggler{
+  display:none;margin-inline-start:auto;width:46px;height:46px;border-radius:12px;
+  background:transparent;border:1px solid rgba(248,243,231,.25);color:var(--ink);font-size:1.15rem}
+.navbar-collapse{display:flex;align-items:center;gap:26px;margin-inline-start:auto}
+.navbar-nav{display:flex;gap:26px;list-style:none}
+.nav-link{color:var(--ink-70);text-decoration:none;font-size:.95rem;font-weight:600;transition:color .15s;padding-block:6px}
+.nav-link:hover{color:var(--ink)}
+.nav-cta{text-decoration:none;display:inline-flex;align-items:center;padding:9px 20px;min-height:44px;border-radius:12px;font-size:.95rem}
 
-/* ---------- هیرو: ستاره = نور و محصول ---------- */
-.hero{position:relative;padding:88px 0 72px;overflow:hidden}
-.hero::after{ /* هاله‌ی نور ستاره — در اسپات‌لایت و تخفیف‌ها هم قافیه می‌شود */
-  content:"";position:absolute;top:-180px;inset-inline-start:-120px;width:720px;height:720px;
-  background:radial-gradient(circle,rgba(242,182,74,.17),rgba(242,182,74,.05) 45%,transparent 68%);
-  pointer-events:none;
+/* ---------- مست‌هد Grayscale: عکس واقعی تمام‌عرض + تیتر وسط‌چین ---------- */
+.masthead{
+  position:relative;overflow:hidden;
+  display:flex;align-items:center;
+  min-height:min(88vh,780px);
+  padding:96px 0 88px;
+  text-align:center;
 }
-.hero-in{display:grid;grid-template-columns:1.02fr .98fr;gap:56px;align-items:center;position:relative;z-index:1}
-.eyebrow{color:var(--gold);font-weight:700;font-size:.92rem;margin-bottom:14px}
-.hero h1{font-size:clamp(2.7rem,6.2vw,4.4rem);font-weight:900;line-height:1.22;letter-spacing:-.015em}
-.hero-sub{color:var(--ink-70);font-size:1.13rem;line-height:2;margin-top:20px;max-width:30rem}
-.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
-.hero-price{margin-top:26px;color:var(--ink-55);font-size:.98rem;display:flex;flex-wrap:wrap;align-items:center;gap:10px}
-.hero-price b{color:var(--ink);font-size:1.05rem}
+.masthead-img{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:center 68%;
+}
+.masthead-shade{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(720px 520px at 50% 30%,rgba(242,182,74,.14),transparent 62%),
+    linear-gradient(180deg,rgba(23,16,8,.84),rgba(23,16,8,.62) 46%,rgba(23,16,8,.88));
+}
+.masthead-in{position:relative;z-index:1;max-width:760px}
+.eyebrow{color:var(--gold);font-weight:700;font-size:.95rem;margin-bottom:14px}
+.masthead h1{font-size:clamp(2.8rem,6.4vw,4.5rem);font-weight:900;line-height:1.22;letter-spacing:-.015em;text-shadow:0 4px 34px rgba(0,0,0,.45)}
+.masthead-sub{color:var(--ink-70);font-size:1.14rem;line-height:2;margin:22px auto 0;max-width:32rem}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px;justify-content:center}
+.hero-price{margin-top:28px;color:var(--ink-55);font-size:.98rem;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px}
+.hero-price b{color:var(--ink);font-size:1.06rem}
 .off-badge{background:var(--brick);color:#fff;font-size:.8rem;font-weight:700;padding:2px 10px;border-radius:99px;white-space:nowrap}
-.hero-photo{
-  background:linear-gradient(170deg,var(--ivory),var(--ivory-2));
-  border-radius:26px;padding:14px;box-shadow:var(--shadow-lift);
-  transform:rotate(.4deg);
-}
-.hero-photo img{width:100%;height:520px;object-fit:cover;object-position:center 72%;border-radius:18px}
-.hero-photo figcaption{color:#6d5c36;font-size:.85rem;padding:10px 6px 2px;font-weight:600}
+.masthead-cap{margin-top:12px;color:var(--ink-38);font-size:.84rem}
 
 /* ---------- نوار اعتماد: آرام و فرعی ---------- */
 .trust{border-block:1px solid var(--line);background:rgba(248,243,231,.02)}
@@ -120,35 +127,39 @@ a{color:inherit}
 .trust-item span{color:var(--ink-55);font-size:.85rem}
 
 /* ---------- تیتر بخش‌ها ---------- */
-section{padding:88px 0}
+.section{padding:88px 0}
 .sec-head{max-width:640px;margin-bottom:40px}
 .sec-head h2{font-size:clamp(1.8rem,4vw,2.5rem);font-weight:900;line-height:1.35}
 .sec-head p{color:var(--ink-70);margin-top:10px;font-size:1.03rem}
+.rule{width:56px;height:3px;border:none;border-radius:99px;background:var(--gold);margin-bottom:20px}
+.divider{width:52px;height:3px;border:none;border-radius:99px;background:var(--gold);margin:14px auto}
 
-/* ---------- اسپات‌لایت: تصمیم آماده ---------- */
+/* ---------- اسپات‌لایت: ردیف محصول Shop Item ---------- */
 .spotlight{background:var(--bg-2);border-block:1px solid var(--line);position:relative;overflow:hidden}
 .spotlight::after{
   content:"";position:absolute;bottom:-260px;inset-inline-end:-140px;width:640px;height:640px;
   background:radial-gradient(circle,rgba(242,182,74,.12),transparent 65%);pointer-events:none;
 }
-.spot-in{display:grid;grid-template-columns:.92fr 1.08fr;gap:56px;align-items:center;position:relative;z-index:1}
+.product-row{display:grid;grid-template-columns:.92fr 1.08fr;gap:56px;align-items:center;position:relative;z-index:1}
 .spot-photo{position:relative;background:linear-gradient(170deg,var(--ivory),var(--ivory-2));border-radius:26px;padding:14px;box-shadow:var(--shadow-lift)}
 .spot-photo img{width:100%;height:460px;object-fit:contain;border-radius:18px}
 .spot-badge{
   position:absolute;top:26px;inset-inline-start:26px;background:var(--gold);color:var(--gold-ink);
   font-weight:800;font-size:.85rem;padding:5px 14px;border-radius:99px;box-shadow:0 6px 16px rgba(0,0,0,.25);
 }
-.spot-copy h2{font-size:clamp(1.9rem,4vw,2.7rem);font-weight:900;line-height:1.35}
-.spot-copy h2 span{color:var(--gold)}
-.spot-why{color:var(--ink-70);margin-top:16px;font-size:1.05rem;line-height:2.05;max-width:34rem}
+.sku{color:var(--ink-55);font-size:.88rem;font-weight:600;margin-bottom:8px}
+.product-title{font-size:clamp(1.9rem,4vw,2.7rem);font-weight:900;line-height:1.35}
+.product-title span{color:var(--gold)}
+.fs-price{font-size:1.45rem;font-weight:900;margin-top:14px}
+.fs-price .unit{color:var(--ink-70);font-size:.95rem;font-weight:600}
+.fs-price .old{color:var(--ink-55);text-decoration:line-through;font-size:1.02rem;font-weight:500;margin-inline-end:10px}
+.lead{color:var(--ink-70);margin-top:14px;font-size:1.05rem;line-height:2.05;max-width:34rem}
 .spot-specs{list-style:none;margin-top:20px;display:grid;gap:8px}
 .spot-specs li{color:var(--ink-70);padding-inline-start:26px;position:relative;font-size:.98rem}
 .spot-specs li::before{content:"";position:absolute;inset-inline-start:2px;top:.72em;width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 10px rgba(233,180,76,.8)}
 .spot-meta{display:flex;align-items:center;gap:10px;margin-top:22px;color:var(--ink-55);font-size:.92rem}
 .stars{color:var(--gold);letter-spacing:2px;font-size:.95rem}
-.spot-buy{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-top:26px}
-.price-block{font-size:1.5rem;font-weight:900;margin-inline-end:6px}
-.price-block .old{display:block;font-size:.95rem;color:var(--ink-55);text-decoration:line-through;font-weight:500}
+.product-actions{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-top:26px}
 
 /* ---------- چیپ‌ها و ابزار گرید ---------- */
 .chips{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:22px}
@@ -164,33 +175,36 @@ section{padding:88px 0}
   font-family:inherit;background:var(--panel);color:var(--ink);border:1px solid var(--line);
   border-radius:10px;padding:8px 10px;font-size:.92rem;min-height:44px}
 
-/* ---------- کارت محصول: قاب عاجیِ یکدست ---------- */
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(248px,1fr));gap:26px}
+/* ---------- گرید و کارت محصول Shop Homepage ---------- */
+/* row-cols قالب: موبایل ۲ ستون، تبلت ۳ ستون، دسکتاپ ۴ ستون */
+.row-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px}
+@media (min-width:768px){.row-grid{grid-template-columns:repeat(3,1fr)}}
+@media (min-width:1200px){.row-grid{grid-template-columns:repeat(4,1fr)}}
 .card{
   background:var(--panel);border:1px solid rgba(233,180,76,.1);border-radius:var(--r-lg);
-  overflow:hidden;box-shadow:var(--shadow-card);display:flex;flex-direction:column;
+  overflow:hidden;box-shadow:var(--shadow-card);display:flex;flex-direction:column;height:100%;
   transition:transform .2s var(--ease),box-shadow .2s var(--ease)}
 .card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lift)}
 .card.rec{border-color:rgba(233,180,76,.55);box-shadow:0 0 0 1px rgba(233,180,76,.35),var(--shadow-card)}
-.card-photo{
+.card-img-wrap{
   position:relative;background:linear-gradient(165deg,var(--ivory),var(--ivory-2));
-  aspect-ratio:4/4.6;padding:16px;cursor:pointer;overflow:hidden}
-.card-photo img{width:100%;height:100%;object-fit:contain;transition:transform .35s var(--ease)}
-.card:hover .card-photo img{transform:scale(1.035)}
-.card-badges{position:absolute;top:12px;inset-inline-start:12px;display:flex;flex-direction:column;gap:6px;align-items:flex-start}
+  aspect-ratio:4/4.3;cursor:pointer;overflow:hidden}
+.card-img-top{width:100%;height:100%;object-fit:contain;padding:14px;transition:transform .35s var(--ease)}
+.card:hover .card-img-top{transform:scale(1.035)}
+.card-badges{position:absolute;top:12px;inset-inline-start:12px;display:flex;flex-direction:column;gap:6px;align-items:flex-start;z-index:2}
 .badge{font-size:.76rem;font-weight:800;padding:3px 10px;border-radius:99px;box-shadow:0 4px 10px rgba(0,0,0,.18)}
 .badge.off{background:var(--brick);color:#fff}
 .badge.rec{background:var(--gold);color:var(--gold-ink)}
 .badge.best{background:#2e2110;color:var(--gold);border:1px solid rgba(233,180,76,.5)}
-.card-body{padding:18px 18px 20px;display:flex;flex-direction:column;gap:7px;flex:1}
-.card-name{font-size:1.03rem;font-weight:800;line-height:1.7}
+.card-body{padding:20px 16px 4px;display:flex;flex-direction:column;gap:6px;align-items:center;text-align:center}
+.card-title{font-size:1.03rem;font-weight:800;line-height:1.7}
 .card-spec{color:var(--ink-55);font-size:.86rem}
-.card-meta{display:flex;align-items:center;gap:8px;color:var(--ink-55);font-size:.85rem}
-.card-price{margin-top:auto;padding-top:8px;display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 8px}
+.card-stars{display:flex;align-items:center;gap:8px;color:var(--ink-55);font-size:.85rem}
+.card-price{display:flex;align-items:baseline;flex-wrap:wrap;justify-content:center;gap:2px 8px;margin-top:2px}
 .card-price .old{color:var(--ink-55);text-decoration:line-through;font-size:.9rem;width:100%}
 .card-price .now{font-size:1.22rem;font-weight:900}
 .card-price .unit{color:var(--ink-70);font-size:.88rem}
-.card-actions{display:flex;gap:10px;margin-top:12px}
+.card-footer{padding:14px 16px 18px;margin-top:auto;display:flex;gap:10px;justify-content:center}
 .btn-buy{
   flex:1.25;background:linear-gradient(160deg,#f2c66d,var(--gold) 45%,var(--gold-2));color:var(--gold-ink);
   border:none;border-radius:12px;font-weight:800;font-size:.97rem;min-height:48px;padding:10px;
@@ -211,13 +225,13 @@ section{padding:88px 0}
   font-variant-numeric:tabular-nums;line-height:1.4}
 .deals-grid{position:relative;z-index:1}
 
-/* ---------- چرا آویزلوکس ---------- */
+/* ---------- چرا آویزلوکس: کارت‌های Grayscale ---------- */
 .why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px}
-.why-card{background:var(--panel);border:1px solid rgba(233,180,76,.1);border-radius:var(--r-md);padding:26px;box-shadow:var(--shadow-card)}
-.why-card b{display:block;font-size:1.02rem;margin-bottom:8px}
+.why-card{background:var(--panel);border:1px solid rgba(233,180,76,.1);border-radius:var(--r-md);padding:28px 24px;box-shadow:var(--shadow-card);text-align:center}
+.why-card b{display:block;font-size:1.02rem;line-height:1.8}
 .why-card p{color:var(--ink-70);font-size:.95rem;line-height:1.95}
 
-/* ---------- فوتر ---------- */
+/* ---------- فوتر تیره‌ی قالب ---------- */
 .site-footer{border-top:1px solid var(--line);background:#120b04;padding:64px 0 34px}
 .foot-in{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:36px}
 .foot-in p{color:var(--ink-55);font-size:.94rem;margin-top:10px;max-width:26rem}
@@ -298,42 +312,60 @@ section{padding:88px 0}
   border:1px solid rgba(233,180,76,.5);border-radius:14px;padding:13px 18px;text-align:center;
   font-size:.95rem;box-shadow:var(--shadow-lift);animation:sheet-in .25s var(--ease)}
 
-/* ---------- دسکتاپ: شیت وسط‌چین ---------- */
+/* ---------- دسکتاپ: شیت وسط‌چین + گالری دولایه‌ی Shop Item ---------- */
 @media (min-width:760px){
   .overlay{align-items:center;padding:24px}
   .sheet{border-radius:26px;border-bottom:1px solid var(--line);max-width:600px;padding:32px}
-  .gallery-sheet{max-width:680px}
-  .g-bar{bottom:-32px;margin:24px -32px -32px;padding:16px 32px}
+  .buy-sheet{max-width:600px}
+  .gallery-sheet{
+    max-width:900px;display:grid;column-gap:28px;align-items:start;
+    grid-template-columns:1.12fr .88fr;
+    grid-template-areas:"main info" "thumbs info" "bar bar"}
+  .g-main{grid-area:main}
+  .g-thumbs{grid-area:thumbs}
+  .g-info{grid-area:info;margin-top:6px}
+  .g-info h3{font-size:1.55rem;line-height:1.5}
+  .g-bar{grid-area:bar;position:relative;bottom:auto;margin:26px -32px -32px;padding:16px 32px}
   .toast{inset-inline:auto;left:50%;transform:translateX(-50%);min-width:380px}
+}
+
+/* ---------- نوبار جمع‌شونده (الگوی navbar-expand قالب) ---------- */
+@media (max-width:991px){
+  .navbar-toggler{display:block}
+  .navbar-collapse{
+    display:none;position:absolute;top:calc(100% + 1px);inset-inline:0;
+    background:rgba(23,16,8,.97);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line);padding:16px 20px 20px;
+    flex-direction:column;align-items:stretch;gap:8px;margin-inline-start:0}
+  .navbar-collapse.open{display:flex}
+  .navbar-nav{flex-direction:column;gap:2px}
+  .nav-link{display:block;padding:10px 6px;font-size:1rem}
+  .nav-cta{justify-content:center;margin-top:8px}
+  .nav-in{flex-wrap:wrap}
 }
 
 /* ---------- موبایل ۳۶۰ ---------- */
 @media (max-width:760px){
-  .main-nav{display:none}
-  .header-in{gap:14px}
-  .header-cta{margin-inline-start:auto}
-  section{padding:60px 0}
-  .hero{padding:44px 0 52px}
-  .hero-in{grid-template-columns:1fr;gap:34px}
-  .hero h1{font-size:2.45rem}
-  .hero-sub{font-size:1.02rem;margin-top:14px}
-  .hero-actions{margin-top:26px}
+  .section{padding:60px 0}
+  .masthead{min-height:0;padding:56px 0 60px}
+  .masthead h1{font-size:2.5rem}
+  .masthead-sub{font-size:1.02rem;margin-top:16px}
+  .hero-actions{margin-top:28px}
   .hero-actions .btn-gold,.hero-actions .btn-ghost{flex:1;padding-inline:10px;font-size:.99rem}
-  .hero-photo img{height:340px}
   .trust-in{grid-template-columns:repeat(2,1fr);gap:18px 10px}
-  .spot-in{grid-template-columns:1fr;gap:32px}
+  .product-row{grid-template-columns:1fr;gap:32px}
   .spot-photo img{height:320px}
-  .spot-buy .btn-gold,.spot-buy .btn-ghost{flex:1;padding-inline:8px}
-  .price-block{width:100%;margin-bottom:2px}
-  .grid{grid-template-columns:repeat(2,1fr);gap:14px}
-  .card-photo{padding:9px;aspect-ratio:4/4.9}
-  .card-body{padding:13px 12px 14px;gap:5px}
-  .card-name{font-size:.9rem;line-height:1.65}
+  .product-actions .btn-gold,.product-actions .btn-ghost{flex:1;padding-inline:8px}
+  .row-grid{gap:14px}
+  .card-img-wrap{aspect-ratio:4/4.5}
+  .card-img-top{padding:9px}
+  .card-body{padding:13px 10px 2px;gap:4px}
+  .card-title{font-size:.9rem;line-height:1.65}
   .card-spec{font-size:.78rem}
-  .card-meta{font-size:.78rem;gap:5px}
-  .card-meta .stars{font-size:.8rem;letter-spacing:1px}
+  .card-stars{font-size:.78rem;gap:5px}
+  .card-stars .stars{font-size:.8rem;letter-spacing:1px}
   .card-price .now{font-size:1.02rem}
-  .card-actions{flex-direction:column;gap:8px}
+  .card-footer{padding:10px 10px 12px;flex-direction:column;gap:8px}
   .btn-buy,.btn-view{min-height:46px;font-size:.9rem}
   .badge{font-size:.68rem;padding:2px 8px}
   .card-badges{top:8px;inset-inline-start:8px}
