@@ -1,0 +1,47 @@
+/* آویزلوکس — هیروی «ریل برنجی» (نسخه‌ی ۷): ده آویز منتخب روی ریل؛ در حالت عادی نیم‌رخ،
+   با نگه‌داشتن نشانگر رو به بازدیدکننده می‌چرخند. فریم‌ها از عکس واقعی محصول ساخته شده‌اند.
+   پوست هم‌زبان نسخه‌ی ۶: زغالِ گرم و طلایی روی باند تیره. */
+.rail-hero{position:relative;background:radial-gradient(760px 380px at 50% -60px,rgba(227,170,78,.20),transparent 70%),var(--dark);color:var(--paper);padding:72px 0 46px;overflow:hidden}
+.rail-hero .eyebrow{color:var(--gold2);text-align:center}
+.rail-slogan{text-align:center;font-size:clamp(1.9rem,5.2vw,3.3rem);font-weight:800;line-height:1.45;margin:0 auto 10px;max-width:900px}
+.rail-slogan span{color:var(--gold2)}
+.rail-hint{text-align:center;color:#b8ab97;margin:0 auto;max-width:640px;font-size:1rem}
+.rail-stage{position:relative;margin-top:38px}
+.rail-bar{position:absolute;top:0;inset-inline:6px;height:12px;border-radius:7px;background:linear-gradient(180deg,#f3cd7e 0%,var(--gold2) 30%,var(--gold) 62%,#7c5a17 100%);box-shadow:0 3px 10px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,244,214,.8);z-index:3}
+.rail-bar::before,.rail-bar::after{content:"";position:absolute;top:-7px;width:22px;height:26px;border-radius:5px;background:linear-gradient(180deg,var(--gold2),#7c5a17);box-shadow:0 3px 8px rgba(0,0,0,.45)}
+.rail-bar::before{inset-inline-start:-4px}
+.rail-bar::after{inset-inline-end:-4px}
+.rail-row{display:flex;align-items:flex-start;gap:2px;padding:0 10px}
+.rail-slot{flex:1 1 0;min-width:0;background:none;border:none;padding:0;color:inherit;text-align:center;position:relative;transition:transform .38s cubic-bezier(.3,.7,.3,1);-webkit-tap-highlight-color:transparent}
+.rail-slot:focus-visible{outline:2px solid var(--gold2);outline-offset:4px}
+.rail-stem{display:block;width:3px;height:30px;margin:10px auto 0;background:linear-gradient(180deg,#8a6a24,var(--gold2));border-radius:2px;box-shadow:0 0 4px rgba(0,0,0,.4)}
+.rail-sway{display:block;transform-origin:50% 0;animation:railSway 6.5s ease-in-out infinite alternate}
+@keyframes railSway{from{transform:rotate(-.7deg)}to{transform:rotate(.7deg)}}
+.rail-frame{display:block;position:relative;width:100%;aspect-ratio:340/430;background-repeat:no-repeat;background-size:400% 400%;background-position:100% 100%;transform-origin:50% 0;transition:transform .36s cubic-bezier(.3,.7,.3,1)}
+.rail-slot.is-active .rail-frame{transform:scale(1.13)}
+.rail-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block}
+.rail-slot.is-default .rail-frame::after{content:"پیشنهاد آویزلوکس";position:absolute;bottom:2px;inset-inline:0;margin-inline:auto;width:max-content;max-width:96%;background:var(--gold);color:#241a06;font-size:.62rem;font-weight:700;padding:1px 7px;line-height:1.8;box-shadow:0 4px 12px rgba(0,0,0,.35);opacity:0;transition:opacity .25s ease}
+.rail-slot.is-default.is-active .rail-frame::after{opacity:1}
+.rail-code{display:block;position:relative;z-index:1;font-family:"JetBrains Mono",monospace;direction:ltr;unicode-bidi:isolate;font-size:.68rem;color:#8f8474;letter-spacing:.05em;margin-top:2px}
+.rail-slot.is-active .rail-code{color:var(--gold2)}
+.rail-caption{display:flex;align-items:center;gap:18px;flex-wrap:wrap;justify-content:center;border-top:1px solid var(--dark-line);margin-top:26px;padding-top:22px;text-align:center}
+.rc-info h3{margin:0;font-size:1.3rem;font-weight:800;line-height:1.6}
+.rc-info p{margin:0;color:#b8ab97;font-size:.9rem}
+.rc-price{font-size:1.45rem;font-weight:800;color:var(--gold2)}
+.rc-price .unit{font-size:.9rem;color:#b8ab97;font-weight:400}
+.rc-price .old{color:#8f8474;text-decoration:line-through;font-size:1rem;font-weight:400;margin-inline-end:8px}
+.rc-actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.btn-line.light{color:var(--paper);border-color:#57493a}
+.btn-line.light:hover{background:var(--paper);color:var(--ink)}
+@media (max-width:760px){
+  .rail-hero{padding:52px 0 36px}
+  .rail-row{overflow-x:auto;scroll-snap-type:x mandatory;padding:0 19vw 10px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .rail-row::-webkit-scrollbar{display:none}
+  .rail-slot{flex:0 0 62vw;scroll-snap-align:center}
+  .rail-bar{inset-inline:0}
+  .rail-caption{flex-direction:column;gap:10px}
+}
+@media (prefers-reduced-motion: reduce){
+  .rail-sway{animation:none}
+  .rail-slot{transition:none}
+}

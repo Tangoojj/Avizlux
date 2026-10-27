@@ -8,11 +8,33 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap">
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="rail.css">
 </head>
 <body>
 
 <!-- خط نور — جزئیات امضادار (پیشنهاد جهت هنری Gemini): رشته‌ی طلاییِ آویز در لبه‌ی صفحه که با اسکرول پایین می‌آید -->
 <div class="light-line" aria-hidden="true"><div class="light-fill" id="lightFill"></div></div>
+
+<!-- RAIL HERO — «ریل برنجی» (نسخه‌ی ۷): ده مدل منتخب، نیم‌رخ روی ریل؛ هاور/مرکز موبایل = چرخش رو به شما -->
+<section class="rail-hero" id="railHero">
+  <div class="container">
+    <p class="eyebrow">مجموعه‌ی منتخب آویزلوکس</p>
+    <h1 class="rail-slogan">یه تغییر کوچیک… یه حس بزرگ 💫<br><span>نوری که خاصِ سلیقه توئه ✨</span></h1>
+    <p class="rail-hint">ده مدل منتخب روی ریل برنجی؛ روی هر آویز نگه دارید تا رو به شما بچرخد — برای خرید سریع، رویش بزنید.</p>
+    <div class="rail-stage" id="railStage">
+      <div class="rail-bar" aria-hidden="true"></div>
+      <div class="rail-row" id="railRow"></div>
+    </div>
+    <div class="rail-caption" id="railCaption">
+      <div class="rc-info"><h3 id="rcName"></h3><p id="rcMeta"></p></div>
+      <div class="rc-price" id="rcPrice"></div>
+      <div class="rc-actions">
+        <button class="btn-gold" id="rcBuy">خرید سریع</button>
+        <button class="btn-line light" id="rcGallery">مشاهده‌ی عکس‌ها</button>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- INTRO — هیروی تمام‌صفحه‌ی قالب Massively؛ عکس واقعی ۴۰۴۶ روی پس‌زمینه با روکش کاغذی -->
 <section class="intro" id="top">
@@ -227,6 +249,8 @@
 
 <script src="images.js"></script>
 <script src="app.js"></script>
+<script src="rail-posters.js"></script>
+<script src="rail.js"></script>
 <script>
 /* خط نور: پر شدن رشته‌ی طلایی با اسکرول (جزئیات امضادار نسخه‌ی ۶) */
 (function(){
