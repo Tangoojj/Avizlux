@@ -4,8 +4,8 @@
 (function () {
   var stage = document.getElementById("kStage");
   if (!stage || typeof PRODUCTS === "undefined" || !window.STAGE_IMGS) return;
-  var ORDER = ["4046", "3074", "4028", "4027", "4026", "3027", "3061", "3055", "3057", "4024"];
-  var DEFAULT_CODE = "4046", ROTATE_MS = 4200, RESUME_MS = 14000;
+  var ORDER = ["3074", "3055", "4046", "4028", "4027", "4026", "3027", "3061", "3057", "4024"];
+  var DEFAULT_CODE = "3074", ROTATE_MS = 4200, RESUME_MS = 14000;
   var byCode = {};
   PRODUCTS.forEach(function (p) { byCode[p.code] = p; });
   ORDER = ORDER.filter(function (c) { return byCode[c] && window.STAGE_IMGS[c]; });
