@@ -4,8 +4,8 @@
 (function () {
   var stage = document.getElementById("kStage");
   if (!stage || typeof PRODUCTS === "undefined" || !window.STAGE_IMGS) return;
-  var ORDER = ["4046", "4028", "4027", "4026", "3027", "3074", "3061", "3055", "3057", "4024"];
-  var DEFAULT_CODE = "4026", ROTATE_MS = 4200, RESUME_MS = 14000;
+  var ORDER = ["4046", "3074", "4028", "4027", "4026", "3027", "3061", "3055", "3057", "4024"];
+  var DEFAULT_CODE = "4046", ROTATE_MS = 4200, RESUME_MS = 14000;
   var byCode = {};
   PRODUCTS.forEach(function (p) { byCode[p.code] = p; });
   ORDER = ORDER.filter(function (c) { return byCode[c] && window.STAGE_IMGS[c]; });
@@ -46,7 +46,7 @@
     var was = p.was ? '<span class="was">' + faNum(p.was) + "</span>" : "";
     var off = p.was ? '<span class="off">٪' + faNum(Math.round((1 - p.price / p.was) * 100)) + " تخفیف</span>" : "";
     priceEl.innerHTML = was + '<span class="now">' + faNum(p.price) + " تومان</span>" + off;
-    badge.classList.toggle("hide", code !== DEFAULT_CODE);
+    badge.classList.toggle("hide", code !== "4026");
     thumbs.forEach(function (t, j) { t.classList.toggle("on", j === idx); });
   }
   function schedule(ms) { clearInterval(timer); timer = setInterval(function () { show(idx + 1); }, ms || ROTATE_MS); }
