@@ -4,7 +4,7 @@
 (function () {
   var stage = document.getElementById("kStage");
   if (!stage || typeof PRODUCTS === "undefined" || !window.STAGE_IMGS) return;
-  var ORDER = ["3074", "3055", "4046", "4028", "4027", "4026", "3027", "3061", "3057", "4024"];
+  var ORDER = ["3074"];
   var DEFAULT_CODE = "3074", ROTATE_MS = 4200, RESUME_MS = 14000;
   var byCode = {};
   PRODUCTS.forEach(function (p) { byCode[p.code] = p; });
@@ -37,7 +37,8 @@
     idx = (i + ORDER.length) % ORDER.length;
     var code = ORDER[idx], p = byCode[code]; current = p;
     var img = layers[front ^ 1];
-    img.src = window.STAGE_IMGS[code];
+    img.src = window.STAGE_IMGS[code + "L"] || window.STAGE_IMGS[code];
+    stage.classList.toggle("long", !!window.STAGE_IMGS[code + "L"]);
     img.alt = p.name;
     img.classList.add("on"); layers[front].classList.remove("on"); front ^= 1;
     nameEl.textContent = p.name;
