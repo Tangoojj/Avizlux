@@ -1,64 +1,52 @@
-/* آویزلوکس — هیروی «اپن آشپزخانه» (نسخه‌ی ۸): صحنه‌ی آشپزخانه‌ی گرم و تیره؛
-   آویزِ برش‌خورده از عکس واقعی محصول بالای اپن آویزان است و مدلش عوض می‌شود.
-   صحنه (دیوار، کابینت، اپن، صندلی) تصویرسازی CSS/SVG است — خودِ آویز عکس واقعی است. */
-.kitchen-hero{position:relative;background:radial-gradient(820px 420px at 50% -80px,rgba(227,170,78,.20),transparent 70%),var(--dark);color:var(--paper);padding:72px 0 46px;overflow:hidden}
-.kitchen-hero .eyebrow{color:var(--gold2);text-align:center}
-.kitchen-slogan{text-align:center;font-size:clamp(1.9rem,5.2vw,3.3rem);font-weight:800;line-height:1.45;margin:0 auto 10px;max-width:900px}
-.kitchen-slogan span{color:var(--gold2)}
-.kitchen-hint{text-align:center;color:#b8ab97;margin:0 auto;max-width:660px;font-size:1rem}
-
-/* ---------- صحنه ---------- */
-.kstage{position:relative;margin:34px auto 0;max-width:1060px;aspect-ratio:1060/600;border-radius:14px;overflow:hidden;background:linear-gradient(180deg,#241a12 0%,#2e2115 46%,#1d150e 100%);box-shadow:0 30px 60px rgba(0,0,0,.45),inset 0 0 0 1px rgba(227,170,78,.16)}
-.kstage svg.scene{position:absolute;inset:0;width:100%;height:100%}
-.k-glow{position:absolute;left:50%;top:6%;width:56%;aspect-ratio:1;transform:translateX(-50%);background:radial-gradient(circle,rgba(255,196,96,.34) 0%,rgba(255,178,64,.13) 42%,transparent 68%);pointer-events:none;transition:opacity .5s ease}
-.k-cone{position:absolute;left:50%;top:52%;width:44%;height:29%;transform:translateX(-50%);background:linear-gradient(180deg,rgba(255,205,110,.20),rgba(255,190,80,.05) 75%,transparent);clip-path:polygon(38% 0,62% 0,100% 100%,0 100%);pointer-events:none}
-.k-pool{position:absolute;left:50%;top:79.5%;width:47%;height:5.5%;transform:translateX(-50%);background:radial-gradient(50% 50% at 50% 50%,rgba(255,214,130,.5),rgba(255,190,80,.12) 60%,transparent 75%);pointer-events:none}
-.k-hang{position:absolute;left:50%;top:0;height:68%;aspect-ratio:1;transform:translateX(-50%);transform-origin:50% 0;animation:kSway 7s ease-in-out infinite alternate;pointer-events:none}
-@keyframes kSway{from{transform:translateX(-50%) rotate(-.55deg)}to{transform:translateX(-50%) rotate(.55deg)}}
-.k-hang img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:50% 0;opacity:0;transition:opacity .55s ease;filter:drop-shadow(0 18px 22px rgba(0,0,0,.45))}
+/* آویزلوکس — نسخه‌ی ۹: هیروی «آشپزخانه‌ی واقعی»
+   عکس واقعی آشپزخانه (Pexels) + برشِ عکس واقعی آویز روی اپن + گلدان روی اپن.
+   رابط ساده: چرخش خودکار، بندانگشتی، یک دکمه‌ی اصلی خرید. */
+.kitchen-hero{padding:104px 0 30px;text-align:center}
+.kitchen-slogan{font-size:clamp(1.7rem,4.6vw,3rem);font-weight:800;line-height:1.5;margin:6px 0 20px;color:var(--ink)}
+.kitchen-slogan span{color:var(--gold-d)}
+.kstage{position:relative;max-width:1060px;margin:6px auto 0;aspect-ratio:1060/600;border-radius:20px;overflow:hidden;background:#e9e2d6;box-shadow:0 24px 55px rgba(60,40,10,.28);text-align:center}
+.k-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 60%}
+.k-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(24,16,8,.16),transparent 26%,transparent 78%,rgba(24,16,8,.14));pointer-events:none}
+.k-glow{position:absolute;left:50%;top:26%;width:56%;aspect-ratio:1.6;transform:translate(-50%,-50%);background:radial-gradient(closest-side,rgba(255,196,92,.38),transparent 72%);filter:blur(6px);pointer-events:none}
+.k-cone{position:absolute;left:50%;top:44%;width:40%;height:22%;transform:translateX(-50%);background:linear-gradient(180deg,rgba(255,205,110,.30),rgba(255,205,110,.03));clip-path:polygon(43% 0,57% 0,88% 100%,12% 100%);filter:blur(3px);pointer-events:none}
+.k-pool{position:absolute;left:50%;top:63%;width:42%;height:7%;transform:translateX(-50%);background:radial-gradient(closest-side,rgba(255,205,110,.35),transparent 72%);filter:blur(5px);pointer-events:none}
+.k-flower{position:absolute;left:65%;bottom:31%;width:13.5%;filter:drop-shadow(0 10px 10px rgba(30,20,10,.35));pointer-events:none}
+.k-hang{position:absolute;left:50%;top:0;height:56%;aspect-ratio:1;transform:translateX(-50%);transform-origin:50% -4%;animation:ksway 7s ease-in-out infinite;pointer-events:none}
+.k-hang img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:top center;opacity:0;transition:opacity .55s ease;filter:drop-shadow(0 14px 16px rgba(30,20,10,.35))}
 .k-hang img.on{opacity:1}
-.k-badge{position:absolute;top:14px;inset-inline-start:14px;background:var(--gold);color:#241a06;font-size:.78rem;font-weight:700;padding:3px 12px;line-height:1.9;box-shadow:0 6px 16px rgba(0,0,0,.35);opacity:0;transform:translateY(-4px);transition:opacity .3s ease,transform .3s ease;z-index:4}
-.k-badge.show{opacity:1;transform:none}
-.k-arrow{position:absolute;top:44%;width:42px;height:42px;border-radius:50%;border:1px solid rgba(227,170,78,.45);background:rgba(20,14,8,.55);color:var(--gold2);font-size:1.25rem;line-height:1;display:grid;place-items:center;cursor:pointer;z-index:5;backdrop-filter:blur(3px);transition:background .25s ease,color .25s ease}
-.k-arrow:hover{background:var(--gold);color:#241a06}
-.k-arrow.prev{inset-inline-start:12px}
-.k-arrow.next{inset-inline-end:12px}
-.k-count{position:absolute;bottom:12px;inset-inline-end:14px;font-family:"JetBrains Mono",monospace;direction:ltr;font-size:.72rem;letter-spacing:.08em;color:rgba(240,226,198,.75);z-index:4}
-
-/* ---------- نوار اطلاعات ---------- */
-.k-caption{display:flex;align-items:center;gap:18px;flex-wrap:wrap;justify-content:center;margin:24px auto 0;max-width:1060px;text-align:center}
-.kc-info h3{margin:0;font-size:1.3rem;font-weight:800;line-height:1.6}
-.kc-info p{margin:0;color:#b8ab97;font-size:.9rem}
-.kc-price{font-size:1.45rem;font-weight:800;color:var(--gold2)}
-.kc-price .unit{font-size:.9rem;color:#b8ab97;font-weight:400}
-.kc-price .old{color:#8f8474;text-decoration:line-through;font-size:1rem;font-weight:400;margin-inline-end:8px}
-.kc-actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
-.btn-line.light{color:var(--paper);border-color:#57493a}
-.btn-line.light:hover{background:var(--paper);color:var(--ink)}
-
-/* ---------- انتخاب مدل ---------- */
-.k-thumbs{display:flex;gap:10px;justify-content:flex-start;margin:20px auto 0;max-width:1060px;overflow-x:auto;padding:6px 4px 10px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
-.k-thumbs::-webkit-scrollbar{display:none}
-.k-thumb{flex:0 0 auto;width:74px;background:rgba(255,255,255,.04);border:1px solid #57493a;border-radius:10px;padding:7px 4px 5px;color:#b8ab97;cursor:pointer;text-align:center;transition:border-color .25s ease,background .25s ease,transform .25s ease;-webkit-tap-highlight-color:transparent}
-.k-thumb img{width:100%;height:52px;object-fit:contain;display:block}
-.k-thumb span{display:block;font-family:"JetBrains Mono",monospace;direction:ltr;font-size:.66rem;letter-spacing:.04em;margin-top:3px}
+@keyframes ksway{0%,100%{transform:translateX(-50%) rotate(.7deg)}50%{transform:translateX(-50%) rotate(-.7deg)}}
+.k-badge{position:absolute;top:14px;inset-inline-start:14px;background:var(--gold);color:#241708;font-weight:800;font-size:.78rem;padding:6px 12px;border-radius:999px;box-shadow:0 8px 20px rgba(30,20,10,.3);transition:opacity .3s}
+.k-badge.hide{opacity:0}
+.k-caption{max-width:1060px;margin:16px auto 0;display:flex;align-items:center;gap:18px;text-align:start;flex-wrap:wrap}
+.kc-info{flex:1 1 260px;min-width:230px}
+.kc-info h3{margin:0 0 2px;font-size:1.22rem;color:var(--ink)}
+.kc-info p{margin:0;color:var(--ink2);font-size:.9rem}
+.kc-price{display:flex;align-items:baseline;gap:10px;margin-top:4px}
+.kc-price .now{color:var(--gold-d);font-weight:800;font-size:1.28rem}
+.kc-price .was{color:var(--ink3);text-decoration:line-through;font-size:.92rem}
+.kc-price .off{background:#7c2d3e;color:#ffd9de;font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px}
+.kc-actions{display:flex;flex-direction:column;align-items:stretch;gap:6px}
+.kc-buy{font-size:1.05rem;padding:14px 42px}
+.kc-link{background:none;border:none;color:var(--ink2);font:inherit;font-size:.86rem;cursor:pointer;text-decoration:underline;text-underline-offset:4px;padding:2px}
+.kc-link:hover{color:var(--gold-d)}
+.k-thumbs{max-width:1060px;margin:14px auto 0;display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.k-thumb{width:56px;padding:5px 4px 3px;background:#171008;border:1px solid #2e2114;border-radius:12px;cursor:pointer;color:var(--mut);font:inherit;transition:border-color .2s,transform .2s}
+.k-thumb img{width:100%;height:40px;object-fit:contain;display:block}
+.k-thumb span{display:block;font-size:.68rem;margin-top:2px;font-family:"JetBrains Mono",monospace}
 .k-thumb:hover{transform:translateY(-2px)}
-.k-thumb.active{border-color:var(--gold);background:rgba(227,170,78,.12);color:var(--gold2)}
-.k-thumb:focus-visible,.k-arrow:focus-visible{outline:2px solid var(--gold2);outline-offset:3px}
-
-@media (max-width:760px){
-  .kitchen-hero{padding:52px 0 36px}
-  .kstage{aspect-ratio:4/4.6;border-radius:10px}
-  .k-hang{height:64%}
-  .k-glow{width:96%}
-  .k-cone{width:72%;top:50%;height:28%}
-  .k-badge{top:10px;font-size:.7rem}
-  .k-pool{width:76%;top:78.5%}
-  .k-caption{flex-direction:column;gap:10px}
-  .k-thumb{width:64px}
-  .k-thumb img{height:44px}
-}
-@media (prefers-reduced-motion: reduce){
-  .k-hang{animation:none}
-  .k-hang img{transition:none}
+.k-thumb.on{border-color:var(--gold);color:var(--gold2)}
+@media(max-width:700px){
+  .kitchen-hero{padding-top:92px}
+  .kstage{aspect-ratio:4/4.1;border-radius:16px}
+  .k-photo{object-position:center 55%}
+  .k-hang{height:50%}
+  .k-flower{width:23%;left:60%;bottom:29%}
+  .k-cone{width:66%;top:40%}
+  .k-pool{top:60%;width:70%}
+  .k-badge{font-size:.7rem;top:10px}
+  .k-caption{justify-content:center;text-align:center}
+  .kc-info{text-align:center}
+  .kc-price{justify-content:center}
+  .kc-actions{width:100%}
+  .kc-buy{width:100%}
 }

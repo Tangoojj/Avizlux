@@ -1,94 +1,66 @@
-/* آویزلوکس — هیروی «اپن آشپزخانه» (نسخه‌ی ۸)
-   ده مدل منتخب بالای اپن آشپزخانه آویزان‌اند؛ مدل به‌صورت خودکار عوض می‌شود
-   و با لمس/کلیک روی بندانگشتی‌ها، فلش‌ها یا سوایپ روی صحنه هم قابل تعویض است.
-   تصویر هر مدل برشِ عکس واقعی همان محصول است (stage-imgs.js)؛ صحنه تصویرسازی است. */
+/* آویزلوکس — نسخه‌ی ۹: آویز روی اپنِ آشپزخانه‌ی واقعی
+   عکس واقعی آشپزخانه پس‌زمینه است و آویز، برشِ عکس واقعی همان محصول (stage-imgs.js).
+   مدل‌ها خودکار عوض می‌شوند؛ بندانگشتی و سوایپ هم هست. مسیر خرید همان خرید سریع قبلی است. */
 (function () {
-  "use strict";
-  var ORDER = ["4046", "4028", "4027", "4026", "3027", "3074", "3061", "3055", "3057", "4024"];
-  var DEFAULT_CODE = "4026";
-  var ROTATE_MS = 4200, RESUME_MS = 14000;
-
   var stage = document.getElementById("kStage");
-  if (!stage || typeof byCode !== "function") return;
-  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!stage || typeof PRODUCTS === "undefined" || !window.STAGE_IMGS) return;
+  var ORDER = ["4046", "4028", "4027", "4026", "3027", "3074", "3061", "3055", "3057", "4024"];
+  var DEFAULT_CODE = "4026", ROTATE_MS = 4200, RESUME_MS = 14000;
+  var byCode = {};
+  PRODUCTS.forEach(function (p) { byCode[p.code] = p; });
+  ORDER = ORDER.filter(function (c) { return byCode[c] && window.STAGE_IMGS[c]; });
+  if (!ORDER.length) return;
 
-  var FA = "۰۱۲۳۴۵۶۷۸۹";
-  var faNum = function (n) { return String(n).replace(/\d/g, function (d) { return FA[d]; }); };
-  var price = (typeof faPrice === "function") ? faPrice : function (n) { return faNum(n.toLocaleString("en-US")).replace(/,/g, "٬"); };
+  document.getElementById("kPhoto").src = window.STAGE_IMGS.kitchen;
+  document.getElementById("kFlower").src = window.STAGE_IMGS.flower;
 
   var layers = stage.querySelectorAll(".k-hang img");
+  var badge = document.getElementById("kBadge");
   var nameEl = document.getElementById("ksName"), metaEl = document.getElementById("ksMeta"),
-      priceEl = document.getElementById("ksPrice"), badgeEl = document.getElementById("kBadge"),
-      countEl = document.getElementById("kCount");
-  var thumbsWrap = document.getElementById("kThumbs");
+      priceEl = document.getElementById("ksPrice"), buyBtn = document.getElementById("ksBuy"),
+      galBtn = document.getElementById("ksGallery"), thumbsEl = document.getElementById("kThumbs");
+  var front = 0, idx = ORDER.indexOf(DEFAULT_CODE); if (idx < 0) idx = 0;
+  var timer = null, current = null;
 
-  var idx = ORDER.indexOf(DEFAULT_CODE), front = 0, timer = null, resumeAt = 0;
-
-  var thumbs = ORDER.map(function (code, i) {
-    var p = byCode(code);
+  ORDER.forEach(function (code, i) {
     var b = document.createElement("button");
-    b.type = "button";
-    b.className = "k-thumb";
-    b.setAttribute("aria-label", p.name + "، کد " + faNum(code));
+    b.type = "button"; b.className = "k-thumb"; b.dataset.i = i;
+    b.setAttribute("aria-label", "مدل " + code);
     b.innerHTML = '<img src="' + window.STAGE_IMGS[code] + '" alt="" loading="lazy"><span>' + code + "</span>";
     b.addEventListener("click", function () { userSelect(i); });
-    thumbsWrap.appendChild(b);
-    return b;
+    thumbsEl.appendChild(b);
   });
+  var thumbs = thumbsEl.querySelectorAll(".k-thumb");
 
-  function render(i) {
-    var code = ORDER[i], p = byCode(code);
-    front = 1 - front;
-    var show = layers[front], hide = layers[1 - front];
-    show.src = window.STAGE_IMGS[code];
-    show.alt = p.name + " نصب‌شده روی اپن آشپزخانه";
-    show.classList.add("on");
-    hide.classList.remove("on");
+  function faNum(n) { return Number(n).toLocaleString("fa-IR"); }
+  function show(i) {
+    idx = (i + ORDER.length) % ORDER.length;
+    var code = ORDER[idx], p = byCode[code]; current = p;
+    var img = layers[front ^ 1];
+    img.src = window.STAGE_IMGS[code];
+    img.alt = p.name;
+    img.classList.add("on"); layers[front].classList.remove("on"); front ^= 1;
     nameEl.textContent = p.name;
-    metaEl.textContent = "کد " + faNum(code) + " · " + (p.dims || "") + " · سه حالت نوری";
-    priceEl.innerHTML = (p.old ? '<span class="old">' + price(p.old) + "</span>" : "") +
-      price(p.price) + ' <span class="unit">تومان</span>';
-    badgeEl.classList.toggle("show", code === DEFAULT_CODE);
-    countEl.textContent = (i + 1) + " / " + ORDER.length;
-    thumbs.forEach(function (t, j) {
-      t.classList.toggle("active", j === i);
-      if (j === i) t.setAttribute("aria-current", "true"); else t.removeAttribute("aria-current");
-    });
-    document.getElementById("ksBuy").onclick = function () { openBuy(code); };
-    document.getElementById("ksGallery").onclick = function () { openGallery(code); };
+    var size = p.sizes && p.sizes[0] ? "ابعاد " + p.sizes[0] + " سانتی‌متر" : "";
+    metaEl.textContent = "کد " + code + (size ? " · " + size : "") + (p.feature ? " · " + p.feature : "");
+    var was = p.was ? '<span class="was">' + faNum(p.was) + "</span>" : "";
+    var off = p.was ? '<span class="off">٪' + faNum(Math.round((1 - p.price / p.was) * 100)) + " تخفیف</span>" : "";
+    priceEl.innerHTML = was + '<span class="now">' + faNum(p.price) + " تومان</span>" + off;
+    badge.classList.toggle("hide", code !== DEFAULT_CODE);
+    thumbs.forEach(function (t, j) { t.classList.toggle("on", j === idx); });
   }
-
-  function go(i) { idx = (i + ORDER.length) % ORDER.length; render(idx); }
-  function userSelect(i) { go(i); hold(); }
-  function hold() {
-    resumeAt = Date.now() + RESUME_MS;
-    stopAuto();
-    setTimeout(startAuto, RESUME_MS);
-  }
-  function startAuto() {
-    if (reduced || timer) return;
-    timer = setInterval(function () {
-      if (Date.now() < resumeAt || document.hidden) return;
-      go(idx + 1);
-    }, ROTATE_MS);
-  }
-  function stopAuto() { if (timer) { clearInterval(timer); timer = null; } }
-
-  document.getElementById("kPrev").addEventListener("click", function () { userSelect(idx - 1); });
-  document.getElementById("kNext").addEventListener("click", function () { userSelect(idx + 1); });
-  stage.addEventListener("pointerenter", stopAuto);
-  stage.addEventListener("pointerleave", startAuto);
-
+  function schedule(ms) { clearInterval(timer); timer = setInterval(function () { show(idx + 1); }, ms || ROTATE_MS); }
+  function userSelect(i) { show(i); schedule(RESUME_MS); }
+  buyBtn.addEventListener("click", function () { if (current && window.openBuy) openBuy(current.code); });
+  galBtn.addEventListener("click", function () { if (current && window.openGallery) openGallery(current.code); });
   var tx = null;
-  stage.addEventListener("touchstart", function (e) { tx = e.changedTouches[0].clientX; }, { passive: true });
+  stage.addEventListener("touchstart", function (e) { tx = e.touches[0].clientX; }, { passive: true });
   stage.addEventListener("touchend", function (e) {
     if (tx === null) return;
-    var dx = e.changedTouches[0].clientX - tx;
-    if (Math.abs(dx) > 42) userSelect(idx + (dx < 0 ? -1 : 1)); /* RTL: سوایپ چپ = قبلی */
-    tx = null;
+    var dx = e.changedTouches[0].clientX - tx; tx = null;
+    if (Math.abs(dx) > 42) userSelect(idx + (dx < 0 ? -1 : 1));
   }, { passive: true });
-
-
-  render(idx);
-  startAuto();
+  stage.addEventListener("mouseenter", function () { clearInterval(timer); });
+  stage.addEventListener("mouseleave", function () { schedule(RESUME_MS); });
+  show(idx); schedule();
 })();
