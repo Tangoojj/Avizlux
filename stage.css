@@ -7,11 +7,11 @@
 .kstage{position:relative;max-width:1060px;margin:6px auto 0;aspect-ratio:1060/600;border-radius:20px;overflow:hidden;background:#e9e2d6;box-shadow:0 24px 55px rgba(60,40,10,.28);text-align:center}
 .k-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 62%}
 .k-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(24,16,8,.16),transparent 26%,transparent 78%,rgba(24,16,8,.14));pointer-events:none}
-.k-glow{position:absolute;left:50%;top:26%;width:56%;aspect-ratio:1.6;transform:translate(-50%,-50%);background:radial-gradient(closest-side,rgba(255,196,92,.38),transparent 72%);filter:blur(6px);pointer-events:none}
-.k-cone{position:absolute;left:50%;top:44%;width:40%;height:22%;transform:translateX(-50%);background:linear-gradient(180deg,rgba(255,205,110,.30),rgba(255,205,110,.03));clip-path:polygon(43% 0,57% 0,88% 100%,12% 100%);filter:blur(3px);pointer-events:none}
+.k-glow{position:absolute;left:50%;top:21%;width:44%;aspect-ratio:1.6;transform:translate(-50%,-50%);background:radial-gradient(closest-side,rgba(255,196,92,.38),transparent 72%);filter:blur(6px);pointer-events:none}
+.k-cone{position:absolute;left:50%;top:38%;width:34%;height:24%;transform:translateX(-50%);background:linear-gradient(180deg,rgba(255,205,110,.30),rgba(255,205,110,.03));clip-path:polygon(43% 0,57% 0,88% 100%,12% 100%);filter:blur(3px);pointer-events:none}
 .k-pool{position:absolute;left:50%;top:63%;width:42%;height:7%;transform:translateX(-50%);background:radial-gradient(closest-side,rgba(255,205,110,.35),transparent 72%);filter:blur(5px);pointer-events:none}
 .k-flower{position:absolute;left:22%;bottom:36%;width:12%;filter:drop-shadow(0 10px 10px rgba(30,20,10,.35));pointer-events:none}
-.k-hang{position:absolute;left:50%;top:0;height:56%;aspect-ratio:1;transform:translateX(-50%);transform-origin:50% -4%;animation:ksway 7s ease-in-out infinite;pointer-events:none}
+.k-hang{position:absolute;left:50%;top:0;height:41%;aspect-ratio:1;transform:translateX(-50%);transform-origin:50% -4%;animation:ksway 7s ease-in-out infinite;pointer-events:none}
 .k-hang img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:top center;opacity:0;transition:opacity .55s ease;filter:drop-shadow(0 14px 16px rgba(30,20,10,.35))}
 .k-hang img.on{opacity:1}
 @keyframes ksway{0%,100%{transform:translateX(-50%) rotate(.7deg)}50%{transform:translateX(-50%) rotate(-.7deg)}}
@@ -39,9 +39,9 @@
   .kitchen-hero{padding-top:92px}
   .kstage{aspect-ratio:4/4.1;border-radius:16px}
   .k-photo{object-position:center 55%}
-  .k-hang{height:54%}
+  .k-hang{height:40%}
   .k-flower{width:21%;left:24%;bottom:35%}
-  .k-cone{width:66%;top:40%}
+  .k-cone{width:56%;top:36%}
   .k-pool{top:60%;width:70%}
   .k-badge{font-size:.7rem;top:10px}
   .k-caption{justify-content:center;text-align:center}
