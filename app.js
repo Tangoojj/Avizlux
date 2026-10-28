@@ -4,24 +4,24 @@
 // IMAGES[code] = [[dataURI, label], ...] — all photos are the store's own real product photos;
 // detail views are close-up crops of those same real photos. No generated imagery anywhere.
 const PRODUCTS = [
-  { code:"4046", name:"آویز مدل کریستال اووال",        price:13500000, old:null,     off:8,  dims:"۱۲ × ۲۵ سانتی‌متر", mat:"کریستال درجه‌یک وارداتی و فلز طلایی آبکاری‌شده", spaces:["dining","salon"], rating:4.8, sold:98 },
-  { code:"4028", name:"آویز مدل گوزن",                 price:12200000, old:13332000, off:8,  dims:"۱۵ سانتی‌متر",       mat:"کریستال درجه‌یک تمام وارداتی",                 spaces:["dining","salon"], rating:4.9, sold:176, best:true },
+  { code:"4046", name:"آویز مدل کریستال اووال",        price:4425000, old:null,     off:null,  dims:"۱۲ × ۲۵ سانتی‌متر", mat:"کریستال درجه‌یک وارداتی و فلز طلایی آبکاری‌شده", spaces:["dining","salon"], rating:4.8, sold:98 },
+  { code:"4028", name:"آویز مدل گوزن",                 price:4642000, old:null, off:null,  dims:"۱۵ سانتی‌متر",       mat:"کریستال درجه‌یک تمام وارداتی",                 spaces:["dining","salon"], rating:4.9, sold:176, best:true },
   { code:"4027", name:"آویز مدل قاصدک",                price:12026000, old:null,     off:null,dims:"۱۲ سانتی‌متر",       mat:"کریستال درجه‌یک وارداتی و فلز آبکاری‌شده",       spaces:["island","dining"], rating:4.7, sold:88 },
-  { code:"4026", name:"آویز مدل گوی کریستال حباب‌دار", price:12200000, old:null,     off:null,dims:"۱۵ سانتی‌متر",       mat:"کریستال وارداتی و فلز آبکاری‌شده با ضمانت",      spaces:["island","dining"], rating:4.9, sold:231, rec:true, best:true },
-  { code:"3027", name:"آویز مدل طاووس",                price:11282000, old:null,     off:null,dims:"۱۵ سانتی‌متر",       mat:"کریستال درجه‌یک وارداتی و فلز آبکاری‌شده طلایی", spaces:["salon"],           rating:4.6, sold:41 },
-  { code:"3074", name:"آویز مدل قفل",                  price:10943000, old:null,     off:null,dims:"۱۵ × ۱۰ سانتی‌متر",  mat:"کریستال درجه‌یک وارداتی و فلز آبکاری‌شده",       spaces:["island","dining"], rating:4.5, sold:63 },
-  { code:"3061", name:"آویز مدل C",                    price:10406000, old:null,     off:null,dims:"۱۸ سانتی‌متر",       mat:"بدنه‌ی طلایی",                                  spaces:["island"],          rating:4.4, sold:57 },
-  { code:"3055", name:"آویز دیواری مدل نیوفیس",        price:10378000, old:null,     off:null,dims:"مدل دیواری",         mat:"لامپ SMD",                                       spaces:["salon"],           rating:4.3, sold:48 },
+  { code:"4026", name:"آویز مدل گوی کریستال حباب‌دار", price:4616000, old:null,     off:null,dims:"۱۵ سانتی‌متر",       mat:"کریستال وارداتی و فلز آبکاری‌شده با ضمانت",      spaces:["island","dining"], rating:4.9, sold:231, rec:true, best:true },
+  { code:"3027", name:"آویز مدل طاووس",                price:4561000, old:null,     off:null,dims:"۱۵ سانتی‌متر",       mat:"کریستال درجه‌یک وارداتی و فلز آبکاری‌شده طلایی", spaces:["salon"],           rating:4.6, sold:41 },
+  { code:"3074", name:"آویز مدل قفل",                  price:4350000, old:null,     off:null,dims:"۱۵ × ۱۰ سانتی‌متر",  mat:"کریستال درجه‌یک وارداتی و فلز آبکاری‌شده",       spaces:["island","dining"], rating:4.5, sold:63 },
+  { code:"3061", name:"آویز مدل C",                    price:4561000, old:null,     off:null,dims:"۱۸ سانتی‌متر",       mat:"بدنه‌ی طلایی",                                  spaces:["island"],          rating:4.4, sold:57 },
+  { code:"3055", name:"آویز دیواری مدل نیوفیس",        price:5370000, old:null,     off:null,dims:"مدل دیواری",         mat:"لامپ SMD",                                       spaces:["salon","bedroom"],           rating:4.3, sold:48 },
   { code:"3057", name:"آویز کره‌ای مدل مولتی‌لایت سفید",price:10378000, old:null,    off:null,dims:"رنگ سفید",           mat:"لامپ SMD درجه‌یک برند S.K",                      spaces:["dining","island"], rating:4.5, sold:72 },
   { code:"4024", name:"آویز مدل سکه حبابی",            price:10316000, old:null,     off:null,dims:"۱۲ سانتی‌متر",       mat:"کریستال درجه‌یک وارداتی و فلز آبکاری‌شده",       spaces:["island","dining"], rating:4.6, sold:94 },
-  { code:"3056", name:"آویز کره‌ای مدل مولتی‌لایت",    price:9800000,  old:10378000, off:6,  dims:"چندشاخه",            mat:"لامپ SMD درجه‌یک برند S.K",                      spaces:["dining","salon"],  rating:4.7, sold:154, best:true },
-  { code:"3076", name:"آویز مدل سیب",                  price:9100000,  old:9858000,  off:8,  dims:"۱۵ × ۱۰ سانتی‌متر",  mat:"کریستال درجه‌یک وارداتی و فلز آبکاری‌شده",       spaces:["island"],          rating:4.6, sold:119 },
-  { code:"4066", name:"آویز مدل گوی برفی طلایی",       price:8855000,  old:null,     off:null,dims:"۱۳ سانتی‌متر",       mat:"اکرولیک فشرده و فلز آبکاری‌شده طلایی",           spaces:["island","dining"], rating:4.7, sold:143 },
-  { code:"4067", name:"آویز مدل گوی برفی نقره‌ای",    price:8855000,  old:null,     off:null,dims:"۱۳ سانتی‌متر",       mat:"اکرولیک فشرده و فلز آبکاری‌شده نقره‌ای",         spaces:["island","dining"], rating:4.7, sold:127 },
-  { code:"3081", name:"آویز مدل ورقه طلا",             price:8033000,  old:9549000,  off:16, dims:"—",                  mat:"کریستال درجه‌یک و فلز آبکاری‌شده طلایی",         spaces:["dining","salon"],  rating:4.6, sold:203, best:true },
-  { code:"3086", name:"آویز مدل برگ نور",              price:8215000,  old:null,     off:null,dims:"۲۰ سانتی‌متر",       mat:"اکرولیک فشرده و فلز آبکاری‌شده طلایی",           spaces:["salon","island"],  rating:4.5, sold:66 },
-  { code:"3085", name:"آویز مدل پلکسی",                price:8186000,  old:null,     off:null,dims:"—",                  mat:"لامپ SMD درجه‌یک برند S.K",                      spaces:["island"],          rating:4.4, sold:59 },
-  { code:"3058", name:"آویز مدرن کروی مدل اوربیت",     price:2599000,  old:null,     off:null,dims:"رنگ سفید",           mat:"لامپ SMD",                                       spaces:["island"],          rating:4.5, sold:171 },
+  { code:"3056", name:"آویز کره‌ای مدل مولتی‌لایت",    price:5370000,  old:null, off:null,  dims:"چندشاخه",            mat:"لامپ SMD درجه‌یک برند S.K",                      spaces:["dining","salon"],  rating:4.7, sold:154, best:true },
+  { code:"3076", name:"آویز مدل سیب",                  price:5370000,  old:null,  off:null,  dims:"۱۵ × ۱۰ سانتی‌متر",  mat:"کریستال درجه‌یک وارداتی و فلز آبکاری‌شده",       spaces:["island","cafe"],          rating:4.6, sold:119 },
+  { code:"4066", name:"آویز مدل گوی برفی طلایی",       price:4217000,  old:null,     off:null,dims:"۱۳ سانتی‌متر",       mat:"اکرولیک فشرده و فلز آبکاری‌شده طلایی",           spaces:["island","dining","bedroom"], rating:4.7, sold:143 },
+  { code:"4067", name:"آویز مدل گوی برفی نقره‌ای",    price:8855000,  old:null,     off:null,dims:"۱۳ سانتی‌متر",       mat:"اکرولیک فشرده و فلز آبکاری‌شده نقره‌ای",         spaces:["island","dining","bedroom"], rating:4.7, sold:127 },
+  { code:"3081", name:"آویز مدل ورقه طلا",             price:3692000,  old:null,  off:null, dims:"—",                  mat:"کریستال درجه‌یک و فلز آبکاری‌شده طلایی",         spaces:["dining","salon"],  rating:4.6, sold:203, best:true },
+  { code:"3086", name:"آویز مدل برگ نور",              price:4350000,  old:null,     off:null,dims:"۲۰ سانتی‌متر",       mat:"اکرولیک فشرده و فلز آبکاری‌شده طلایی",           spaces:["salon","island"],  rating:4.5, sold:66 },
+  { code:"3085", name:"آویز مدل پلکسی",                price:4350000,  old:null,     off:null,dims:"—",                  mat:"لامپ SMD درجه‌یک برند S.K",                      spaces:["island","cafe"],          rating:4.4, sold:59 },
+  { code:"3058", name:"آویز مدرن کروی مدل اوربیت",     price:2599000,  old:null,     off:null,dims:"رنگ سفید",           mat:"لامپ SMD",                                       spaces:["island","bedroom","cafe"],          rating:4.5, sold:171 },
 ];
 const byCode = c => PRODUCTS.find(p => p.code === c);
 
@@ -63,8 +63,8 @@ function cardHTML(p){
 }
 function applyFilter(list){
   if (filter === "all") return list;
-  if (filter === "u10") return list.filter(p => p.price < 10000000);
-  if (filter === "b1013") return list.filter(p => p.price >= 10000000 && p.price <= 13000000);
+  if (filter === "u45") return list.filter(p => p.price < 4500000);
+  if (filter === "a45") return list.filter(p => p.price >= 4500000);
   return list.filter(p => p.spaces.includes(filter));
 }
 function applySort(list){
@@ -81,7 +81,7 @@ function renderGrid(){
   $("gridCount").textContent = filter === "all" ? `همه‌ی مدل‌ها: ${faNum(list.length)} مدل` : `${faNum(list.length)} مدل در این انتخاب`;
 }
 function renderDeals(){
-  dealsGrid.innerHTML = PRODUCTS.filter(p => p.off).map(cardHTML).join("");
+  const deals = PRODUCTS.filter(p => p.off); const dsec = document.getElementById("deals"); if (dsec) dsec.style.display = deals.length ? "" : "none"; dealsGrid.innerHTML = deals.map(cardHTML).join("");
 }
 $("chips").addEventListener("click", e => {
   const b = e.target.closest(".chip"); if (!b) return;
