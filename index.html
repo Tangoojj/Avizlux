@@ -8,31 +8,90 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap">
 <link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="rail.css">
+<link rel="stylesheet" href="stage.css">
 </head>
 <body>
 
 <!-- خط نور — جزئیات امضادار (پیشنهاد جهت هنری Gemini): رشته‌ی طلاییِ آویز در لبه‌ی صفحه که با اسکرول پایین می‌آید -->
 <div class="light-line" aria-hidden="true"><div class="light-fill" id="lightFill"></div></div>
 
-<!-- RAIL HERO — «ریل برنجی» (نسخه‌ی ۷): ده مدل منتخب، نیم‌رخ روی ریل؛ هاور/مرکز موبایل = چرخش رو به شما -->
-<section class="rail-hero" id="railHero">
+<!-- KITCHEN HERO — «اپن آشپزخانه» (نسخه‌ی ۸، ایده‌ی کاربر): آویزها بالای اپن آویزان‌اند و مدل‌شان عوض می‌شود -->
+<section class="kitchen-hero" id="kitchenHero">
   <div class="container">
     <p class="eyebrow">مجموعه‌ی منتخب آویزلوکس</p>
-    <h1 class="rail-slogan">یه تغییر کوچیک… یه حس بزرگ 💫<br><span>نوری که خاصِ سلیقه توئه ✨</span></h1>
-    <p class="rail-hint">ده مدل منتخب روی ریل برنجی؛ روی هر آویز نگه دارید تا رو به شما بچرخد — برای خرید سریع، رویش بزنید.</p>
-    <div class="rail-stage" id="railStage">
-      <div class="rail-bar" aria-hidden="true"></div>
-      <div class="rail-row" id="railRow"></div>
+    <h1 class="kitchen-slogan">یه تغییر کوچیک… یه حس بزرگ 💫<br><span>نوری که خاصِ سلیقه توئه ✨</span></h1>
+    <p class="kitchen-hint">آویزها را همان‌جا که باید باشند ببینید: بالای اپن آشپزخانه. مدل‌ها خودشان عوض می‌شوند؛ با بندانگشتی‌ها هم می‌توانید انتخاب کنید.</p>
+    <div class="kstage" id="kStage">
+      <svg class="scene" viewBox="0 0 1060 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <defs>
+          <linearGradient id="kwall" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#2a1e13"/><stop offset=".55" stop-color="#332416"/><stop offset="1" stop-color="#20160e"/>
+          </linearGradient>
+          <linearGradient id="kslab" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#e6d7b8"/><stop offset="1" stop-color="#b49b6e"/>
+          </linearGradient>
+          <pattern id="kslats" width="26" height="10" patternUnits="userSpaceOnUse">
+            <rect width="26" height="10" fill="#43301c"/><rect width="3" height="10" fill="#241708"/>
+          </pattern>
+        </defs>
+        <rect width="1060" height="600" fill="url(#kwall)"/>
+        <!-- قاب‌بندی دیوار -->
+        <g fill="none" stroke="#4d3a22" stroke-width="2" opacity=".3">
+          <rect x="36" y="42" width="300" height="330" rx="4"/><rect x="724" y="42" width="300" height="330" rx="4"/>
+        </g>
+        <!-- کابینت‌های کناری و نور زیر کابینت -->
+        <g>
+          <rect x="56" y="86" width="118" height="196" fill="#20160c"/><rect x="182" y="86" width="118" height="196" fill="#241a10"/>
+          <rect x="760" y="86" width="118" height="196" fill="#241a10"/><rect x="886" y="86" width="118" height="196" fill="#20160c"/>
+          <rect x="56" y="282" width="244" height="5" fill="#e3aa4e" opacity=".85"/><rect x="760" y="282" width="244" height="5" fill="#e3aa4e" opacity=".85"/>
+          <rect x="56" y="287" width="244" height="34" fill="#ffbe5a" opacity=".07"/><rect x="760" y="287" width="244" height="34" fill="#ffbe5a" opacity=".07"/>
+        </g>
+        <!-- بین کابینت و کانتر پشتی + خود کانتر -->
+        <rect x="40" y="322" width="980" height="60" fill="#ffffff" opacity=".03"/>
+        <rect x="40" y="382" width="980" height="12" fill="#0f0906"/>
+        <rect x="40" y="382" width="980" height="2" fill="#e3aa4e" opacity=".28"/>
+        <!-- گلدان و دکور روی اپن -->
+        <g opacity=".9">
+          <path d="M238 470 L246 428 Q247 420 254 420 L262 420 Q269 420 270 428 L278 470 Z" fill="#6d5636"/>
+          <g stroke="#a98d55" stroke-width="3" fill="none" stroke-linecap="round" opacity=".8">
+            <path d="M258 424 Q238 372 218 348"/><path d="M258 424 Q256 366 252 336"/><path d="M258 424 Q276 370 300 350"/>
+          </g>
+          <ellipse cx="806" cy="466" rx="34" ry="9" fill="#191008"/>
+          <path d="M772 462 Q806 486 840 462 Q806 472 772 462Z" fill="#7d6440"/>
+          <circle cx="790" cy="456" r="10" fill="#8a5a26"/><circle cx="808" cy="450" r="11" fill="#a06a2c"/><circle cx="824" cy="457" r="9" fill="#7d5223"/>
+        </g>
+        <!-- جزیره / اپن -->
+        <polygon points="196,462 864,462 898,494 162,494" fill="url(#kslab)"/>
+        <polygon points="162,494 898,494 878,600 182,600" fill="url(#kslats)"/>
+        <polygon points="162,494 898,494 894,508 166,508" fill="#120b05" opacity=".55"/>
+        <!-- صندلی‌های اپن -->
+        <g fill="#140d07" stroke="#5f4726" stroke-width="2">
+          <ellipse cx="352" cy="556" rx="52" ry="10"/>
+          <path d="M318 560 L306 600 M386 560 L398 600 M340 562 L338 600 M364 562 L366 600" fill="none"/>
+          <ellipse cx="708" cy="556" rx="52" ry="10"/>
+          <path d="M674 560 L662 600 M742 560 L754 600 M696 562 L694 600 M720 562 L722 600" fill="none"/>
+        </g>
+      </svg>
+      <div class="k-glow" aria-hidden="true"></div>
+      <div class="k-cone" aria-hidden="true"></div>
+      <div class="k-pool" aria-hidden="true"></div>
+      <div class="k-hang" aria-hidden="false">
+        <img alt=""><img alt="">
+      </div>
+      <span class="k-badge" id="kBadge">پیشنهاد آویزلوکس</span>
+      <button class="k-arrow prev" id="kPrev" type="button" aria-label="مدل قبلی">›</button>
+      <button class="k-arrow next" id="kNext" type="button" aria-label="مدل بعدی">‹</button>
+      <span class="k-count" id="kCount" dir="ltr"></span>
     </div>
-    <div class="rail-caption" id="railCaption">
-      <div class="rc-info"><h3 id="rcName"></h3><p id="rcMeta"></p></div>
-      <div class="rc-price" id="rcPrice"></div>
-      <div class="rc-actions">
-        <button class="btn-gold" id="rcBuy">خرید سریع</button>
-        <button class="btn-line light" id="rcGallery">مشاهده‌ی عکس‌ها</button>
+    <div class="k-caption">
+      <div class="kc-info"><h3 id="ksName"></h3><p id="ksMeta"></p></div>
+      <div class="kc-price" id="ksPrice"></div>
+      <div class="kc-actions">
+        <button class="btn-gold" id="ksBuy">خرید سریع</button>
+        <button class="btn-line light" id="ksGallery">مشاهده‌ی عکس‌ها</button>
       </div>
     </div>
+    <div class="k-thumbs" id="kThumbs" role="group" aria-label="انتخاب مدل آویز"></div>
   </div>
 </section>
 
@@ -249,8 +308,8 @@
 
 <script src="images.js"></script>
 <script src="app.js"></script>
-<script src="rail-posters.js"></script>
-<script src="rail.js"></script>
+<script src="stage-imgs.js"></script>
+<script src="stage.js"></script>
 <script>
 /* خط نور: پر شدن رشته‌ی طلایی با اسکرول (جزئیات امضادار نسخه‌ی ۶) */
 (function(){
