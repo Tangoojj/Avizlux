@@ -57,3 +57,12 @@
 .kstage.long .k-thumbs{display:none}
 .kstage.long .k-cone{width:44%;top:40%}
 @media(max-width:700px){.kstage.long .k-hang img{object-position:center 55%}}
+
+/* استودیو تست — کنترل چیدمان */
+.studio-sub{max-width:640px;margin:0 auto 4px;color:var(--ink2);font-size:1rem;line-height:1.9}
+.k-modes{max-width:1060px;margin:14px auto 0;display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.k-mode{font:inherit;font-size:.9rem;font-weight:700;padding:9px 18px;border-radius:999px;border:1.5px solid #d8c9a8;background:#fffdf7;color:var(--ink2);cursor:pointer;transition:all .2s}
+.k-mode:hover{border-color:var(--gold);color:var(--ink)}
+.k-mode.on{background:var(--gold);border-color:var(--gold);color:#241708}
+.k-mode:disabled{opacity:.38;cursor:default}
+.k-mode:disabled:hover{border-color:#d8c9a8;color:var(--ink2)}

@@ -169,21 +169,25 @@ function showToast(msg){
 }
 
 /* ---------- hero / spotlight ---------- */
-$("heroImg").src = IMAGES["4046"][2][0];
-$("spotImg").src = IMAGES["4026"][0][0];
-$("spotStars").textContent = stars(4.9);
-$("spotSold").textContent = "۴٫۹ · +۲۳۱ فروش";
-$("heroBuy").addEventListener("click", () => openBuy("4046"));
-$("heroGallery").addEventListener("click", () => openGallery("4046"));
-$("spotBuy").addEventListener("click", () => openBuy("4026"));
-$("spotGallery").addEventListener("click", () => openGallery("4026"));
+if ($("heroImg")) {
+  $("heroImg").src = IMAGES["4046"][2][0];
+  $("heroBuy").addEventListener("click", () => openBuy("4046"));
+  $("heroGallery").addEventListener("click", () => openGallery("4046"));
+}
+if ($("spotImg")) {
+  $("spotImg").src = IMAGES["4026"][0][0];
+  $("spotStars").textContent = stars(4.9);
+  $("spotSold").textContent = "۴٫۹ · +۲۳۱ فروش";
+  $("spotBuy").addEventListener("click", () => openBuy("4026"));
+  $("spotGallery").addEventListener("click", () => openGallery("4026"));
+}
 
 /* ---------- countdown to midnight ---------- */
 function tick(){
   const now = new Date(); const end = new Date(now); end.setHours(24, 0, 0, 0);
   let s = Math.max(0, Math.floor((end - now) / 1000));
   const h = String(Math.floor(s / 3600)).padStart(2, "0"), m = String(Math.floor(s % 3600 / 60)).padStart(2, "0"), sec = String(s % 60).padStart(2, "0");
-  $("countdown").textContent = `${h}:${m}:${sec}`;
+  const cd = $("countdown"); if (cd) cd.textContent = `${h}:${m}:${sec}`;
 }
 tick(); setInterval(tick, 1000);
 

@@ -7,8 +7,8 @@
 <meta name="description" content="نسخه‌ی نمونه‌ی بازطراحی فروشگاه آویزلوکس؛ آویزهای کریستالی با خرید سریع و بدون ثبت‌نام.">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap">
-<link rel="stylesheet" href="style.css?v=18">
-<link rel="stylesheet" href="stage.css?v=18">
+<link rel="stylesheet" href="style.css?v=19">
+<link rel="stylesheet" href="stage.css?v=19">
 </head>
 <body>
 
@@ -16,10 +16,11 @@
 <div class="light-line" aria-hidden="true"><div class="light-fill" id="lightFill"></div></div>
 
 <!-- KITCHEN HERO — «اپن آشپزخانه» (نسخه‌ی ۸، ایده‌ی کاربر): آویزها بالای اپن آویزان‌اند و مدل‌شان عوض می‌شود -->
-<section class="kitchen-hero" id="kitchenHero">
+<section class="kitchen-hero" id="top">
   <div class="container">
-    <p class="eyebrow">مجموعه‌ی منتخب آویزلوکس</p>
+    <p class="eyebrow">استودیو تست آویز آویزلوکس</p>
     <h1 class="kitchen-slogan">یه تغییر کوچیک… یه حس بزرگ 💫<br><span>نوری که خاصِ سلیقه توئه ✨</span></h1>
+    <p class="studio-sub">مدل و چیدمان را انتخاب کن و همان لحظه روی اپن ببین؛ اگر پسندیدی، خریدش فقط دو لمس است.</p>
     <div class="kstage" id="kStage">
       <img class="k-photo" id="kPhoto" alt="آشپزخانه‌ی روشن با اپن">
       <div class="k-shade" aria-hidden="true"></div>
@@ -39,27 +40,21 @@
         <button class="kc-link" id="ksGallery" type="button">مشاهده‌ی عکس‌ها</button>
       </div>
     </div>
+    <div class="k-modes" id="kModes" role="group" aria-label="انتخاب چیدمان روی اپن"></div>
     <div class="k-thumbs" id="kThumbs" role="group" aria-label="انتخاب مدل آویز"></div>
   </div>
 </section>
 
-<!-- INTRO — هیروی تمام‌صفحه‌ی قالب Massively؛ عکس واقعی ۴۰۴۶ روی پس‌زمینه با روکش کاغذی -->
-<section class="intro" id="top">
-  <img class="intro-bg" id="heroImg" alt="آویز کریستال اووال نصب‌شده روی اپن آشپزخانه">
-  <div class="intro-veil"></div>
-  <div class="intro-in">
-    <p class="eyebrow">فروشگاه آویز و لوستر آویزلوکس</p>
-    <h1>رقصِ نور،<br>در آرامشِ حباب‌ها</h1>
-    <p class="intro-sub">آویزهای کریستالی وارداتی با ترانس هوشمند و سه حالت نوری؛<br>خرید سریع و بدون ثبت‌نام، فقط با چند لمس.</p>
-    <div class="hero-actions">
-      <button class="btn-gold btn-lg" id="heroBuy">خرید آویز کریستال اووال</button>
-      <button class="btn-line btn-lg" id="heroGallery">مشاهده‌ی عکس‌های این مدل</button>
-    </div>
-    <p class="hero-price">کریستال اووال، کد ۴۰۴۶ — <b>۱۳٬۵۰۰٬۰۰۰ تومان</b> <span class="off-badge">٪۸ تخفیف</span></p>
-    <p class="intro-cap">عکس پس‌زمینه، عکس واقعی همین مدل نصب‌شده روی اپن آشپزخانه است.</p>
-    <a class="intro-arrow" href="#spotlight" aria-label="رفتن به پیشنهاد آویزلوکس">↓</a>
+<section class="trust-strip">
+  <div class="container trust-in">
+    <span>🚚 ارسال به سراسر کشور</span>
+    <span>🛡️ ضمانت کیفیت و اصالت کالا</span>
+    <span>💳 پرداخت امن با درگاه زیبال</span>
+    <a href="https://wa.me/989171837394" target="_blank" rel="noopener">💬 مشاوره‌ی انتخاب در واتساپ</a>
   </div>
 </section>
+
+
 
 <!-- NAV — نوار ناوبری قالب Massively (چسبان، برای خرید سریع) -->
 <nav class="navbar" id="mainNav">
@@ -68,7 +63,7 @@
     <button class="navbar-toggler" id="navToggle" type="button" aria-label="باز کردن منو" aria-expanded="false" aria-controls="navMenu">☰</button>
     <div class="navbar-collapse" id="navMenu">
       <ul class="navbar-nav">
-        <li class="nav-item"><a class="nav-link" href="#spotlight">پیشنهاد ما</a></li>
+        <li class="nav-item"><a class="nav-link" href="#top">استودیو تست</a></li>
         <li class="nav-item"><a class="nav-link" href="#products">محصولات</a></li>
         <li class="nav-item"><a class="nav-link" href="#why">چرا آویزلوکس</a></li>
         <li class="nav-item"><a class="nav-link" href="#deals">تخفیف‌ها</a></li>
@@ -91,35 +86,24 @@
   </section>
 
   <!-- FEATURED — مقاله‌ی برجسته‌ی قالب Massively: محصول پیش‌فرض ۴۰۲۶ -->
-  <section class="section featured" id="spotlight">
-    <span class="light-node" aria-hidden="true"></span>
+  
+
+  <!-- PRODUCTS — گرید مقاله‌ای قالب Massively -->
+  <section class="section spaces" id="spaces">
     <div class="container">
-      <article class="post-featured">
-        <header class="major">
-          <span class="date">پیشنهاد آویزلوکس · <span class="mono">No. 4026</span></span>
-          <h2>گوی کریستال حباب‌دار</h2>
-          <p class="lead">اگر فقط یکی را بخواهید، همین است: کریستال وارداتی با فلز آبکاری‌شده‌ی دارای ضمانت، قطر ۱۵ سانتی‌متر — نه آن‌قدر بزرگ که فضا را بگیرد، نه آن‌قدر کوچک که دیده نشود. روی اپن و میز ناهارخوری هر دو می‌نشیند.</p>
-        </header>
-        <figure class="image-main">
-          <img id="spotImg" alt="آویز مدل گوی کریستال حباب‌دار کد ۴۰۲۶">
-          <span class="spot-badge">پیشنهاد آویزلوکس</span>
-        </figure>
-        <ul class="spot-specs">
-          <li>سه حالت نوری: آفتابی، مهتابی، نچرال</li>
-          <li>ترانس هوشمند و ارتفاع قابل تنظیم</li>
-          <li>لامپ SMD درجه‌یک برند S.K</li>
-        </ul>
-        <div class="spot-meta"><span class="stars" id="spotStars"></span><span id="spotSold"></span></div>
-        <div class="fs-price"><span class="now">۱۲٬۲۰۰٬۰۰۰</span> <span class="unit">تومان</span></div>
-        <ul class="actions">
-          <li><button class="btn-gold btn-lg" id="spotBuy">خرید سریع</button></li>
-          <li><button class="btn-line btn-lg" id="spotGallery">مشاهده‌ی عکس‌ها</button></li>
-        </ul>
-      </article>
+      <p class="eyebrow">از کجا شروع کنم؟</p>
+      <h2 class="sec-title">بر اساس فضا انتخاب کن</h2>
+      <p class="sec-sub">آویز برای هر فضا یک شخصیت می‌خواهد؛ فضایت را انتخاب کن تا مدل‌های مناسب همان‌جا را ببینی.</p>
+      <div class="space-grid">
+        <button class="space-card" data-space="open" type="button"><b>اپن و آشپزخانه</b><span>قلب خانه؛ چیدمان طولی و تکی روی اپن</span></button>
+        <button class="space-card" data-space="dining" type="button"><b>میز ناهارخوری</b><span>نور متمرکز و گرم، وسط میز</span></button>
+        <button class="space-card" data-space="living" type="button"><b>نشیمن و پذیرایی</b><span>حضور پررنگ‌تر و مجلسی‌تر</span></button>
+        <button class="space-card" data-space="bedroom" type="button"><b>اتاق خواب</b><span>نور ملایم و آرام</span></button>
+        <button class="space-card" data-space="cafe" type="button"><b>کافه و رستوران</b><span>ردیف‌های چشمگیر برای فضای تجاری</span></button>
+      </div>
     </div>
   </section>
 
-  <!-- PRODUCTS — گرید مقاله‌ای قالب Massively -->
   <section class="section" id="products">
     <div class="container">
       <div class="sec-head">
@@ -153,6 +137,18 @@
   </section>
 
   <!-- WHY — ستون‌های متنی آرام با جداکننده‌ی نازک -->
+  <section class="section guide" id="guide">
+    <div class="container">
+      <p class="eyebrow">راهنمای آویزلوکس</p>
+      <h2 class="sec-title">چطور آویز را روی اپن بچینیم؟</h2>
+      <div class="guide-grid">
+        <div class="guide-card"><b>۱ · فاصله‌ی برابر</b><p>سه آویز روی یک‌چهارم، وسط و سه‌چهارمِ طول اپن می‌نشینند؛ نه توده در وسط، نه چسبیده به هم.</p></div>
+        <div class="guide-card"><b>۲ · ارتفاع درست</b><p>پایین آویز ۷۰ تا ۸۰ سانتی‌متر بالای صفحه‌ی اپن؛ نه به سر می‌خورد، نه نورش گم می‌شود.</p></div>
+        <div class="guide-card"><b>۳ · تعداد فرد</b><p>سه‌تایی یا پنج‌تایی؛ چشم، چیدمان فرد را کامل‌تر می‌بیند. طولی دوست داری یا تکی؟ در استودیوی بالای صفحه هر دو را روی مدل دلخواهت امتحان کن.</p></div>
+      </div>
+    </div>
+  </section>
+
   <section class="section why" id="why">
     <div class="container">
       <div class="sec-head">
@@ -192,7 +188,7 @@
     </div>
     <div>
       <b>دسترسی سریع</b>
-      <a href="#spotlight">پیشنهاد آویزلوکس</a>
+      <a href="#top">استودیو تست آویز</a>
       <a href="#products">همه‌ی محصولات</a>
       <a href="#deals">تخفیفات شگفت‌انگیز</a>
     </div>
@@ -256,10 +252,11 @@
 
 <div class="toast" id="toast" hidden></div>
 
-<script src="images.js?v=18"></script>
-<script src="app.js?v=18"></script>
-<script src="stage-imgs.js?v=18"></script>
-<script src="stage.js?v=18"></script>
+<script src="images.js?v=19"></script>
+<script src="app.js?v=19"></script>
+<script src="stage-imgs.js?v=19"></script>
+<script src="tester-imgs.js?v=19"></script>
+<script src="tester.js?v=19"></script>
 <script>
 /* خط نور: پر شدن رشته‌ی طلایی با اسکرول (جزئیات امضادار نسخه‌ی ۶) */
 (function(){
