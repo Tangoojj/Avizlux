@@ -52,7 +52,8 @@
 }
 
 /* longitudinal full-frame presentation */
-.kstage.long .k-hang{left:0;top:0;width:100%;height:100%;transform:none}
-.kstage.long .k-hang img{width:100%;height:100%;object-fit:cover}
+.kstage.long .k-hang{left:0;top:0;width:100%;height:100%;transform:none;animation:none}
+.kstage.long .k-hang img{width:100%;height:100%;object-fit:cover;object-position:center 62%}
 .kstage.long .k-thumbs{display:none}
 .kstage.long .k-cone{width:44%;top:40%}
+@media(max-width:700px){.kstage.long .k-hang img{object-position:center 55%}}
