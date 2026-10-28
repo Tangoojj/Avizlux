@@ -4,7 +4,7 @@
 (function () {
   var stage = document.getElementById("kStage");
   if (!stage || typeof PRODUCTS === "undefined" || !window.STAGE_IMGS) return;
-  var ORDER = ["3074"];
+  var ORDER = ["3081"];
   var DEFAULT_CODE = "3074", ROTATE_MS = 4200, RESUME_MS = 14000;
   var byCode = {};
   PRODUCTS.forEach(function (p) { byCode[p.code] = p; });
