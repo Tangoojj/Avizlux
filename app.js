@@ -57,7 +57,8 @@
       '<div class="card-footer">' +
         '<button class="btn-gold" style="flex:1" data-buy="' + p.code + '" type="button">خرید سریع</button>' +
         '<button class="btn-cmp" data-cmp="' + p.code + '" type="button" aria-pressed="' + inCmp + '">' + (inCmp ? "✓ در مقایسه" : "مقایسه") + '</button>' +
-      '</div></article>';
+      '</div>' +
+      '<button class="btn-scene" data-scene="' + p.code + '" type="button">🏝️ مشاهده روی اپن آشپزخانه</button></article>';
   }
   function render() {
     var list = visible();
@@ -139,19 +140,30 @@
     $("gSpecs").innerHTML = "<span>کد " + faD(p.code) + "</span><span>ابعاد " + esc(p.dims) + "</span><span>" + esc(p.mat) + "</span><span>مناسب: " + spacesFa(p) + "</span><span>💳 امکان خرید قسطی</span>";
     $("gPrice").innerHTML = "<b>" + fa(p.price) + "</b> تومان";
     $("gThumbs").innerHTML = imgs.map(function (src, i) {
-      return '<button class="g-thumb' + (i === gal.idx ? " active" : "") + '" data-gi="' + i + '" type="button"><img src="' + src + '" alt="">نمای ' + fa(i + 1) + '</button>';
+      return '<button class="g-thumb' + (i === gal.idx ? " active" : "") + '" data-gi="' + i + '" type="button"><img src="' + src + '" alt="">' + typeOf(code, i) + '</button>';
     }).join("");
     $("gImg").src = imgs[gal.idx];
     $("gImg").alt = p.name;
+    $("gType").textContent = typeOf(code, gal.idx);
     showOverlay("gallery");
+  }
+  function typeOf(code, i) {
+    var T = window.TYPES || {};
+    return (T[code] && T[code][i]) || ("نمای " + fa(i + 1));
   }
   $("gThumbs").addEventListener("click", function (e) {
     var b = e.target.closest("[data-gi]"); if (!b) return;
     gal.idx = Number(b.dataset.gi);
     $("gImg").src = IM[gal.code][gal.idx];
+    $("gType").textContent = typeOf(gal.code, gal.idx);
     this.querySelectorAll(".g-thumb").forEach(function (t, i) { t.classList.toggle("active", i === gal.idx); });
   });
   $("gBuy").addEventListener("click", function () { hideOverlay("gallery"); openBuy(gal.code); });
+  $("gScene").addEventListener("click", function () {
+    var code = gal.code;
+    hideOverlay("gallery");
+    if (window.AVZ && AVZ.showOnIsland) AVZ.showOnIsland(code);
+  });
 
   /* ---------- خرید سریع: ۲ لمس، ۳ فیلد ---------- */
   function openBuy(code) {
@@ -203,6 +215,8 @@
     if (buy) { hideOverlay("compareOverlay"); hideOverlay("gallery"); openBuy(buy.dataset.buy); return; }
     var cm = e.target.closest("[data-cmp]");
     if (cm) { toggleCmp(cm.dataset.cmp); return; }
+    var scn = e.target.closest("[data-scene]");
+    if (scn) { if (window.AVZ && AVZ.showOnIsland) AVZ.showOnIsland(scn.dataset.scene); return; }
     var gl = e.target.closest("[data-gal]");
     if (gl) { openGallery(gl.dataset.gal, 0); }
   });

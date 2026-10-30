@@ -314,3 +314,11 @@ a{color:inherit}
   .card,.card-img-top,.g-main img{transition:none!important}
   .tilt-sheen{display:none}
 }
+
+/* ---------- v22: دکمه‌ی «مشاهده روی اپن» + برچسب نوع نما در گالری ---------- */
+.btn-scene{background:transparent;border:1.5px solid var(--gold);color:var(--gold-d);font:inherit;font-size:.9rem;font-weight:700;padding:10px 14px;border-radius:10px;cursor:pointer;transition:background .18s ease,color .18s ease}
+.btn-scene:hover{background:var(--gold);color:#241708}
+.card .btn-scene{margin-top:10px;width:100%}
+.g-scene{flex:0 1 auto}
+.g-type{margin:12px 0 0;font-weight:700;color:var(--gold-d);font-size:.95rem}
+.g-type:empty{display:none}

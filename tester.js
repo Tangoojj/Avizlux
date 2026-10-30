@@ -1,87 +1,109 @@
-/* آویزلوکس v20 — استودیو تست آویز.
-   قاعده‌ی همیشگی: فقط عکس واقعی محصول. برای مدل‌های جدید برشِ تمیز (پس‌زمینه‌حذف‌شده)
-   به دست نیامد، پس استودیو هر مدل را با عکس واقعی خودش در قاب صحنه نشان می‌دهد؛
-   اگر روزی کامپوزیت تمیزی ساخته شود، TESTER_IMGS آن را فعال می‌کند (set/T3/L3/L5). */
+/* آویزلوکس v22 — استودیو تست آویز: هیرو خودِ آشپزخانه است.
+   صحنه‌ی آشپزخانه‌ی ایرانی + گلدان روی اپن، و آویزها یکی‌یکی روی اپن عوض می‌شوند
+   (چرخش خودکار؛ با اولین تعامل کاربر مکث می‌کند و پس از مکث دوباره ادامه می‌دهد).
+   برای ۷ مدل، برشِ تمیزِ عکس واقعی محصول (حذف پس‌زمینه) روی صحنه کامپوزیت شده:
+   تکی ×۳ در یک‌چهارم، وسط و سه‌چهارمِ طول اپن، کف آویز ۷۵ سانتی‌متر بالای صفحه.
+   ۳ مدلی که برش تمیزشان در بازبینی ذره‌بینی درنیامد (۳۸۴، ۳۹۵، ۳۹۳) با عکس واقعی
+   خودشان در همان قاب نشان داده می‌شوند — هیچ پیکسل ساختگی از محصول نداریم. */
 (function () {
   var P = window.PRODUCTS || [], IM = window.IMAGES || {}, TI = window.TESTER_IMGS || {};
   var byCode = {};
   P.forEach(function (p) { byCode[p.code] = p; });
-  var MODE_FA = { set: "مجموعه اصلی", T3: "تکی ×۳", L3: "طولی ×۳", L5: "طولی ×۵", photo: "مجموعه اصلی" };
+  var MODE_FA = { T3: "تکی ×۳ روی اپن", photo: "عکس واقعی" };
+  var order = P.map(function (p) { return p.code; });
   var cur = { code: "707", mode: "photo" };
 
   function $(id) { return document.getElementById(id); }
   function fa(n) { return Number(n).toLocaleString("fa-IR"); }
   var stage = $("kStage"), photo = $("kPhoto"), flower = $("kFlower");
+  var shade = stage.querySelector(".k-shade");
+  var fx = stage.querySelectorAll(".k-glow,.k-cone,.k-pool");
   var hangImgs = stage.querySelectorAll(".k-hang img");
-  var fx = stage.querySelectorAll(".k-shade,.k-glow,.k-cone,.k-pool");
 
   function modesFor(code) {
-    var t = TI[code] || {}, modes = [];
-    ["set", "T3", "L3", "L5"].forEach(function (k) { if (t[k]) modes.push(k); });
-    if (!modes.length) modes.push("photo");
+    var modes = [];
+    if (TI[code] && TI[code].T3) modes.push("T3");
+    modes.push("photo");
     return modes;
   }
   function buildModes() {
     var modes = modesFor(cur.code);
     if (modes.indexOf(cur.mode) < 0) cur.mode = modes[0];
     $("kModes").innerHTML = modes.map(function (m) {
-      return '<button class="k-mode' + (m === cur.mode ? " on" : "") + '" data-mode="' + m + '" type="button">' + MODE_FA[m] + '</button>';
+      return '<button class="k-mode' + (m === cur.mode ? " on" : "") + '" data-mode="' + m + '" type="button">' + MODE_FA[m] + "</button>";
     }).join("");
   }
   function buildThumbs() {
     $("kThumbs").innerHTML = P.map(function (p) {
       return '<button class="k-thumb' + (p.code === cur.code ? " on" : "") + '" data-code="' + p.code + '" type="button" aria-label="' + p.name + '">' +
-        '<img src="' + IM[p.code][0] + '" alt=""><span>' + p.code + '</span></button>';
+        '<img src="' + IM[p.code][0] + '" alt=""><span>' + p.code + "</span></button>";
     }).join("");
-  }
-  function setFx(on) {
-    flower.style.display = on ? "" : "none";
-    fx.forEach(function (el) { el.style.display = on ? "" : "none"; });
   }
   function show() {
     var p = byCode[cur.code], t = TI[cur.code] || {};
-    stage.classList.remove("long");
-    if (cur.mode === "photo" || !t[cur.mode]) {
-      /* ارائه‌ی واقعی: عکس خودِ محصول در قاب صحنه */
-      photo.src = IM[cur.code][0];
-      setFx(false);
-      hangImgs.forEach(function (im) { im.classList.remove("on"); im.removeAttribute("src"); });
-    } else if (cur.mode === "set") {
-      photo.src = SCENE.kitchen;
-      flower.src = SCENE.flower;
-      setFx(true);
-      hangImgs.forEach(function (im, i) {
-        if (i === 0) { im.src = t.set; im.classList.add("on"); }
-        else im.classList.remove("on");
-      });
-    } else {
-      /* کامپوزیت تمام‌قاب (طولی/تکی) */
-      stage.classList.add("long");
-      photo.src = SCENE.kitchen;
-      setFx(true);
-      flower.style.display = "none"; /* گل در کامپوزیت پخته شده است */
-      hangImgs.forEach(function (im, i) {
-        if (i === 0) { im.src = t[cur.mode]; im.classList.add("on"); }
-        else im.classList.remove("on");
-      });
-    }
+    var comp = cur.mode === "T3" && !!t.T3;
+    photo.src = comp ? t.T3 : IM[cur.code][0];
+    photo.alt = comp ? ("آشپزخانه‌ی ایرانی با سه آویز «" + p.name + "» روی اپن") : p.name;
+    /* صحنه‌ی کامل (آشپزخانه + گلدان) داخل کامپوزیت پخته شده؛ در حالت عکس واقعی هم گلدان جدا نمی‌آید */
+    flower.style.display = "none";
+    shade.style.display = comp ? "" : "none";
+    fx.forEach(function (el) { el.style.display = "none"; });
+    hangImgs.forEach(function (im) { im.classList.remove("on"); im.removeAttribute("src"); });
     $("kBadge").classList.toggle("hide", !p.rec);
     $("ksName").textContent = p.name;
     $("ksMeta").textContent = "ابعاد " + p.dims + " • " + p.mat;
-    $("ksPrice").innerHTML = '<span class="now">' + fa(p.price) + ' تومان</span>';
+    $("ksPrice").innerHTML = '<span class="now">' + fa(p.price) + " تومان</span>";
     buildModes();
     buildThumbs();
   }
+
+  /* ---------- چرخش خودکار: یکی‌یکی، با مکث هنگام تعامل ---------- */
+  var CYCLE_MS = 4500, RESUME_MS = 20000;
+  var timer = null, resumeTimer = null;
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function stopCycle() { if (timer) { clearInterval(timer); timer = null; } }
+  function startCycle() {
+    stopCycle();
+    if (reduced || order.length < 2) return;
+    timer = setInterval(function () {
+      if (document.hidden) return;
+      var i = order.indexOf(cur.code);
+      cur.code = order[(i + 1) % order.length];
+      cur.mode = modesFor(cur.code)[0];
+      show();
+    }, CYCLE_MS);
+  }
+  function interact() {
+    stopCycle();
+    if (resumeTimer) clearTimeout(resumeTimer);
+    if (!reduced) resumeTimer = setTimeout(startCycle, RESUME_MS);
+  }
+  function select(code, scroll) {
+    if (!byCode[code]) return;
+    cur.code = code;
+    cur.mode = modesFor(code)[0];
+    show();
+    interact();
+    if (scroll) stage.scrollIntoView({ behavior: "smooth", block: "center" });
+  }
+
   $("kModes").addEventListener("click", function (e) {
     var b = e.target.closest("[data-mode]"); if (!b) return;
-    cur.mode = b.dataset.mode; show();
+    cur.mode = b.dataset.mode; show(); interact();
   });
   $("kThumbs").addEventListener("click", function (e) {
     var b = e.target.closest("[data-code]"); if (!b) return;
-    cur.code = b.dataset.code; cur.mode = modesFor(cur.code)[0]; show();
-    stage.scrollIntoView({ behavior: "smooth", block: "center" });
+    select(b.dataset.code, true);
   });
-  $("ksBuy").addEventListener("click", function () { if (window.AVZ) AVZ.openBuy(cur.code); });
-  $("ksGallery").addEventListener("click", function () { if (window.AVZ) AVZ.openGallery(cur.code, 0); });
+  stage.addEventListener("pointerdown", interact);
+  $("ksBuy").addEventListener("click", function () { interact(); if (window.AVZ) AVZ.openBuy(cur.code); });
+  $("ksGallery").addEventListener("click", function () { interact(); if (window.AVZ) AVZ.openGallery(cur.code, 0); });
+
+  /* مشاهده‌ی همین مدل روی اپن آشپزخانه (از کارت محصول و گالری صدا زده می‌شود) */
+  window.AVZ = window.AVZ || {};
+  window.AVZ.showOnIsland = function (code) { select(code, true); };
+
+  cur.mode = modesFor(cur.code)[0];
   show();
+  startCycle();
 })();
