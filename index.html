@@ -23,7 +23,7 @@
 <!-- HEADER — چسبان: لوگو، منوی فضا، جست‌وجو، مشاوره‌ی واتساپ -->
 <header class="navbar" id="mainNav">
   <div class="container nav-in">
-    <a class="brand" href="#top" id="brandLink"><img class="brand-logo" id="brandLogo" alt="آویزلوکس" hidden><span class="brand-text">آویز<span>لوکس</span></span></a>
+    <a class="brand" href="#top" id="brandLink"><span class="brand-text">آویز<span>لوکس</span></span></a>
     <button class="navbar-toggler" id="navToggle" type="button" aria-label="باز کردن منو" aria-expanded="false" aria-controls="navMenu">☰</button>
     <div class="navbar-collapse" id="navMenu">
       <ul class="navbar-nav">
@@ -270,8 +270,6 @@
   if (band && SCENE.headerBand) band.style.backgroundImage = 'url(' + SCENE.headerBand + ')';
   var fs = document.getElementById('footScene');
   if (fs && SCENE.footerStrip) fs.src = SCENE.footerStrip;
-  var logo = document.getElementById('brandLogo');
-  if (logo && SCENE.logo) { logo.src = SCENE.logo; logo.hidden = false; document.querySelector('.brand-text').style.display = 'none'; }
 })();
 </script>
 </body>

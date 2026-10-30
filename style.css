@@ -239,7 +239,8 @@ a{color:inherit}
 .kitchen-band{position:relative;background-color:#3a2c14;background-size:cover;background-position:center 30%;padding:9px 16px;text-align:center;overflow:hidden}
 .kitchen-band::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(30,20,50,.55),rgba(30,20,50,.25),rgba(30,20,50,.55))}
 .kb-text{position:relative;z-index:1;color:#fdf6e0;font-weight:800;font-size:.95rem;text-shadow:0 1px 8px rgba(20,10,0,.6);letter-spacing:.01em}
-.brand-logo{height:44px;width:auto;display:block;background:#fff;border-radius:10px;padding:3px 6px}
+.navbar .brand-text{font-weight:800;color:var(--lav);letter-spacing:0}
+.navbar .brand-text span{color:var(--gold)}
 .nav-search input{font:inherit;font-size:.9rem;padding:8px 13px;border-radius:999px;border:1.5px solid var(--dark-line);background:#fffdf7;color:var(--ink);width:190px}
 .nav-search input:focus{outline:2px solid var(--gold2);border-color:var(--gold)}
 .chip.active{background:var(--purp);border-color:var(--purp);color:#fff}
