@@ -1,205 +1,222 @@
-// Avizlux redesign concept v5 (template-based: StartBootstrap Shop Homepage / Shop Item / Grayscale skeletons)
-// — real products, prices and photos harvested from avizelux.ir (24 Oct 2026).
-// rating/sold are DEMO social-proof data for this sample (the real store shows no reviews yet).
-// IMAGES[code] = [[dataURI, label], ...] — all photos are the store's own real product photos;
-// detail views are close-up crops of those same real photos. No generated imagery anywhere.
-const PRODUCTS = [
-  { code:"4046", name:"آویز مدل کریستال اووال",        price:4425000, old:null,     off:null,  dims:"۱۲ × ۲۵ سانتی‌متر", mat:"کریستال درجه‌یک وارداتی و فلز طلایی آبکاری‌شده", spaces:["dining","salon"], rating:4.8, sold:98 },
-  { code:"4028", name:"آویز مدل گوزن",                 price:4642000, old:null, off:null,  dims:"۱۵ سانتی‌متر",       mat:"کریستال درجه‌یک تمام وارداتی",                 spaces:["dining","salon"], rating:4.9, sold:176, best:true },
-  { code:"4027", name:"آویز مدل قاصدک",                price:12026000, old:null,     off:null,dims:"۱۲ سانتی‌متر",       mat:"کریستال درجه‌یک وارداتی و فلز آبکاری‌شده",       spaces:["island","dining"], rating:4.7, sold:88 },
-  { code:"4026", name:"آویز مدل گوی کریستال حباب‌دار", price:4616000, old:null,     off:null,dims:"۱۵ سانتی‌متر",       mat:"کریستال وارداتی و فلز آبکاری‌شده با ضمانت",      spaces:["island","dining"], rating:4.9, sold:231, rec:true, best:true },
-  { code:"3027", name:"آویز مدل طاووس",                price:4561000, old:null,     off:null,dims:"۱۵ سانتی‌متر",       mat:"کریستال درجه‌یک وارداتی و فلز آبکاری‌شده طلایی", spaces:["salon"],           rating:4.6, sold:41 },
-  { code:"3074", name:"آویز مدل قفل",                  price:4350000, old:null,     off:null,dims:"۱۵ × ۱۰ سانتی‌متر",  mat:"کریستال درجه‌یک وارداتی و فلز آبکاری‌شده",       spaces:["island","dining"], rating:4.5, sold:63 },
-  { code:"3061", name:"آویز مدل C",                    price:4561000, old:null,     off:null,dims:"۱۸ سانتی‌متر",       mat:"بدنه‌ی طلایی",                                  spaces:["island"],          rating:4.4, sold:57 },
-  { code:"3055", name:"آویز دیواری مدل نیوفیس",        price:5370000, old:null,     off:null,dims:"مدل دیواری",         mat:"لامپ SMD",                                       spaces:["salon","bedroom"],           rating:4.3, sold:48 },
-  { code:"3057", name:"آویز کره‌ای مدل مولتی‌لایت سفید",price:10378000, old:null,    off:null,dims:"رنگ سفید",           mat:"لامپ SMD درجه‌یک برند S.K",                      spaces:["dining","island"], rating:4.5, sold:72 },
-  { code:"4024", name:"آویز مدل سکه حبابی",            price:10316000, old:null,     off:null,dims:"۱۲ سانتی‌متر",       mat:"کریستال درجه‌یک وارداتی و فلز آبکاری‌شده",       spaces:["island","dining"], rating:4.6, sold:94 },
-  { code:"3056", name:"آویز کره‌ای مدل مولتی‌لایت",    price:5370000,  old:null, off:null,  dims:"چندشاخه",            mat:"لامپ SMD درجه‌یک برند S.K",                      spaces:["dining","salon"],  rating:4.7, sold:154, best:true },
-  { code:"3076", name:"آویز مدل سیب",                  price:5370000,  old:null,  off:null,  dims:"۱۵ × ۱۰ سانتی‌متر",  mat:"کریستال درجه‌یک وارداتی و فلز آبکاری‌شده",       spaces:["island","cafe"],          rating:4.6, sold:119 },
-  { code:"4066", name:"آویز مدل گوی برفی طلایی",       price:4217000,  old:null,     off:null,dims:"۱۳ سانتی‌متر",       mat:"اکرولیک فشرده و فلز آبکاری‌شده طلایی",           spaces:["island","dining","bedroom"], rating:4.7, sold:143 },
-  { code:"4067", name:"آویز مدل گوی برفی نقره‌ای",    price:8855000,  old:null,     off:null,dims:"۱۳ سانتی‌متر",       mat:"اکرولیک فشرده و فلز آبکاری‌شده نقره‌ای",         spaces:["island","dining","bedroom"], rating:4.7, sold:127 },
-  { code:"3081", name:"آویز مدل ورقه طلا",             price:3692000,  old:null,  off:null, dims:"—",                  mat:"کریستال درجه‌یک و فلز آبکاری‌شده طلایی",         spaces:["dining","salon"],  rating:4.6, sold:203, best:true },
-  { code:"3086", name:"آویز مدل برگ نور",              price:4350000,  old:null,     off:null,dims:"۲۰ سانتی‌متر",       mat:"اکرولیک فشرده و فلز آبکاری‌شده طلایی",           spaces:["salon","island"],  rating:4.5, sold:66 },
-  { code:"3085", name:"آویز مدل پلکسی",                price:4350000,  old:null,     off:null,dims:"—",                  mat:"لامپ SMD درجه‌یک برند S.K",                      spaces:["island","cafe"],          rating:4.4, sold:59 },
-  { code:"3058", name:"آویز مدرن کروی مدل اوربیت",     price:2599000,  old:null,     off:null,dims:"رنگ سفید",           mat:"لامپ SMD",                                       spaces:["island","bedroom","cafe"],          rating:4.5, sold:171 },
-];
-const byCode = c => PRODUCTS.find(p => p.code === c);
+/* آویزلوکس v20 — منطق فروشگاه: فقط ۱۰ مدل آویز اپن و آشپزخانه.
+   مسیر خرید: ۲ لمس، ۳ فیلد، بدون ثبت‌نام. مقایسه‌ی ساده حداکثر ۳ مدل. */
+(function () {
+  var P = window.PRODUCTS || [], IM = window.IMAGES || {};
+  var byCode = {};
+  P.forEach(function (p) { byCode[p.code] = p; });
+  var SPACE_FA = { island: "اپن و آشپزخانه", dining: "میز ناهارخوری" };
+  var state = { f: "all", q: "", sort: "rec" };
+  var cmp = [];
+  var gal = { code: null, idx: 0 };
+  var buyCode = null;
 
-const FA = "۰۱۲۳۴۵۶۷۸۹";
-const faNum = n => String(n).replace(/\d/g, d => FA[d]);
-const faPrice = n => faNum(n.toLocaleString("en-US")).replace(/,/g, "٬");
-const faRating = r => faNum(String(r)).replace(".", "٫");
-const stars = r => "★".repeat(Math.round(r)) + "☆".repeat(5 - Math.round(r));
-const toEn = s => s.replace(/[۰-۹]/g, d => FA.indexOf(d)).replace(/[٠-٩]/g, d => "٠١٢٣٤٥٦٧٨٩".indexOf(d));
+  function $(id) { return document.getElementById(id); }
+  function fa(n) { return Number(n).toLocaleString("fa-IR"); }
+  function faD(s) { return String(s).replace(/[0-9]/g, function (d) { return "۰۱۲۳۴۵۶۷۸۹"[d]; }); }
+  function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;"); }
+  function spacesFa(p) { return p.spaces.map(function (s) { return SPACE_FA[s] || s; }).join(" • "); }
+  var toastT;
+  function toast(msg) {
+    var t = $("toast"); t.textContent = msg; t.hidden = false;
+    clearTimeout(toastT); toastT = setTimeout(function () { t.hidden = true; }, 2600);
+  }
 
-const $ = id => document.getElementById(id);
-const grid = $("grid"), dealsGrid = $("dealsGrid");
-let filter = "all", sortMode = "rec";
+  /* ---------- گرید محصولات ---------- */
+  function visible() {
+    var list = P.filter(function (p) {
+      if (state.f === "u45" && p.price >= 4500000) return false;
+      if ((state.f === "island" || state.f === "dining") && p.spaces.indexOf(state.f) < 0) return false;
+      if (state.q) {
+        var q = state.q.trim();
+        if ((p.name + " " + p.code + " " + p.mat).indexOf(q) < 0) return false;
+      }
+      return true;
+    });
+    if (state.sort === "cheap") list.sort(function (a, b) { return a.price - b.price; });
+    else if (state.sort === "exp") list.sort(function (a, b) { return b.price - a.price; });
+    else if (state.sort === "pop") list.sort(function (a, b) { return b.sold - a.sold || b.rating - a.rating; });
+    else list.sort(function (a, b) { return (b.rec - a.rec) || (a.price - b.price); }); /* پیشنهادی: اول پیشنهاد ما، بعد اقتصادی‌ها */
+    return list;
+  }
+  function cardHTML(p) {
+    var badges = "";
+    if (p.rec) badges += '<span class="badge rec">پیشنهاد آویزلوکس</span>';
+    badges += '<span class="badge new">جدید</span>';
+    var inCmp = cmp.indexOf(p.code) >= 0;
+    return '<article class="card' + (p.rec ? " rec" : "") + '">' +
+      '<div class="card-img-wrap" data-gal="' + p.code + '" role="button" aria-label="مشاهده‌ی عکس‌های ' + esc(p.name) + '">' +
+        '<img class="card-img-top" src="' + IM[p.code][0] + '" alt="' + esc(p.name) + '" loading="lazy">' +
+        '<div class="card-badges">' + badges + '</div></div>' +
+      '<div class="card-body">' +
+        '<h3 class="card-title">' + esc(p.name) + '</h3>' +
+        '<p class="card-spec">کد ' + faD(p.code) + ' • ابعاد ' + esc(p.dims) + ' • مناسب: ' + spacesFa(p) + '</p>' +
+        '<div class="card-stars"><span class="stars">★★★★★</span><span>' + faD(String(p.rating)) + ' | ' + fa(p.sold) + ' فروش</span></div>' +
+        '<div class="card-price"><span class="now">' + fa(p.price) + '</span> <span class="unit">تومان</span></div>' +
+        '<p class="card-inst">💳 امکان خرید قسطی</p>' +
+      '</div>' +
+      '<div class="card-footer">' +
+        '<button class="btn-gold" style="flex:1" data-buy="' + p.code + '" type="button">خرید سریع</button>' +
+        '<button class="btn-cmp" data-cmp="' + p.code + '" type="button" aria-pressed="' + inCmp + '">' + (inCmp ? "✓ در مقایسه" : "مقایسه") + '</button>' +
+      '</div></article>';
+  }
+  function render() {
+    var list = visible();
+    $("grid").innerHTML = list.map(cardHTML).join("");
+    $("gridEmpty").hidden = list.length > 0;
+    $("gridCount").textContent = fa(list.length) + " مدل";
+  }
 
-function badges(p){
-  let h = "";
-  if (p.off) h += `<span class="badge off">٪${faNum(p.off)} تخفیف</span>`;
-  if (p.rec) h += `<span class="badge rec">پیشنهاد آویزلوکس</span>`;
-  if (p.best) h += `<span class="badge best">پرفروش</span>`;
-  return h ? `<div class="card-badges">${h}</div>` : "";
-}
-function cardHTML(p){
-  return `<article class="card${p.rec ? " rec" : ""}">
-    <div class="card-img-wrap" data-gallery="${p.code}">
-      <img class="card-img-top" src="${IMAGES[p.code][0][0]}" alt="${p.name} کد ${faNum(p.code)}" loading="lazy">
-      ${badges(p)}
-    </div>
-    <div class="card-body">
-      <h5 class="card-title">${p.name}</h5>
-      <p class="card-spec">کد ${faNum(p.code)} · ${p.dims}</p>
-      <div class="card-stars"><span class="stars">${stars(p.rating)}</span><span>${faRating(p.rating)} · +${faNum(p.sold)} فروش</span></div>
-      <div class="card-price">${p.old ? `<span class="old">${faPrice(p.old)}</span>` : ""}<span class="now">${faPrice(p.price)}</span> <span class="unit">تومان</span></div>
-    </div>
-    <div class="card-footer">
-      <button class="btn-buy" data-buy="${p.code}">خرید سریع</button>
-      <button class="btn-view" data-gallery="${p.code}">مشاهده‌ی عکس‌ها</button>
-    </div>
-  </article>`;
-}
-function applyFilter(list){
-  if (filter === "all") return list;
-  if (filter === "u45") return list.filter(p => p.price < 4500000);
-  if (filter === "a45") return list.filter(p => p.price >= 4500000);
-  return list.filter(p => p.spaces.includes(filter));
-}
-function applySort(list){
-  const l = [...list];
-  if (sortMode === "rec") l.sort((a,b) => (b.rec - a.rec) || (b.sold - a.sold));
-  if (sortMode === "pop") l.sort((a,b) => b.sold - a.sold);
-  if (sortMode === "cheap") l.sort((a,b) => a.price - b.price);
-  if (sortMode === "exp") l.sort((a,b) => b.price - a.price);
-  return l;
-}
-function renderGrid(){
-  const list = applySort(applyFilter(PRODUCTS));
-  grid.innerHTML = list.map(cardHTML).join("");
-  $("gridCount").textContent = filter === "all" ? `همه‌ی مدل‌ها: ${faNum(list.length)} مدل` : `${faNum(list.length)} مدل در این انتخاب`;
-}
-function renderDeals(){
-  const deals = PRODUCTS.filter(p => p.off); const dsec = document.getElementById("deals"); if (dsec) dsec.style.display = deals.length ? "" : "none"; dealsGrid.innerHTML = deals.map(cardHTML).join("");
-}
-$("chips").addEventListener("click", e => {
-  const b = e.target.closest(".chip"); if (!b) return;
-  document.querySelectorAll(".chip").forEach(c => c.classList.remove("active"));
-  b.classList.add("active"); filter = b.dataset.f; renderGrid();
-});
-$("sortSel").addEventListener("change", e => { sortMode = e.target.value; renderGrid(); });
-document.addEventListener("click", e => {
-  const g = e.target.closest("[data-gallery]");
-  if (g) { openGallery(g.dataset.gallery); return; }
-  const b = e.target.closest("[data-buy]");
-  if (b) { openBuy(b.dataset.buy); }
-});
+  /* ---------- فیلتر / مرتب‌سازی / جست‌وجو ---------- */
+  function setFilter(f, scroll) {
+    state.f = f;
+    document.querySelectorAll("#chips .chip").forEach(function (c) {
+      c.classList.toggle("active", c.dataset.f === f);
+    });
+    render();
+    if (scroll) $("products").scrollIntoView({ behavior: "smooth" });
+  }
+  $("chips").addEventListener("click", function (e) {
+    var b = e.target.closest(".chip"); if (b) setFilter(b.dataset.f, false);
+  });
+  document.querySelectorAll(".space-card").forEach(function (c) {
+    c.addEventListener("click", function () { setFilter(c.dataset.space, true); });
+  });
+  document.querySelectorAll("[data-space-link]").forEach(function (a) {
+    a.addEventListener("click", function () { setFilter(a.dataset.spaceLink === "all" ? "all" : a.dataset.spaceLink, false); });
+  });
+  $("sortSel").addEventListener("change", function () { state.sort = this.value; render(); });
+  $("searchInput").addEventListener("input", function () {
+    state.q = this.value; render();
+  });
 
-/* ---------- gallery ---------- */
-let gCode = null;
-function openGallery(code){
-  gCode = code;
-  const p = byCode(code), views = IMAGES[code];
-  $("gName").textContent = `${p.name} — کد ${faNum(p.code)}`;
-  $("gStars").textContent = stars(p.rating);
-  $("gSold").textContent = `${faRating(p.rating)} · +${faNum(p.sold)} فروش`;
-  $("gSpecs").innerHTML = [`ابعاد: ${p.dims}`, `جنس: ${p.mat}`, "ارتفاع قابل تنظیم", "ترانس هوشمند", "۳ حالت نوری"].map(s => `<span>${s}</span>`).join("");
-  $("gPrice").innerHTML = `${p.old ? `<span class="old">${faPrice(p.old)} تومان</span>` : ""}<b>${faPrice(p.price)}</b> تومان`;
-  $("gThumbs").innerHTML = views.map((v, i) =>
-    `<button class="g-thumb${i === 0 ? " active" : ""}" data-view="${i}"><img src="${v[0]}" alt="${v[1]}">${v[1]}</button>`).join("");
-  $("gImg").src = views[0][0];
-  $("gImg").alt = `${p.name} — نمای ${views[0][1]}`;
-  $("gallery").hidden = false;
-  document.body.style.overflow = "hidden";
-}
-$("gThumbs").addEventListener("click", e => {
-  const t = e.target.closest("[data-view]"); if (!t) return;
-  document.querySelectorAll(".g-thumb").forEach(x => x.classList.remove("active"));
-  t.classList.add("active");
-  const v = IMAGES[gCode][+t.dataset.view];
-  $("gImg").src = v[0]; $("gImg").alt = v[1];
-});
-function closeGallery(){ $("gallery").hidden = true; document.body.style.overflow = ""; }
-$("gClose").addEventListener("click", closeGallery);
-$("gallery").addEventListener("click", e => { if (e.target === $("gallery")) closeGallery(); });
-$("gBuy").addEventListener("click", () => { const c = gCode; closeGallery(); openBuy(c); });
+  /* ---------- مقایسه (حداکثر ۳ مدل) ---------- */
+  function syncCmpBar() {
+    var bar = $("cmpBar");
+    bar.hidden = cmp.length === 0;
+    $("cmpBarText").textContent = fa(cmp.length) + " مدل برای مقایسه انتخاب شده";
+    document.querySelectorAll("[data-cmp]").forEach(function (b) {
+      var on = cmp.indexOf(b.dataset.cmp) >= 0;
+      b.setAttribute("aria-pressed", on);
+      b.textContent = on ? "✓ در مقایسه" : "مقایسه";
+    });
+  }
+  function toggleCmp(code) {
+    var i = cmp.indexOf(code);
+    if (i >= 0) cmp.splice(i, 1);
+    else {
+      if (cmp.length >= 3) { toast("برای مقایسه حداکثر سه مدل کافی است 🌿"); return; }
+      cmp.push(code);
+    }
+    syncCmpBar();
+  }
+  function openCompare() {
+    if (!cmp.length) return;
+    $("cmpGrid").innerHTML = cmp.map(function (code) {
+      var p = byCode[code];
+      return '<div class="cmp-col">' +
+        '<img src="' + IM[code][0] + '" alt="' + esc(p.name) + '">' +
+        '<h4>' + esc(p.name) + '</h4>' +
+        '<span class="cmp-code">کد ' + faD(p.code) + '</span>' +
+        '<span class="cmp-price">' + fa(p.price) + ' تومان</span>' +
+        '<span>ابعاد: ' + esc(p.dims) + '</span>' +
+        '<span>جنس: ' + esc(p.mat) + '</span>' +
+        '<span>فضای مناسب: ' + spacesFa(p) + '</span>' +
+        '<button class="btn-gold btn-buy" data-buy="' + code + '" type="button">خرید سریع</button>' +
+      '</div>';
+    }).join("");
+    showOverlay("compareOverlay");
+  }
+  $("cmpOpen").addEventListener("click", openCompare);
+  $("cmpClear").addEventListener("click", function () { cmp = []; syncCmpBar(); });
 
-/* ---------- quick buy ---------- */
-let bCode = null;
-function openBuy(code){
-  bCode = code;
-  const p = byCode(code);
-  $("bImg").src = IMAGES[code][0][0];
-  $("bName").textContent = `${p.name} — کد ${faNum(p.code)}`;
-  $("bPrice").textContent = `${faPrice(p.price)} تومان`;
-  $("bTotal").textContent = faPrice(p.price);
-  $("buyForm").hidden = false; $("buySuccess").hidden = true;
-  $("formErr").hidden = true;
-  $("buyOverlay").hidden = false;
-  document.body.style.overflow = "hidden";
-}
-function closeBuy(){ $("buyOverlay").hidden = true; document.body.style.overflow = ""; }
-$("bClose").addEventListener("click", closeBuy);
-$("okClose").addEventListener("click", () => { closeBuy(); showToast("سفارش شما با موفقیت ثبت شد؛ به‌زودی تماس می‌گیریم."); });
-$("buyOverlay").addEventListener("click", e => { if (e.target === $("buyOverlay")) closeBuy(); });
-document.addEventListener("keydown", e => { if (e.key === "Escape") { closeBuy(); closeGallery(); } });
-$("bSubmit").addEventListener("click", () => {
-  const name = $("fName").value.trim();
-  const mobile = toEn($("fMobile").value.trim()).replace(/[\s-]/g, "");
-  const city = $("fCity").value.trim();
-  const err = $("formErr");
-  let msg = "";
-  if (name.length < 3) msg = "نام و نام خانوادگی را کامل بنویسید.";
-  else if (!/^09\d{9}$/.test(mobile)) msg = "شماره موبایل باید ۱۱ رقم و با ۰۹ شروع شود.";
-  else if (city.length < 2) msg = "شهر را بنویسید.";
-  if (msg) { err.textContent = msg; err.hidden = false; return; }
-  err.hidden = true;
-  const p = byCode(bCode);
-  $("okText").textContent = `${name} عزیز، سفارش «${p.name}» برای شهر ${city} ثبت شد. برای هماهنگی ارسال و پرداخت با شماره‌ی ${faNum(mobile)} تماس می‌گیریم.`;
-  $("okCode").textContent = "AVZ-" + faNum(String(Math.floor(10000 + Math.random() * 90000)));
-  $("buyForm").hidden = true; $("buySuccess").hidden = false;
-});
+  /* ---------- گالری ---------- */
+  function openGallery(code, idx) {
+    gal = { code: code, idx: idx || 0 };
+    var p = byCode[code], imgs = IM[code];
+    $("gName").textContent = p.name;
+    $("gStars").textContent = "★★★★★ " + faD(String(p.rating));
+    $("gSold").textContent = fa(p.sold) + " فروش";
+    $("gSpecs").innerHTML = "<span>کد " + faD(p.code) + "</span><span>ابعاد " + esc(p.dims) + "</span><span>" + esc(p.mat) + "</span><span>مناسب: " + spacesFa(p) + "</span><span>💳 امکان خرید قسطی</span>";
+    $("gPrice").innerHTML = "<b>" + fa(p.price) + "</b> تومان";
+    $("gThumbs").innerHTML = imgs.map(function (src, i) {
+      return '<button class="g-thumb' + (i === gal.idx ? " active" : "") + '" data-gi="' + i + '" type="button"><img src="' + src + '" alt="">نمای ' + fa(i + 1) + '</button>';
+    }).join("");
+    $("gImg").src = imgs[gal.idx];
+    $("gImg").alt = p.name;
+    showOverlay("gallery");
+  }
+  $("gThumbs").addEventListener("click", function (e) {
+    var b = e.target.closest("[data-gi]"); if (!b) return;
+    gal.idx = Number(b.dataset.gi);
+    $("gImg").src = IM[gal.code][gal.idx];
+    this.querySelectorAll(".g-thumb").forEach(function (t, i) { t.classList.toggle("active", i === gal.idx); });
+  });
+  $("gBuy").addEventListener("click", function () { hideOverlay("gallery"); openBuy(gal.code); });
 
-/* ---------- toast ---------- */
-let toastTimer;
-function showToast(msg){
-  const t = $("toast"); t.textContent = msg; t.hidden = false;
-  clearTimeout(toastTimer); toastTimer = setTimeout(() => t.hidden = true, 4200);
-}
+  /* ---------- خرید سریع: ۲ لمس، ۳ فیلد ---------- */
+  function openBuy(code) {
+    buyCode = code;
+    var p = byCode[code];
+    $("bImg").src = IM[code][0];
+    $("bName").textContent = p.name;
+    $("bPrice").textContent = fa(p.price) + " تومان";
+    $("bTotal").textContent = fa(p.price);
+    $("formErr").hidden = true;
+    $("buyForm").hidden = false;
+    $("buySuccess").hidden = true;
+    showOverlay("buyOverlay");
+  }
+  function normDigits(s) {
+    return String(s).replace(/[۰-۹]/g, function (d) { return "۰۱۲۳۴۵۶۷۸۹".indexOf(d); }).replace(/[^0-9]/g, "");
+  }
+  $("bSubmit").addEventListener("click", function () {
+    var name = $("fName").value.trim(), mob = normDigits($("fMobile").value), city = $("fCity").value.trim();
+    var err = "";
+    if (name.length < 3) err = "نام و نام خانوادگی را کامل بنویس 🌿";
+    else if (!/^09[0-9]{9}$/.test(mob)) err = "شماره موبایل باید ۱۱ رقم و با ۰۹ شروع شود 🌿";
+    else if (city.length < 2) err = "شهر را بنویس تا ارسال را هماهنگ کنیم 🌿";
+    if (err) { var e = $("formErr"); e.textContent = err; e.hidden = false; return; }
+    var code = "AVZ-" + (10000 + Math.floor(Math.random() * 89999));
+    $("okText").textContent = name + " عزیز، سفارش «" + byCode[buyCode].name + "» ثبت شد؛ برای هماهنگی ارسال با شما تماس می‌گیریم. 🌸";
+    $("okCode").textContent = code;
+    $("buyForm").hidden = true;
+    $("buySuccess").hidden = false;
+  });
 
-/* ---------- hero / spotlight ---------- */
-if ($("heroImg")) {
-  $("heroImg").src = IMAGES["4046"][2][0];
-  $("heroBuy").addEventListener("click", () => openBuy("4046"));
-  $("heroGallery").addEventListener("click", () => openGallery("4046"));
-}
-if ($("spotImg")) {
-  $("spotImg").src = IMAGES["4026"][0][0];
-  $("spotStars").textContent = stars(4.9);
-  $("spotSold").textContent = "۴٫۹ · +۲۳۱ فروش";
-  $("spotBuy").addEventListener("click", () => openBuy("4026"));
-  $("spotGallery").addEventListener("click", () => openGallery("4026"));
-}
+  /* ---------- اورلی‌ها ---------- */
+  function showOverlay(id) { $(id).hidden = false; document.body.style.overflow = "hidden"; }
+  function hideOverlay(id) { $(id).hidden = true; document.body.style.overflow = ""; }
+  ["gallery", "compareOverlay", "buyOverlay"].forEach(function (id) {
+    $(id).addEventListener("click", function (e) { if (e.target === this) hideOverlay(id); });
+  });
+  $("gClose").addEventListener("click", function () { hideOverlay("gallery"); });
+  $("cClose").addEventListener("click", function () { hideOverlay("compareOverlay"); });
+  $("bClose").addEventListener("click", function () { hideOverlay("buyOverlay"); });
+  $("okClose").addEventListener("click", function () { hideOverlay("buyOverlay"); });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") ["gallery", "compareOverlay", "buyOverlay"].forEach(hideOverlay);
+  });
 
-/* ---------- countdown to midnight ---------- */
-function tick(){
-  const now = new Date(); const end = new Date(now); end.setHours(24, 0, 0, 0);
-  let s = Math.max(0, Math.floor((end - now) / 1000));
-  const h = String(Math.floor(s / 3600)).padStart(2, "0"), m = String(Math.floor(s % 3600 / 60)).padStart(2, "0"), sec = String(s % 60).padStart(2, "0");
-  const cd = $("countdown"); if (cd) cd.textContent = `${h}:${m}:${sec}`;
-}
-tick(); setInterval(tick, 1000);
+  /* ---------- رویدادهای گرید و مقایسه ---------- */
+  document.addEventListener("click", function (e) {
+    var buy = e.target.closest("[data-buy]");
+    if (buy) { hideOverlay("compareOverlay"); hideOverlay("gallery"); openBuy(buy.dataset.buy); return; }
+    var cm = e.target.closest("[data-cmp]");
+    if (cm) { toggleCmp(cm.dataset.cmp); return; }
+    var gl = e.target.closest("[data-gal]");
+    if (gl) { openGallery(gl.dataset.gal, 0); }
+  });
 
-renderGrid();
-renderDeals();
+  /* ---------- منوی موبایل ---------- */
+  $("navToggle").addEventListener("click", function () {
+    var m = $("navMenu"), open = m.classList.toggle("open");
+    this.setAttribute("aria-expanded", open);
+  });
+  document.querySelectorAll("#navMenu .nav-link").forEach(function (a) {
+    a.addEventListener("click", function () { $("navMenu").classList.remove("open"); });
+  });
 
-/* ---------- منوی جمع‌شونده‌ی نوبار (موبایل/تبلت) ---------- */
-const navToggle = $("navToggle"), navMenu = $("navMenu");
-navToggle.addEventListener("click", () => {
-  const open = navMenu.classList.toggle("open");
-  navToggle.setAttribute("aria-expanded", String(open));
-});
-navMenu.addEventListener("click", e => {
-  if (e.target.closest("a")) { navMenu.classList.remove("open"); navToggle.setAttribute("aria-expanded", "false"); }
-});
+  window.AVZ = { openBuy: openBuy, openGallery: openGallery, byCode: byCode };
+  render();
+  syncCmpBar();
+})();

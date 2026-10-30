@@ -1,7 +1,7 @@
 /* آویزلوکس — نسخه‌ی ۱۰: هیروی «آشپزخانه‌ی ایرانی»
    آشپزخانه‌ی ایرانی (ساخته‌شده با هوش مصنوعی، صحنه‌ی خالی بدون آویز) + برشِ عکس واقعی آویز روی اپن + گلدان روی اپن.
    رابط ساده: چرخش خودکار، بندانگشتی، یک دکمه‌ی اصلی خرید. */
-.kitchen-hero{padding:104px 0 30px;text-align:center}
+.kitchen-hero{padding:42px 0 30px;text-align:center}
 .kitchen-slogan{font-size:clamp(1.7rem,4.6vw,3rem);font-weight:800;line-height:1.5;margin:6px 0 20px;color:var(--ink)}
 .kitchen-slogan span{color:var(--gold-d)}
 .kstage{position:relative;max-width:1060px;margin:6px auto 0;aspect-ratio:1060/600;border-radius:20px;overflow:hidden;background:#e9e2d6;box-shadow:0 24px 55px rgba(60,40,10,.28);text-align:center}
@@ -24,6 +24,7 @@
 .kc-price{display:flex;align-items:baseline;gap:10px;margin-top:4px}
 .kc-price .now{color:var(--gold-d);font-weight:800;font-size:1.28rem}
 .kc-price .was{color:var(--ink3);text-decoration:line-through;font-size:.92rem}
+.kc-inst{color:#7a5b12;font-size:.86rem;margin:6px 0 0;font-weight:600}
 .kc-price .off{background:#7c2d3e;color:#ffd9de;font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px}
 .kc-actions{display:flex;flex-direction:column;align-items:stretch;gap:6px}
 .kc-buy{font-size:1.05rem;padding:14px 42px}
@@ -36,7 +37,7 @@
 .k-thumb:hover{transform:translateY(-2px)}
 .k-thumb.on{border-color:var(--gold);color:var(--gold2)}
 @media(max-width:700px){
-  .kitchen-hero{padding-top:92px}
+  .kitchen-hero{padding-top:34px}
   .kstage{aspect-ratio:4/4.1;border-radius:16px}
   .k-photo{object-position:center 55%}
   .k-hang{height:40%}

@@ -3,26 +3,51 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>آویزلوکس — بازطراحی فروشگاه آویز و لوستر</title>
-<meta name="description" content="نسخه‌ی نمونه‌ی بازطراحی فروشگاه آویزلوکس؛ آویزهای کریستالی با خرید سریع و بدون ثبت‌نام.">
+<title>آویزلوکس — آویز اپن و آشپزخانه</title>
+<meta name="description" content="آویزلوکس؛ فروشگاه تخصصی آویز اپن و آشپزخانه. ده مدل انتخاب‌شده با عکس واقعی، تست زنده روی اپن، خرید سریع و امکان خرید قسطی.">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap">
-<link rel="stylesheet" href="style.css?v=19">
-<link rel="stylesheet" href="stage.css?v=19">
+<link rel="stylesheet" href="style.css?v=20">
+<link rel="stylesheet" href="stage.css?v=20">
 </head>
 <body>
 
-<!-- خط نور — جزئیات امضادار (پیشنهاد جهت هنری Gemini): رشته‌ی طلاییِ آویز در لبه‌ی صفحه که با اسکرول پایین می‌آید -->
+<!-- خط نور — جزئیات امضادار: رشته‌ی طلاییِ آویز در لبه‌ی صفحه که با اسکرول پایین می‌آید -->
 <div class="light-line" aria-hidden="true"><div class="light-fill" id="lightFill"></div></div>
 
-<!-- KITCHEN HERO — «اپن آشپزخانه» (نسخه‌ی ۸، ایده‌ی کاربر): آویزها بالای اپن آویزان‌اند و مدل‌شان عوض می‌شود -->
-<section class="kitchen-hero" id="top">
+<!-- نوار آشپزخانه — هویت «اپن و آشپزخانه» از همان بالای صفحه، با کراپی از صحنه‌ی خودمان -->
+<div class="kitchen-band" id="kitchenBand">
+  <span class="kb-text">آویز اُپن و آشپزخانه — نورِ دورهمی‌های شما 🍽️✨</span>
+</div>
+
+<!-- HEADER — چسبان: لوگو، منوی فضا، جست‌وجو، مشاوره‌ی واتساپ -->
+<header class="navbar" id="mainNav">
+  <div class="container nav-in">
+    <a class="brand" href="#top" id="brandLink"><img class="brand-logo" id="brandLogo" alt="آویزلوکس" hidden><span class="brand-text">آویز<span>لوکس</span></span></a>
+    <button class="navbar-toggler" id="navToggle" type="button" aria-label="باز کردن منو" aria-expanded="false" aria-controls="navMenu">☰</button>
+    <div class="navbar-collapse" id="navMenu">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="#products" data-space-link="island">بالای اپن</a></li>
+        <li class="nav-item"><a class="nav-link" href="#products" data-space-link="dining">میز ناهارخوری</a></li>
+        <li class="nav-item"><a class="nav-link" href="#products" data-space-link="all">همه‌ی مدل‌ها</a></li>
+        <li class="nav-item"><a class="nav-link" href="#guide">راهنمای چیدمان</a></li>
+      </ul>
+      <label class="nav-search"><span class="sr-only">جست‌وجوی آویز</span><input id="searchInput" type="search" placeholder="جست‌وجوی مدل یا کد…" autocomplete="off"></label>
+      <a class="btn-gold nav-cta" href="https://wa.me/989171837394" target="_blank" rel="noopener">💬 مشاوره در واتساپ</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- HERO — استودیو تست آویز: آشپزخانه‌ی ایرانی + گلدان روی اپن + آویزها با چیدمان درست -->
+<section class="kitchen-hero">
   <div class="container">
-    <p class="eyebrow">استودیو تست آویز آویزلوکس</p>
+    <p class="eyebrow">استودیو تست آویز — مخصوص اپن و آشپزخانه</p>
     <h1 class="kitchen-slogan">یه تغییر کوچیک… یه حس بزرگ 💫<br><span>نوری که خاصِ سلیقه توئه ✨</span></h1>
-    <p class="studio-sub">مدل و چیدمان را انتخاب کن و همان لحظه روی اپن ببین؛ اگر پسندیدی، خریدش فقط دو لمس است.</p>
+    <p class="studio-sub">وقتی نور خوبه… دورهمی قشنگ‌تر می‌شه. مدل و چیدمانش را انتخاب کن و همان لحظه روی اپن ببین؛ اگر پسندیدی، خریدش فقط دو لمس است — بدون ثبت‌نام.</p>
     <div class="kstage" id="kStage">
-      <img class="k-photo" id="kPhoto" alt="آشپزخانه‌ی روشن با اپن">
+      <img class="k-photo" id="kPhoto" alt="آشپزخانه‌ی ایرانی روشن با اپن">
       <div class="k-shade" aria-hidden="true"></div>
       <div class="k-glow" aria-hidden="true"></div>
       <div class="k-cone" aria-hidden="true"></div>
@@ -34,7 +59,7 @@
       <span class="k-badge" id="kBadge">پیشنهاد آویزلوکس</span>
     </div>
     <div class="k-caption">
-      <div class="kc-info"><h3 id="ksName"></h3><p id="ksMeta"></p><div class="kc-price" id="ksPrice"></div></div>
+      <div class="kc-info"><h3 id="ksName"></h3><p id="ksMeta"></p><div class="kc-price" id="ksPrice"></div><p class="kc-inst">💳 امکان خرید قسطی هم هست؛ برای شرایطش در واتساپ بپرس.</p></div>
       <div class="kc-actions">
         <button class="btn-gold kc-buy" id="ksBuy">خرید سریع</button>
         <button class="kc-link" id="ksGallery" type="button">مشاهده‌ی عکس‌ها</button>
@@ -45,98 +70,60 @@
   </div>
 </section>
 
+<!-- TRUST STRIP -->
 <section class="trust-strip">
   <div class="container trust-in">
     <span>🚚 ارسال به سراسر کشور</span>
     <span>🛡️ ضمانت کیفیت و اصالت کالا</span>
     <span>💳 پرداخت امن با درگاه زیبال</span>
-    <a href="https://wa.me/989171837394" target="_blank" rel="noopener">💬 مشاوره‌ی انتخاب در واتساپ</a>
+    <a href="https://wa.me/989171837394" target="_blank" rel="noopener">💬 پشتیبانی و مشاوره در واتساپ</a>
   </div>
 </section>
 
-
-
-<!-- NAV — نوار ناوبری قالب Massively (چسبان، برای خرید سریع) -->
-<nav class="navbar" id="mainNav">
-  <div class="container nav-in">
-    <a class="brand" href="#top">آویز<span>لوکس</span></a>
-    <button class="navbar-toggler" id="navToggle" type="button" aria-label="باز کردن منو" aria-expanded="false" aria-controls="navMenu">☰</button>
-    <div class="navbar-collapse" id="navMenu">
-      <ul class="navbar-nav">
-        <li class="nav-item"><a class="nav-link" href="#top">استودیو تست</a></li>
-        <li class="nav-item"><a class="nav-link" href="#products">محصولات</a></li>
-        <li class="nav-item"><a class="nav-link" href="#why">چرا آویزلوکس</a></li>
-        <li class="nav-item"><a class="nav-link" href="#deals">تخفیف‌ها</a></li>
-      </ul>
-      <a class="btn-gold nav-cta" href="#products">خرید سریع</a>
-    </div>
-  </div>
-</nav>
-
-<main>
-
-  <!-- TRUST STRIP -->
-  <section class="trust">
-    <div class="container trust-in">
-      <div class="trust-item"><b>بهترین قیمت بازار</b><span>بدون واسطه</span></div>
-      <div class="trust-item"><b>ارسال سریع</b><span>به سراسر کشور</span></div>
-      <div class="trust-item"><b>ضمانت کیفیت</b><span>گارانتی اصالت و سلامت کالا</span></div>
-      <div class="trust-item"><b>پشتیبانی اختصاصی</b><span>پاسخ‌گوی شما هستیم</span></div>
-    </div>
-  </section>
-
-  <!-- FEATURED — مقاله‌ی برجسته‌ی قالب Massively: محصول پیش‌فرض ۴۰۲۶ -->
-  
-
-  <!-- PRODUCTS — گرید مقاله‌ای قالب Massively -->
+  <!-- SPACES — از آشپزخانه‌ی خودت شروع کن -->
   <section class="section spaces" id="spaces">
     <div class="container">
       <p class="eyebrow">از کجا شروع کنم؟</p>
-      <h2 class="sec-title">بر اساس فضا انتخاب کن</h2>
-      <p class="sec-sub">آویز برای هر فضا یک شخصیت می‌خواهد؛ فضایت را انتخاب کن تا مدل‌های مناسب همان‌جا را ببینی.</p>
+      <h2 class="sec-title">از آشپزخانه‌ی خودت شروع کن</h2>
+      <p class="sec-sub">کار ما آویز اپن و آشپزخانه است؛ همین مدل‌ها روی میز ناهارخوری هم می‌نشینند. فضایت را انتخاب کن تا مدل‌های مناسبش را ببینی.</p>
       <div class="space-grid">
-        <button class="space-card" data-space="open" type="button"><b>اپن و آشپزخانه</b><span>قلب خانه؛ چیدمان طولی و تکی روی اپن</span></button>
-        <button class="space-card" data-space="dining" type="button"><b>میز ناهارخوری</b><span>نور متمرکز و گرم، وسط میز</span></button>
-        <button class="space-card" data-space="living" type="button"><b>نشیمن و پذیرایی</b><span>حضور پررنگ‌تر و مجلسی‌تر</span></button>
-        <button class="space-card" data-space="bedroom" type="button"><b>اتاق خواب</b><span>نور ملایم و آرام</span></button>
-        <button class="space-card" data-space="cafe" type="button"><b>کافه و رستوران</b><span>ردیف‌های چشمگیر برای فضای تجاری</span></button>
+        <button class="space-card main" data-space="island" type="button"><b>🍳 اپن و آشپزخانه</b><span>قلب خانه؛ چیدمان طولی یا تکی روی اپن، با نور گرمِ دورهمی</span></button>
+        <button class="space-card" data-space="dining" type="button"><b>🍽️ میز ناهارخوری</b><span>همان آویزها، این بار وسط میز؛ نور متمرکز و صمیمی برای مهمانی</span></button>
       </div>
     </div>
   </section>
 
+  <!-- PRODUCTS -->
   <section class="section" id="products">
     <div class="container">
       <div class="sec-head">
         <span class="date">مجموعه‌ی کامل</span>
-        <h2>همه‌ی آویزها</h2>
-        <p>همه‌ی مدل‌ها، یک‌جا و بدون شلوغی — با چیپ‌ها در یک لمس به چند گزینه برسید.</p>
+        <h2>آویزهای اپن و آشپزخانه</h2>
+        <p>فقط ده مدلِ انتخاب‌شده — کم، ولی درست. اول اقتصادی‌ها را ببین؛ قیمت‌ها شفاف‌اند و روی همه‌ی مدل‌ها امکان خرید قسطی هست.</p>
       </div>
       <div class="chips" id="chips">
-        <button class="chip active" data-f="all">همه</button>
-        <button class="chip" data-f="u45">زیر ۴٫۵ میلیون</button>
-        <button class="chip" data-f="a45">۴٫۵ میلیون به بالا</button>
+        <button class="chip active" data-f="all">همه‌ی مدل‌ها</button>
+        <button class="chip chip-eco" data-f="u45">💚 زیر ۴٫۵ میلیون — اقتصادی‌ها</button>
         <button class="chip" data-f="island">روی اپن</button>
         <button class="chip" data-f="dining">میز ناهارخوری</button>
-        <button class="chip" data-f="salon">پذیرایی</button>
-        <button class="chip" data-f="bedroom">اتاق خواب</button>
-        <button class="chip" data-f="cafe">کافه و رستوران</button>
       </div>
       <div class="grid-tools">
         <span id="gridCount"></span>
         <label class="sort-wrap">مرتب‌سازی
           <select id="sortSel">
-            <option value="rec">پیشنهادی</option>
-            <option value="pop">محبوب‌ترین</option>
+            <option value="rec">پیشنهادی — اول اقتصادی‌ها</option>
             <option value="cheap">ارزان‌ترین</option>
+            <option value="pop">محبوب‌ترین</option>
             <option value="exp">گران‌ترین</option>
           </select>
         </label>
       </div>
       <div class="row-grid" id="grid"></div>
+      <p class="grid-empty" id="gridEmpty" hidden>مدلی با این جست‌وجو پیدا نشد؛ «همه‌ی مدل‌ها» را بزن یا کلمه‌ی ساده‌تری بنویس. 🌿</p>
     </div>
   </section>
 
-  <!-- WHY — ستون‌های متنی آرام با جداکننده‌ی نازک -->
+  <!-- GUIDE — راهنمای چیدمان روی اپن -->
   <section class="section guide" id="guide">
     <div class="container">
       <p class="eyebrow">راهنمای آویزلوکس</p>
@@ -149,61 +136,50 @@
     </div>
   </section>
 
-  <section class="section why" id="why">
-    <div class="container">
-      <div class="sec-head">
-        <span class="date">اعتماد</span>
-        <h2>چرا آویزلوکس؟</h2>
-        <p>«اعتماد مشتریان، بزرگ‌ترین سرمایه‌ی ماست.» — از صفحه‌ی درباره‌ی ما</p>
-      </div>
-      <div class="why-grid">
-        <div class="why-card"><b>گارانتی اصالت و سلامت فیزیکی کالا</b><p>هر آویز قبل از ارسال بررسی می‌شود و با ضمانت اصالت به دست‌تان می‌رسد.</p></div>
-        <div class="why-card"><b>ضمانت تعویض کالا</b><p>اگر کالا آسیب‌دیده رسید، تعویض آن با ما است؛ خیال‌تان راحت.</p></div>
-        <div class="why-card"><b>ارسال به سراسر کشور</b><p>سفارش‌ها توسط فروشنده با بسته‌بندی ایمن به همه‌ی شهرها ارسال می‌شود.</p></div>
-        <div class="why-card"><b>نورِ دلخواه در هر مدل</b><p>همه‌ی مدل‌ها ترانس هوشمند و سه حالت نوری آفتابی، مهتابی و نچرال دارند.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- DEALS — نوار تیره‌ی پایانی (به پیشنهاد Gemini: آخرین ضربه‌ی خرید، درست قبل از فوتر) -->
-  <section class="section deals" id="deals">
-    <div class="container">
-      <div class="sec-head light">
-        <span class="date gold">فرصت محدود</span>
-        <h2>تخفیفات شگفت‌انگیز</h2>
-        <p>تا پایان امروز:</p>
-        <div class="countdown mono" id="countdown" dir="ltr">--:--:--</div>
-      </div>
-      <div class="row-grid deals-grid" id="dealsGrid"></div>
+  <!-- SEO — راهنمای خرید -->
+  <section class="section seo-block" id="buying-guide">
+    <div class="container seo-in">
+      <p class="eyebrow">قبل از خرید بخوان</p>
+      <h2 class="sec-title">راهنمای خرید آویز آشپزخانه</h2>
+      <p>برای خرید آویز آشپزخانه اول از خودِ اپن شروع کن: اگر اپن کشیده است، چیدمان طولی با چند بدنه‌ی باریک و کشیده در یک ردیف، نور را یکدست روی صفحه پخش می‌کند؛ اگر سادگی را دوست داری، سه آویز تکیِ هم‌شکل روی یک‌چهارم، وسط و سه‌چهارمِ طول اپن همان حس مرتب و آرامی را می‌دهد که در عکس‌های آشپزخانه‌های ایرانی می‌بینی. قانون طلایی ارتفاع را هم فراموش نکن: پایین آویز اپن باید ۷۰ تا ۸۰ سانتی‌متر بالای صفحه باشد تا هم نور کافی برسد، هم دید و گفت‌وگو سر میز و اپن راحت بماند.</p>
+      <p>در آویزلوکس لازم نیست حدس بزنی؛ هر ده مدل را می‌توانی در استودیو تست، روی اپنِ یک آشپزخانه‌ی واقعی ببینی و بین دو سه مدل مردد هم با دکمه‌ی «مقایسه» کنار هم بگذاری. همه‌ی عکس‌ها واقعی‌اند، قیمت‌ها شفاف و نهایی‌اند و روی همه‌ی مدل‌ها امکان خرید قسطی هست تا انتخابت را با خیال راحت انجام بدهی. اگر باز هم مردد بودی، در واتساپ عکس آشپزخانه‌ات را بفرست؛ با هم بهترین چیدمان را پیدا می‌کنیم. 🌸</p>
     </div>
   </section>
 
 </main>
 
 <footer class="site-footer">
+  <!-- نوار صحنه‌ی آشپزخانه — جزیره و آویزها، با شعار برند -->
+  <div class="foot-scene">
+    <img id="footScene" alt="آشپزخانه‌ی ایرانی با اپن و آویزها">
+    <div class="foot-scene-veil" aria-hidden="true"></div>
+    <p class="foot-scene-slogan">یه تغییر کوچیک… یه حس بزرگ 💫<br><span>نوری که خاصِ سلیقه توئه ✨</span></p>
+  </div>
   <div class="container foot-in">
     <div>
       <p class="brand">آویز<span>لوکس</span></p>
-      <p>آویز لوکس؛ نقطه‌ی اوج زیبایی در دکوراسیون شما. کیفیت بالا، قیمت مناسب، ارسال سریع و پشتیبانی پاسخ‌گو.</p>
+      <p>فروشگاه تخصصی آویز اپن و آشپزخانه؛ نورِ گرم و آرامی که دورهمی‌های خانه‌ات را قشنگ‌تر می‌کند.</p>
     </div>
     <div>
       <b>دسترسی سریع</b>
       <a href="#top">استودیو تست آویز</a>
-      <a href="#products">همه‌ی محصولات</a>
-      <a href="#deals">تخفیفات شگفت‌انگیز</a>
+      <a href="#products">همه‌ی مدل‌ها</a>
+      <a href="#guide">راهنمای چیدمان روی اپن</a>
+      <a href="#buying-guide">راهنمای خرید آویز آشپزخانه</a>
     </div>
     <div>
-      <b>فروشگاه اصلی</b>
-      <a href="https://avizelux.ir" target="_blank" rel="noopener">avizelux.ir</a>
-      <a href="https://avizelux.ir/call/" target="_blank" rel="noopener">تماس با ما</a>
-      <a href="https://avizelux.ir/about-us/" target="_blank" rel="noopener">درباره‌ی ما</a>
+      <b>تماس با ما</b>
+      <a href="tel:+989171837394">📞 ۰۹۱۷۱۸۳۷۳۹۴</a>
+      <a href="mailto:hosseinmbat@gmail.com">✉️ hosseinmbat@gmail.com</a>
+      <a href="https://instagram.com/avize_lux" target="_blank" rel="noopener">📸 اینستاگرام: avize_lux@</a>
+      <a href="https://wa.me/989171837394" target="_blank" rel="noopener">💬 واتساپ فروشگاه</a>
     </div>
   </div>
-  <p class="foot-note">نسخه‌ی نمونه‌ی بازطراحی فروشگاه آویزلوکس — قیمت‌ها و عکس‌ها از فروشگاه اصلی گرفته شده‌اند؛ امتیاز و شمار فروش نمایشی است و سفارش‌ها در این نسخه آزمایشی ثبت می‌شوند.</p>
+  <p class="foot-note">نسخه‌ی نمونه‌ی بازطراحی فروشگاه آویزلوکس — قیمت‌ها و عکس‌ها واقعی‌اند؛ امتیاز و شمار فروش نمایشی است و سفارش‌ها در این نسخه آزمایشی ثبت می‌شوند.</p>
   <p class="foot-credit">بر پایه‌ی قالب <a href="https://html5up.net/massively" target="_blank" rel="noopener">Massively</a> از HTML5 UP — ویرایش و فارسی‌سازی برای آویزلوکس.</p>
 </footer>
 
-<!-- GALLERY — نمای محصول: تصویر و بندانگشتی‌ها + جزئیات -->
+<!-- GALLERY — نمای محصول -->
 <div class="overlay" id="gallery" hidden>
   <div class="sheet gallery-sheet" role="dialog" aria-modal="true">
     <button class="sheet-close" id="gClose" aria-label="بستن">✕</button>
@@ -213,13 +189,28 @@
       <h3 id="gName"></h3>
       <div class="g-meta"><span class="stars" id="gStars"></span><span id="gSold"></span></div>
       <div class="g-specs" id="gSpecs"></div>
-      <p class="g-note">عکس‌ها واقعی و متعلق به همین محصول در فروشگاه آویزلوکس‌اند.</p>
+      <p class="g-note">عکس‌ها واقعی و متعلق به همین محصول‌اند.</p>
     </div>
     <div class="g-bar">
       <div class="g-price" id="gPrice"></div>
       <button class="btn-gold btn-lg" id="gBuy">خرید سریع</button>
     </div>
   </div>
+</div>
+
+<!-- COMPARE — مقایسه‌ی ساده، حداکثر سه مدل -->
+<div class="overlay" id="compareOverlay" hidden>
+  <div class="sheet compare-sheet" role="dialog" aria-modal="true">
+    <button class="sheet-close" id="cClose" aria-label="بستن">✕</button>
+    <h3>مقایسه‌ی مدل‌ها</h3>
+    <p class="cmp-hint">فقط چیزهایی که برای تصمیم لازم داری: عکس، قیمت، ابعاد، جنس و فضای مناسب.</p>
+    <div class="cmp-grid" id="cmpGrid"></div>
+  </div>
+</div>
+<div class="cmp-bar" id="cmpBar" hidden>
+  <span id="cmpBarText"></span>
+  <button class="btn-gold" id="cmpOpen" type="button">مشاهده‌ی مقایسه</button>
+  <button class="cmp-clear" id="cmpClear" type="button">پاک کردن</button>
 </div>
 
 <!-- QUICK BUY -->
@@ -252,13 +243,13 @@
 
 <div class="toast" id="toast" hidden></div>
 
-<script src="images.js?v=19"></script>
-<script src="app.js?v=19"></script>
-<script src="stage-imgs.js?v=19"></script>
-<script src="tester-imgs.js?v=19"></script>
-<script src="tester.js?v=19"></script>
+<script src="scene.js?v=20"></script>
+<script src="catalog.js?v=20"></script>
+<script src="app.js?v=20"></script>
+<script src="tester-imgs.js?v=20"></script>
+<script src="tester.js?v=20"></script>
 <script>
-/* خط نور: پر شدن رشته‌ی طلایی با اسکرول (جزئیات امضادار نسخه‌ی ۶) */
+/* خط نور: پر شدن رشته‌ی طلایی با اسکرول */
 (function(){
   var fill = document.getElementById('lightFill');
   if (!fill) return;
@@ -271,6 +262,16 @@
   addEventListener('scroll', upd, { passive: true });
   addEventListener('resize', upd);
   upd();
+})();
+/* نوار آشپزخانه‌ی هدر و نوار صحنه‌ی فوتر از دارایی صحنه‌ی خودمان پر می‌شوند */
+(function(){
+  if (!window.SCENE) return;
+  var band = document.getElementById('kitchenBand');
+  if (band && SCENE.headerBand) band.style.backgroundImage = 'url(' + SCENE.headerBand + ')';
+  var fs = document.getElementById('footScene');
+  if (fs && SCENE.footerStrip) fs.src = SCENE.footerStrip;
+  var logo = document.getElementById('brandLogo');
+  if (logo && SCENE.logo) { logo.src = SCENE.logo; logo.hidden = false; document.querySelector('.brand-text').style.display = 'none'; }
 })();
 </script>
 </body>
