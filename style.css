@@ -294,3 +294,23 @@ a{color:inherit}
 .guide-card{background:#fffdf7;border:1.5px solid #e4d7ba;border-radius:16px;padding:20px 18px;text-align:start}
 .guide-card b{color:var(--gold-d);font-size:1rem}
 .guide-card p{margin:8px 0 0;color:var(--ink2);line-height:1.95;font-size:.93rem}
+
+/* ---------- حرکت ظریف v21: تیلت/برق نور و زوم گالری (فقط transform/opacity) ---------- */
+.g-main{position:relative;overflow:hidden;touch-action:none}
+.g-main img{user-select:none;-webkit-user-drag:none;will-change:transform}
+.g-main.zoomed{cursor:grab}
+.g-main.zoomed:active{cursor:grabbing}
+.g-zoom-ui{position:absolute;bottom:10px;inset-inline-start:10px;display:flex;gap:6px;z-index:6}
+.g-zoom-ui button{min-width:34px;height:34px;padding:0 8px;border-radius:999px;border:1px solid var(--gold2);background:rgba(255,251,240,.94);color:#5b4a1f;font-size:.95rem;font-weight:700;cursor:pointer;line-height:1;font-family:inherit}
+.g-zoom-ui button:active{transform:scale(.94)}
+.tilt-sheen{position:absolute;inset:0;pointer-events:none;z-index:5;opacity:0;background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),rgba(255,238,196,.38),rgba(255,238,196,0) 62%);transition:opacity .35s ease}
+@media (hover:hover) and (pointer:fine){
+  .card{transition:box-shadow .35s ease}
+  .card:hover{box-shadow:0 14px 34px -14px rgba(146,110,32,.45)}
+  .card-img-top{transition:transform .6s ease}
+  .card:hover .card-img-top{transform:scale(1.045)}
+}
+@media (prefers-reduced-motion: reduce){
+  .card,.card-img-top,.g-main img{transition:none!important}
+  .tilt-sheen{display:none}
+}

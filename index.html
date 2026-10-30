@@ -7,8 +7,8 @@
 <meta name="description" content="آویزلوکس؛ فروشگاه تخصصی آویز اپن و آشپزخانه. ده مدل انتخاب‌شده با عکس واقعی، تست زنده روی اپن، خرید سریع و امکان خرید قسطی.">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap">
-<link rel="stylesheet" href="style.css?v=20">
-<link rel="stylesheet" href="stage.css?v=20">
+<link rel="stylesheet" href="style.css?v=21">
+<link rel="stylesheet" href="stage.css?v=21">
 </head>
 <body>
 
@@ -183,7 +183,13 @@
 <div class="overlay" id="gallery" hidden>
   <div class="sheet gallery-sheet" role="dialog" aria-modal="true">
     <button class="sheet-close" id="gClose" aria-label="بستن">✕</button>
-    <div class="g-main"><img id="gImg" alt=""></div>
+    <div class="g-main" id="gMain"><img id="gImg" alt="">
+      <div class="g-zoom-ui" aria-label="ابزار بزرگ‌نمایی">
+        <button id="gzIn" type="button" aria-label="بزرگ‌نمایی">+</button>
+        <button id="gzOut" type="button" aria-label="کوچک‌نمایی">−</button>
+        <button id="gzReset" type="button" aria-label="بازنشانی بزرگ‌نمایی">۱۰۰٪</button>
+      </div>
+    </div>
     <div class="g-thumbs" id="gThumbs"></div>
     <div class="g-info">
       <h3 id="gName"></h3>
@@ -243,11 +249,12 @@
 
 <div class="toast" id="toast" hidden></div>
 
-<script src="scene.js?v=20"></script>
-<script src="catalog.js?v=20"></script>
-<script src="app.js?v=20"></script>
-<script src="tester-imgs.js?v=20"></script>
-<script src="tester.js?v=20"></script>
+<script src="scene.js?v=21"></script>
+<script src="catalog.js?v=21"></script>
+<script src="app.js?v=21"></script>
+<script src="tester-imgs.js?v=21"></script>
+<script src="tester.js?v=21"></script>
+<script src="motion.js?v=21"></script>
 <script>
 /* خط نور: پر شدن رشته‌ی طلایی با اسکرول */
 (function(){
