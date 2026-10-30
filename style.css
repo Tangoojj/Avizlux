@@ -322,3 +322,11 @@ a{color:inherit}
 .g-scene{flex:0 1 auto}
 .g-type{margin:12px 0 0;font-weight:700;color:var(--gold-d);font-size:.95rem}
 .g-type:empty{display:none}
+
+/* ---------- «روی اپن خودم ببین» v24 — خدمت ترکیب روی اپن مشتری (واتساپ) ---------- */
+.btn-mine{display:inline-block;background:var(--lav-bg);border:1.5px solid var(--lav);color:var(--purp-d);font:inherit;font-size:.9rem;font-weight:700;padding:10px 14px;border-radius:10px;text-decoration:none;text-align:center;cursor:pointer;transition:background .18s ease,border-color .18s ease}
+.btn-mine:hover{background:var(--lav);border-color:var(--purp)}
+.card .btn-mine{margin-top:8px;width:100%}
+.kc-mine{padding:11px 20px;font-size:.95rem}
+.mine{padding:56px 0;background:linear-gradient(180deg,var(--lav-bg),rgba(239,233,251,0) 135%)}
+.mine-tip{margin:22px auto 0;max-width:700px;background:var(--card);border:1.5px dashed var(--gold);color:var(--ink2);border-radius:14px;padding:13px 18px;font-size:.93rem;line-height:1.9;text-align:center}

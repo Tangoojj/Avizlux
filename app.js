@@ -15,6 +15,11 @@
   function faD(s) { return String(s).replace(/[0-9]/g, function (d) { return "۰۱۲۳۴۵۶۷۸۹"[d]; }); }
   function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;"); }
   function spacesFa(p) { return p.spaces.map(function (s) { return SPACE_FA[s] || s; }).join(" • "); }
+  /* «روی اپن خودم ببین» — واتساپ با متن آماده (نام و کد مدل از پیش پر شده)؛ مشتری عکس اپنش را همان‌جا می‌فرستد و ترکیب را ما برمی‌گردانیم */
+  function waMine(p) {
+    var msg = "سلام آویزلوکس، مدل " + p.name + " (کد " + faD(p.code) + ") رو پسندیدم. عکس اپنم رو می‌فرستم تا آویز رو روی اپن خودم ببینم.";
+    return "https://wa.me/989171837394?text=" + encodeURIComponent(msg);
+  }
   var toastT;
   function toast(msg) {
     var t = $("toast"); t.textContent = msg; t.hidden = false;
@@ -58,7 +63,8 @@
         '<button class="btn-gold" style="flex:1" data-buy="' + p.code + '" type="button">خرید سریع</button>' +
         '<button class="btn-cmp" data-cmp="' + p.code + '" type="button" aria-pressed="' + inCmp + '">' + (inCmp ? "✓ در مقایسه" : "مقایسه") + '</button>' +
       '</div>' +
-      '<button class="btn-scene" data-scene="' + p.code + '" type="button">🏝️ مشاهده روی اپن آشپزخانه</button></article>';
+      '<button class="btn-scene" data-scene="' + p.code + '" type="button">🏝️ مشاهده روی اپن آشپزخانه</button>' +
+      '<a class="btn-mine" data-mine="' + p.code + '" href="' + waMine(p) + '" target="_blank" rel="noopener">🏝️ روی اپن خودم ببین</a></article>';
   }
   function render() {
     var list = visible();
@@ -139,6 +145,7 @@
     $("gSold").textContent = fa(p.sold) + " فروش";
     $("gSpecs").innerHTML = "<span>کد " + faD(p.code) + "</span><span>ابعاد " + esc(p.dims) + "</span><span>" + esc(p.mat) + "</span><span>مناسب: " + spacesFa(p) + "</span><span>💳 امکان خرید قسطی</span>";
     $("gPrice").innerHTML = "<b>" + fa(p.price) + "</b> تومان";
+    $("gMine").href = waMine(p);
     $("gThumbs").innerHTML = imgs.map(function (src, i) {
       return '<button class="g-thumb' + (i === gal.idx ? " active" : "") + '" data-gi="' + i + '" type="button"><img src="' + src + '" alt="">' + typeOf(code, i) + '</button>';
     }).join("");

@@ -19,6 +19,12 @@
 
   function $(id) { return document.getElementById(id); }
   function fa(n) { return Number(n).toLocaleString("fa-IR"); }
+  function faD(s) { return String(s).replace(/[0-9]/g, function (d) { return "۰۱۲۳۴۵۶۷۸۹"[d]; }); }
+  /* «روی اپن خودم ببین» — لینک واتساپ مدلِ در حال نمایش (با هر تعویض مدل به‌روز می‌شود) */
+  function waMine(p) {
+    var msg = "سلام آویزلوکس، مدل " + p.name + " (کد " + faD(p.code) + ") رو پسندیدم. عکس اپنم رو می‌فرستم تا آویز رو روی اپن خودم ببینم.";
+    return "https://wa.me/989171837394?text=" + encodeURIComponent(msg);
+  }
   var stage = $("kStage"), photo = $("kPhoto"), flower = $("kFlower");
   var shade = stage.querySelector(".k-shade");
   var fx = stage.querySelectorAll(".k-glow,.k-cone,.k-pool");
@@ -57,6 +63,7 @@
     $("ksName").textContent = p.name;
     $("ksMeta").textContent = "ابعاد " + p.dims + " • " + p.mat;
     $("ksPrice").innerHTML = '<span class="now">' + fa(p.price) + " تومان</span>";
+    $("ksMine").href = waMine(p);
     buildModes();
     buildThumbs();
   }
