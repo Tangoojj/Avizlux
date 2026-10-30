@@ -124,8 +124,9 @@ a{color:inherit}
 .card-img-wrap{position:relative;overflow:hidden;cursor:pointer;border:1px solid var(--line)}
 .card-img-top{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;transition:transform .35s ease}
 .card:hover .card-img-top{transform:scale(1.03)}
-.card-badges{position:absolute;top:10px;inset-inline-start:10px;display:flex;flex-direction:column;gap:6px;align-items:flex-start}
-.badge{font-size:.72rem;font-weight:700;padding:2px 9px;color:#fff;line-height:1.7}
+.card-badges{position:absolute;top:10px;inset-inline-start:10px;display:flex;flex-direction:column;gap:8px;align-items:flex-start;z-index:2;pointer-events:none}
+.card-badges .badge{display:block;width:max-content;max-width:calc(100vw - 40px)}
+.badge{font-size:.72rem;font-weight:700;padding:2px 9px;color:#fff;line-height:1.7;white-space:nowrap}
 .badge.off{background:var(--red)}
 .badge.rec{background:var(--gold);color:#241a06}
 .badge.best{background:var(--ink)}
