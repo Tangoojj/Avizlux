@@ -330,3 +330,42 @@ a{color:inherit}
 .kc-mine{padding:11px 20px;font-size:.95rem}
 .mine{padding:56px 0;background:linear-gradient(180deg,var(--lav-bg),rgba(239,233,251,0) 135%)}
 .mine-tip{margin:22px auto 0;max-width:700px;background:var(--card);border:1.5px dashed var(--gold);color:var(--ink2);border-radius:14px;padding:13px 18px;font-size:.93rem;line-height:1.9;text-align:center}
+
+/* ---------- v25: «مشاور انتخاب آویز» — هویت بنفش روشن + طلایی ---------- */
+.advisor{background:linear-gradient(180deg,var(--lav-bg),rgba(239,233,251,0) 160%)}
+.adv-note{max-width:760px;margin:0 auto 26px;background:var(--card);border:1.5px solid var(--lav);border-radius:14px;padding:14px 18px;color:var(--ink2);font-size:.94rem;line-height:1.95;text-align:center}
+.adv-form{max-width:860px;margin:0 auto}
+.adv-step{border:1.5px solid var(--line);border-radius:16px;background:var(--card);padding:18px;margin:0 0 14px}
+.adv-step legend{font-weight:800;padding:0 8px}
+.adv-opts{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.adv-opt{position:relative}
+.adv-opt input{position:absolute;opacity:0;pointer-events:none}
+.adv-opt span{display:inline-block;border:1.5px solid var(--line2);border-radius:999px;padding:8px 16px;font-weight:600;color:var(--ink2);cursor:pointer;transition:all .15s ease}
+.adv-opt:hover span{border-color:var(--purp);color:var(--purp-d)}
+.adv-opt input:checked + span{background:var(--purp);border-color:var(--purp);color:#fff}
+.adv-opt input:focus-visible + span{outline:2px solid var(--gold2);outline-offset:2px}
+.adv-hint{color:var(--ink3);font-size:.86rem;margin:10px 0 0;line-height:1.9}
+.adv-submit{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:6px}
+.adv-result{max-width:860px;margin:28px auto 0}
+.adv-placeholder{text-align:center;color:var(--ink2);background:var(--card);border:1.5px dashed var(--line2);border-radius:14px;padding:22px 18px}
+.adv-summary{font-weight:800;text-align:center;margin:0 0 14px}
+.adv-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.adv-card{background:var(--card);border:1.5px solid var(--line);border-radius:16px;padding:16px;display:flex;flex-direction:column}
+.adv-card img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:10px;border:1px solid var(--line);display:block}
+.adv-cap{color:var(--ink3);font-size:.82rem;margin:6px 0 10px}
+.adv-card h3{margin:0 0 4px;font-size:1.02rem;line-height:1.6}
+.adv-why{margin:12px 0 0;padding-inline-start:18px;color:var(--ink2);font-size:.88rem;line-height:1.9}
+.adv-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.adv-actions .btn-scene,.adv-actions .btn-gold,.adv-actions .btn-mine{flex:1 1 140px;text-align:center}
+.adv-rule{max-width:860px;margin:16px auto 0;background:#fff8e6;border:1.5px solid var(--gold2);border-radius:12px;padding:12px 16px;color:var(--ink2);font-size:.92rem;line-height:1.9;text-align:center}
+.adv-notes{margin-top:14px}
+.adv-notes p{background:#fdf2f2;border:1.5px solid #e8c4c4;border-radius:12px;padding:12px 16px;color:var(--ink2);font-size:.92rem;line-height:1.9;margin:0 0 8px}
+.adv-honest{text-align:center;color:var(--ink3);font-size:.86rem;margin:16px 0 0}
+.adv-qa{max-width:860px;margin:30px auto 0;background:var(--card);border:1.5px solid var(--line);border-radius:16px;padding:22px 20px}
+.adv-qa h3{margin:0 0 4px;font-size:1.1rem}
+.adv-askrow{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+.adv-askrow input{flex:1;min-width:220px;padding:11px 14px;border:1.5px solid var(--line2);background:#fff;font:inherit;color:var(--ink)}
+.adv-askrow input:focus{outline:2px solid var(--gold2);border-color:var(--gold)}
+.adv-answer{color:var(--ink2);line-height:1.95;margin:14px 0 0;min-height:1.5em}
+.adv-answer:empty{display:none}
+@media (max-width:620px){.adv-cards{grid-template-columns:1fr}.adv-askrow{flex-direction:column}.adv-askrow input{width:100%}}

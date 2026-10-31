@@ -7,8 +7,8 @@
 <meta name="description" content="آویزلوکس؛ فروشگاه تخصصی آویز اپن و آشپزخانه. ده مدل انتخاب‌شده با عکس واقعی، تست زنده روی اپن، خرید سریع و امکان خرید قسطی.">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap">
-<link rel="stylesheet" href="style.css?v=24">
-<link rel="stylesheet" href="stage.css?v=24">
+<link rel="stylesheet" href="style.css?v=25">
+<link rel="stylesheet" href="stage.css?v=25">
 </head>
 <body>
 
@@ -31,6 +31,7 @@
         <li class="nav-item"><a class="nav-link" href="#products" data-space-link="dining">میز ناهارخوری</a></li>
         <li class="nav-item"><a class="nav-link" href="#products" data-space-link="all">همه‌ی مدل‌ها</a></li>
         <li class="nav-item"><a class="nav-link" href="#guide">راهنمای چیدمان</a></li>
+        <li class="nav-item"><a class="nav-link" href="#advisor">مشاور انتخاب</a></li>
       </ul>
       <label class="nav-search"><span class="sr-only">جست‌وجوی آویز</span><input id="searchInput" type="search" placeholder="جست‌وجوی مدل یا کد…" autocomplete="off"></label>
       <a class="btn-gold nav-cta" href="https://wa.me/989171837394" target="_blank" rel="noopener">💬 مشاوره در واتساپ</a>
@@ -68,6 +69,66 @@
     </div>
     <div class="k-modes" id="kModes" role="group" aria-label="انتخاب چیدمان روی اپن"></div>
     <div class="k-thumbs" id="kThumbs" role="group" aria-label="انتخاب مدل آویز"></div>
+    <p style="text-align:center;margin:18px 0 0"><a class="btn-gold" href="#advisor">💬 مشاوره رایگان انتخاب آویز — سه سؤال، یک دقیقه</a></p>
+  </div>
+</section>
+
+<!-- ADVISOR — مشاور انتخاب آویز: دموی قانون‌محور (استاتیک، بدون سرور و بدون چت زنده) -->
+<section class="section advisor" id="advisor">
+  <div class="container">
+    <p class="eyebrow">مشاور انتخاب آویز — دموی قانون‌محور</p>
+    <h2 class="sec-title">مشاوره رایگان انتخاب آویز</h2>
+    <p class="sec-sub">سه سؤال جواب بده؛ مشاور با چند قاعده‌ی ثابت — نه با چت زنده — از همان ۱۰ مدل کاتالوگ، ۱ تا ۲ مدل با قیمت واقعی پیشنهاد می‌دهد. قیمت‌ها و مشخصات، همانِ کاتالوگ نمونه‌اند؛ چیزی ساخته نشده است.</p>
+    <p class="adv-note">💡 این یک دموست: موتور پیشنهاد، قانون‌محور و روی همین صفحه کار می‌کند و چت زنده نیست. نسخه‌ی چت زنده با مدل (Gemini وصل‌شده‌ی فروشگاه) قدم بعدیِ سایت اصلی است و در این صفحه‌ی استاتیک گیت‌هاب عمداً شبیه‌سازی نشده است.</p>
+    <form id="advForm" class="adv-form">
+      <fieldset class="adv-step">
+        <legend>۱ · آویز برای کجاست؟</legend>
+        <div class="adv-opts">
+          <label class="adv-opt"><input type="radio" name="advSpace" value="island"><span>🍳 اپن/جزیره</span></label>
+          <label class="adv-opt"><input type="radio" name="advSpace" value="dining"><span>🍽️ میز ناهارخوری</span></label>
+          <label class="adv-opt"><input type="radio" name="advSpace" value="living"><span>🛋️ پذیرایی</span></label>
+          <label class="adv-opt"><input type="radio" name="advSpace" value="bedroom"><span>🛏️ اتاق‌خواب</span></label>
+          <label class="adv-opt"><input type="radio" name="advSpace" value="cafe"><span>☕ کافه</span></label>
+          <label class="adv-opt"><input type="radio" name="advSpace" value="entry"><span>🚪 ورودی</span></label>
+        </div>
+      </fieldset>
+      <fieldset class="adv-step">
+        <legend>۲ · چه سبکی را دوست داری؟</legend>
+        <div class="adv-opts">
+          <label class="adv-opt"><input type="radio" name="advStyle" value="modern"><span>مدرن</span></label>
+          <label class="adv-opt"><input type="radio" name="advStyle" value="crystal"><span>کریستالی</span></label>
+          <label class="adv-opt"><input type="radio" name="advStyle" value="linear"><span>خطی/طولی</span></label>
+          <label class="adv-opt"><input type="radio" name="advStyle" value="minimal"><span>مینیمال</span></label>
+          <label class="adv-opt"><input type="radio" name="advStyle" value="any"><span>فرقی نمی‌کند</span></label>
+        </div>
+        <p class="adv-hint">«خطی/طولی» یک چیدمان است (ردیف ۳تایی روی اپن)، نه ویژگیِ ثبت‌شده‌ی محصول.</p>
+      </fieldset>
+      <fieldset class="adv-step">
+        <legend>۳ · بودجه‌ات چقدر است؟ <span class="adv-hint">(بازه‌ها از قیمت‌های واقعی کاتالوگ: ۲٬۹۹۳٬۰۰۰ تا ۴٬۶۰۳٬۰۰۰ تومان)</span></legend>
+        <div class="adv-opts">
+          <label class="adv-opt"><input type="radio" name="advBudget" value="u31"><span>تا ۳٬۱۰۰٬۰۰۰ تومان</span></label>
+          <label class="adv-opt"><input type="radio" name="advBudget" value="mid"><span>۳٬۱۰۰٬۰۰۰ تا ۴٬۳۰۰٬۰۰۰ تومان</span></label>
+          <label class="adv-opt"><input type="radio" name="advBudget" value="o43"><span>بالای ۴٬۳۰۰٬۰۰۰ تومان</span></label>
+          <label class="adv-opt"><input type="radio" name="advBudget" value="any"><span>بدون محدودیت</span></label>
+        </div>
+      </fieldset>
+      <p class="form-err" id="advErr" hidden></p>
+      <div class="adv-submit">
+        <button class="btn-gold btn-lg" type="submit">پیشنهاد من را نشان بده</button>
+        <button class="btn-scene" type="reset">شروع دوباره</button>
+      </div>
+    </form>
+    <div id="advResult" class="adv-result"><p class="adv-placeholder">هر سه سؤال را جواب بده و «پیشنهاد من را نشان بده» را بزن؛ ۱ تا ۲ مدل از همان ۱۰ مدل کاتالوگ، با قیمت واقعی، پیشنهاد می‌شود.</p></div>
+    <div class="adv-qa">
+      <h3>سؤال آزاد؟ پاسخ آماده‌اش این‌جاست</h3>
+      <p class="adv-hint">ارتفاع نصب و تعداد آویز، از همان قاعده‌های راهنمای سایت جواب داده می‌شوند؛ این بخش هم چت زنده نیست.</p>
+      <div class="adv-askrow">
+        <input id="advAsk" type="text" placeholder="مثلاً: آویز را چقدر بالا نصب کنم؟ یا چند تا آویز لازم دارم؟">
+        <button class="btn-gold" id="advAskBtn" type="button">پاسخ آماده را ببین</button>
+      </div>
+      <p id="advAnswer" class="adv-answer"></p>
+      <p class="adv-hint">سؤال دیگری داری؟ در واتساپ فروشگاه بپرس — <a href="https://wa.me/989171837394" target="_blank" rel="noopener">💬 مشاوره در واتساپ</a></p>
+    </div>
   </div>
 </section>
 
@@ -179,6 +240,7 @@
     <div>
       <b>دسترسی سریع</b>
       <a href="#top">استودیو تست آویز</a>
+      <a href="#advisor">مشاور انتخاب آویز</a>
       <a href="#products">همه‌ی مدل‌ها</a>
       <a href="#guide">راهنمای چیدمان روی اپن</a>
       <a href="#buying-guide">راهنمای خرید آویز آشپزخانه</a>
@@ -268,12 +330,13 @@
 
 <div class="toast" id="toast" hidden></div>
 
-<script src="scene.js?v=24"></script>
-<script src="catalog.js?v=24"></script>
-<script src="app.js?v=24"></script>
-<script src="tester-imgs.js?v=24"></script>
-<script src="tester.js?v=24"></script>
-<script src="motion.js?v=24"></script>
+<script src="scene.js?v=25"></script>
+<script src="catalog.js?v=25"></script>
+<script src="app.js?v=25"></script>
+<script src="tester-imgs.js?v=25"></script>
+<script src="tester.js?v=25"></script>
+<script src="motion.js?v=25"></script>
+<script src="advisor.js?v=25"></script>
 <script>
 /* خط نور: پر شدن رشته‌ی طلایی با اسکرول */
 (function(){
